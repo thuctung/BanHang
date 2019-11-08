@@ -1,0 +1,130 @@
+body{
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	background-image: url('../image/imageLogin.jpg');
+	background-size: cover;
+	background-position: center center;
+	align-items: center;
+	background:rgb(236, 186, 14);
+	font-family:'Roboto', sans-serif;
+	color: white;
+	overflow: hidden;
+}
+
+.div-login{
+	width: 350px;
+	height: 500px;
+	border-radius: 1rem;
+	box-shadow: .4px .4px 12px rgba(255, 255, 255, .4);
+	text-shadow: .4px .4px 5px rgba(0, 0, 0, .2);
+	position: relative;
+	background: rgb(81,82,76);
+    background: linear-gradient(0deg, rgba(81,82,76,0.46262254901960786) 0%, rgba(81,82,76,0.4598214285714286) 100%);
+    transform: translateY(20px);
+    transition: 2000ms;
+}
+
+.div-login h2{
+	text-align: center;
+	color: black;
+	font-weight: 400;
+	font-size: 40px;
+	user-select: none;
+}
+
+.div-login .input-group{
+	margin: 10% 0;
+	position: relative;
+	font-size: 18px;
+}
+
+.div-login .input-group input{
+	display: block;
+	margin: 2% 20%;
+	background: none;
+	border: none;
+	border-bottom: 1px solid #18222b;
+	outline: none; 
+	padding: 6px 4px;
+	font-size: 18px;
+	color: #15191d;
+}
+
+.label{
+	position: absolute;
+	left: 20%;
+	top : 28%;
+	font-weight: 400;
+	font-size: 16px;
+	pointer-events: none;
+	color: #14150f;
+	transition: 200ms;
+}
+
+.div-login .input-group input:focus + .label{
+	top:-20%;
+	left: 18%;
+	font-size: 14px;
+	color: #18222b;
+}
+.div-login .input-group input:valid + .label{
+	top:-20%;
+	left: 18%;
+	font-size: 14px;
+	color: #18222b;
+}
+
+.btnLogin{
+	cursor: pointer;
+	transition: 200ms;
+	color: white;
+	font-size: 22px;
+	width: 200px;
+	height: 50px;
+	position: absolute;
+	bottom: 35%;
+	left: 20%;
+	padding: 5rem, 1rem;
+	border: none;
+	border-radius: 2rem;
+	outline: none;
+	transition: 200ms all;
+	box-shadow: .4px .4px 12px rgba(255, 255, 255, .4);
+	background: rgb(81,82,76);
+    background: linear-gradient(0deg, rgba(81,82,76,0.46262254901960786) 0%, rgba(216,238,103,0.4598214285714286) 100%);
+}
+.btnLogin:active{
+	transform: translate(-5px, 5px);
+}
+.divDangki{
+	width: 545px;
+    opacity: 0;
+    visibility: hidden;
+    height: 517px;
+    background: #202123;
+    display: block;
+    position: absolute;
+    top: 5%;
+    transition: 0.9s;
+}
+.hienthiDangki{
+	opacity: 1; 
+   visibility: visible;
+   top:20%;
+}
+.btnDangKi{
+	text-decoration: underline;
+    cursor: pointer;
+    transform: translate(215px, 119px);
+}
+a{
+	text-decoration: none;
+	font-weight: 400;
+	font-size: 16px;
+	color: white;
+	position: absolute;
+	bottom: 20%;
+	right: 10%;
+}
+
