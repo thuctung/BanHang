@@ -18,7 +18,7 @@ public class connection {
 		String dbName = "PTMPCN";
 		String userName = "root";
 		String password = "thuctung";
-
+ 
 		Class.forName("com.mysql.jdbc.Driver").newInstance();
 
 // Cấu trúc URL Connection dành cho Oracle

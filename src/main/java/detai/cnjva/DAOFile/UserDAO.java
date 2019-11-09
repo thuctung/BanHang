@@ -4,11 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
 
 import javax.sql.DataSource;
 
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import detai.cnjva.connecDatabase.connection;
 import detai.cnjva.modelFile.User;
@@ -34,12 +32,13 @@ public class UserDAO {
 	}
 	public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
 		Connection connec = connection.getMySQLConnection();
-		String sql = "SELECT * FROM PTMPCN.KhachHang";
+		String sql2 = "SELECT * FROM PTMPCN.SanPham where madanhmuc = 1  ORDER BY masanpham desc limit 5";
 		 // Tạo một đối tượng PreparedStatement.
-	      PreparedStatement pstm = connec.prepareStatement(sql);
+	      PreparedStatement pstm = connec.prepareStatement(sql2);
 	      ResultSet rs = pstm.executeQuery(); // excute
 	      while(rs.next()) {
-	    	  System.out.print(rs.getString(4));
+	    	  System.out.print("sdfg");
+	    	  
 	      }
 	}
-}
+} 

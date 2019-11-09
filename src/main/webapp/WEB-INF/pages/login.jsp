@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Login</title>
+<LINK REL="SHORTCUT ICON" HREF=image/sanpham/logoTittle.png">
 <link href="stylesheet/login.css" rel="stylesheet">
 
 </head>
@@ -30,15 +31,22 @@
 	
 
 	<div class="divDangki">
-		<h2>Đăng kí tài khoản </h2>
-		<button class="btnHuyDangKi">Thoát</button>
+		<img class="btnHuyDangKi" src="image/cross.png" width="20px" height="20px"/>
+		<h2>Đăng kí tài khoản </h2>		
 		<div class="contnet">
 			<div class="chuahinhanh">
 				<div class="lammo"></div>
 			</div>
 			<div class="formDangki">
 				<form action="">
-				
+					<input  name ="taikhoan" placeholder="User Name" required/>
+					<input  type ="password" placeholder="Password" required/>
+					<input type="password" name ="confirmpass" placeholder="Confirm Password" required/>
+					<input  name ="name" placeholder="Name" required/>
+					<input  name ="phone" placeholder="Phone" required/>
+					<input  name ="adress" placeholder="Adress" required/>
+					<input  name ="email" placeholder="Email" required/>
+					<button class="btnRegister">Register</button>
 				</form>
 			</div>
 		</div>

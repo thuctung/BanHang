@@ -1,5 +1,6 @@
 package detai.cnjva.configFile;
 
+
 import javax.sql.DataSource;
 
 import org.springframework.context.annotation.Bean;
@@ -9,6 +10,8 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import detai.cnjva.DAOFile.UserDAO;
+
+
  
 @Configuration
 @ComponentScan("detai.cnjva.*") 
@@ -19,7 +22,8 @@ public class ApplicationContextConfig {
         viewResolver.setPrefix("/WEB-INF/pages/");
         viewResolver.setSuffix(".jsp");
         return viewResolver;
-    }
+    }  
+    
     @Bean(name = "dataSource")
     public DataSource getDataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -34,5 +38,5 @@ public class ApplicationContextConfig {
     public UserDAO getContactDAO() {
         return new UserDAO(getDataSource());
     }
- 
+    
 }

@@ -1,0 +1,1111 @@
+/* css cho phan Header */
+body{
+	width:100%;
+	height:100vh;
+	margin:0;
+	pading:0;
+	background: #eee;
+}
+
+.header{
+	width: 100%;
+	height: 53px;
+	background: #fed700;
+    margin-bottom: 10px;
+}
+.newreponsive, .denbaophu,.buycall{
+    display: none;
+}
+.contentHeader{
+	width: 85%;
+	margin: 0 auto;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+form{
+    height: 100%;
+    width: 35%;
+}
+.logo{
+	height: 100%;
+    width: 100%;
+    background: black;
+    position: relative;
+}
+.avartar{
+	height: 29px;
+    width: 30px;
+    background: url(../image/sanpham/icon.png);
+    background-size: 535px 100px;
+    position: absolute;
+    top: 19%;
+    left: 3%;
+}
+.title{
+	height: 30px;
+    width: 121px;
+    background: url(../image/sanpham/icon.png);
+    background-size: 490px 117px;
+    background-position-x: -31px;
+    position: absolute;
+    top: 16%;
+    left: 12%;
+}
+.search{
+	position: absolute;
+    height: 35px;
+    width: 48%;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    top: 13%;
+    left: 46%;
+    padding-left: 18px;
+    outline: none;
+}
+.iconsearch{
+	height: 35px;
+    width: 35px;
+    background: url(../image/sanpham/icon.png);
+    background-position-x: -183px;
+    background-size: 586px 116px;
+    position: absolute;
+	top: 26%;
+    right: 5%;
+    border: none;
+    outline: none;
+}
+
+.navabar{
+    height: 100%;
+    width: 66%;
+}
+
+.items{
+	width: 10%;
+	height: 53px;
+	position: relative;
+	cursor: pointer;
+	float: left;
+}
+
+.items:hover{
+	background-color: white;
+}
+.product{
+	position: absolute;
+	top :2px;
+	left: 13%;
+	background: url(../image/sanpham/icon.png);
+}
+.phone{
+	background-position-x: -211px;
+	background-size: 586px 116px;
+	width: 33px;
+	height: 35px;
+}
+.tablet{
+	width: 40px;
+    height: 35px;
+    background-position-x: -244px;
+    background-size: 586px 116px;
+}
+
+.Laptop{
+	width: 49px;
+    height: 35px;
+    background-position-x: -286px;
+    background-size: 586px 116px;
+}
+
+.phukien{
+	width: 36px;
+    height: 35px;
+    background-position-x: -333px;
+    background-size: 586px 116px;
+}
+.watch{
+    width: 37px;
+    height: 38px;
+    background-position-x: -1201px;
+    background-position-y: 63px;
+    background-size: 702px;
+}
+.older{
+	width: 47px;
+    height: 35px;
+    background-position-x: -368px;
+    background-size: 586px 116px;
+}
+.technology{
+    width: 43px;
+    height: 35px;
+    background-position-x: -509px;
+    background-size: 586px 116px;
+}
+.cart{
+    width: 41px;
+    height: 37px;
+    background-position-x: -361px;
+    background-position-y: 243px;
+    background-size: 687px;
+}
+.countitem{
+    text-decoration: none;
+    position: absolute;
+    top: 0px;
+    left: 34px;
+    font-size: small;
+    font-family: monospace;
+}
+.items  p{
+	position: absolute;
+	bottom: -6px;
+    text-decoration: none;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+	font-weight: 300;
+    font-size: 0.6em;
+    text-align: center;
+}
+.sim{
+    width: 30px;
+    height: 35px;
+    background-position-x: -412px;
+    background-size: 586px 116px;
+    left: 26%;
+}
+#login{
+ 	position: absolute;
+    bottom: 0px;
+    right: 32%;
+    text-decoration: none;
+    color: black;
+    font-size: 13px;
+}
+
+
+.aphone{
+    left: 10%;
+}
+.atablet{
+    left: 18%;
+}
+#alaptop{
+    left: 20%;
+}
+.aphukien, .awatch, .aolder{
+    left: 10%;
+}
+.ahelp{
+    left: 10%;
+}
+.atechnology{
+    left: 10%;
+}
+.asim{
+    left: 21%;
+}
+#asim{
+    left: 8%;
+}
+
+
+/* xong css header */
+
+
+/* css scroll top top */
+/* CSS FOR BUTTON SCROLL TO TOP */
+.vedau{
+    position: fixed;
+    right: 14px;
+    bottom: 40px;
+    width: 35px;
+    height: 45px;
+    border-radius: 6px;
+    background: #fed700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.scroll{
+    position: relative;
+    width: 35px;
+    height: 45px;
+}
+.scroll::before{
+    content: "";
+    position: absolute;
+    top: 18px;
+    left: 8px;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-bottom: 9px solid black;
+}
+.anScroll{
+    opacity: 0;
+}
+/* xong css scroll top */
+
+/* CSS CHO BODY */
+/* CSS FOR BODY */
+
+.container{
+    width: 85%;
+    margin: 0 auto;
+    
+}
+
+
+.advant{
+    width: 100%;
+    height: 400px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: #f0f0f0;
+}
+.slide-advant{
+    width: 65%;
+    height: 100%;
+}
+.slidegraper{
+    width: 100%;
+    height: 75%;
+    position: relative;
+    overflow: hidden;
+}
+.sile, .slide ul, .slide ul li{
+    width: 100%;
+    height: 100%;
+}
+.slide ul{
+    margin: 0;
+    list-style: none;
+}
+.slide ul li{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+}
+.slide ul li > img{
+    width: 100%;
+    height: 100%;
+}
+.slide ul .vewing{
+	opacity: 1;
+}
+
+.slideHienThi{
+    animation: divao 1s forwards;
+}
+.slideBienMat{
+    animation: bienmat 1s forwards;
+}
+
+
+.menuslide{
+    width: 100%;
+    height: 25%;
+    background: white;
+}
+.infosile, .infosile ul{
+    width: 100%;
+    height: 100%;
+}
+.infosile ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+}
+.infosile ul li{
+    height: 100%;
+    width: 22%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    cursor: pointer;
+}
+.infosile ul li:hover{
+    background: #d8e8b7;
+}
+.infosile ul li >a {
+    text-decoration: none;
+    font-size: 11px;
+    vertical-align: middle;
+    font-family: sans-serif;
+    color: black;
+    display: table-cell;
+}
+.infosile ul .Stronging{
+    font-weight: 700;
+    font-size: 12px;
+}
+/* CSS FOR NEWS */
+.news{
+    width: 34%;
+    height: 100%;display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.news-technolog{
+    width: 100%;
+    height: 32%;
+    background: white;
+    
+}
+
+.head-news-technolog{
+    width: 100%;
+    height: 33%;
+    position: relative;
+    border-bottom: 1px solid #afa7a7;
+}
+.news-p{
+    width: 42%;
+    height: 100%;
+    position: relative;
+    display: block;
+    background: #fed700;
+}
+.news-p > p{
+    position: absolute;
+    top: 15px;
+    left: 14px; 
+    text-transform: uppercase;
+    color:black;
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+}
+.news-p::after{
+    content: "";
+    position: absolute;
+    left: 92%;
+    width: 0;
+    height: 0;
+    border-top: 22px solid transparent;
+    border-right: 15px solid white;
+    border-bottom: 24px solid transparent;
+
+}
+#notifi{
+    width: 10px;
+    height: 10px;
+    background: red;
+    position: absolute;
+    left: 42%;
+    top: 18px;
+    border-radius: 100%;
+    animation: bigsize 1.5s infinite;
+}
+#notifi .ping{
+    border: 1px solid #f33;
+    width: 10px;
+    height: 10px;
+    opacity: 1;
+    border-radius: 100%;
+    background-color: rgba(238,46,36,.2);
+    animation: pingBall 1.5s infinite;
+    display: block;
+    margin: -1px 0 0 -1px;
+}
+.khuyenmai{
+    color: #f33;
+    font-size: 12px;
+    position: absolute;
+    top: 16px;
+    left: 48%;
+    font-family: "Roboto",sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+}
+.khuyenmai > strong{
+    color: dodgerblue;
+}
+.content-news-technolog{
+    width: 100%;
+    height: 66%;
+    position: relative;
+}
+.content-news-technolog > img{
+    position: absolute;
+    top:12px;
+    left: 2px;
+}
+
+.content-news-technolog .infoimage{
+    font: 14px/18px Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
+    outline: none;
+    zoom: 1;
+    position: absolute;
+    top: 18px;
+    left: 131px;
+    cursor: pointer;    
+    color: #333;
+    text-decoration: none;
+}
+.content-news-technolog > a:hover{
+    color: dodgerblue;
+}
+.time{
+    font-size: 12px;
+    color: #999;
+    position: absolute;
+    bottom: 10px;
+    left: 132px;
+    opacity: 0.8;
+    font-family: sans-serif;
+}
+
+.news-two, .news-three{
+    width: 100%;
+    height: 32%;
+}
+.news-two > img, .news-three >img{
+    width: 100%;
+    height: 100%;
+}
+
+.lableAnvant{
+    width: 100%;
+    height: 75px;
+    margin-top: 14px;
+}
+.lableAnvant >img{
+    width: 100%;
+}
+
+/* CSS FOR KHUYEN MAI HOT NHAT */
+
+.khuyenmaihot{
+    width: 100%;
+    height: 400px;
+    font-family: 'Helvetica,Arial,DejaVu Sans,Liberation Sans,Freesans',sans-serif;
+    position: relative;
+}
+.tieudekhuyenmai{
+    width: 100%;
+    height: 50px;
+    overflow: hidden;
+    background: #fff;
+    margin-top: 37px;
+    border-bottom: 1px solid #eee;
+}
+.tieudekhuyenmai > h2{
+    float: left;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+    padding: 18px 10px;
+    margin: 0;
+}
+
+.listkhuyenmai{
+    background: #fff;
+    height: 319px;
+    position: relative;
+    overflow: hidden;
+}
+
+.listkhuyenmai1{
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+    opacity: 0;
+}
+ .listkhuyenmai  .danghienthi{
+    opacity: 1;
+}
+.listkhuyenmai  .angiatri{
+    visibility: hidden;
+}
+.hot-item{
+    float: left;
+    width: 20%;
+    height: 100%;
+    margin: 0;
+}
+.hot-item > a{
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.hot-item > a > img{
+    margin: 5px auto;
+    display: block;
+    overflow: hidden;
+    background: #fff;
+    padding: 10px 0;
+    transition: 0.3s;
+}
+ .hot-item > a:hover img{
+    transform: translateY(-5%);
+}
+a  h3{
+    line-height: 1.3em;
+    font-size: 15px;
+    color: #333;
+    margin: 0 10px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-weight: 350;
+    outline: none;
+    font: 14px/18px Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
+}
+.giasanpham{
+    display: block;
+    overflow: hidden;
+    padding: 5px 10px 10px 10px;
+}
+.giasanpham  strong{
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+    font-size: 14px;
+    color: #e10c00;
+    line-height: 15px;
+    font: 14px/18px Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
+    font-weight: 800;
+}
+.giasanpham  span{
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+    font-size: 12px;
+    color: #635e5e;
+    line-height: 12px;
+    text-decoration: line-through;
+}
+
+.giamgia  label{
+    height: 14px;
+    background: linear-gradient(-90deg,#ec1f1f 0%,#ff9c00 100%);
+    color: white;
+    border-radius: 5px;
+    padding: 2px 5px;
+    position: absolute;
+    top: 177px;
+    left: 6px;
+    font-size: 11px;
+    width: 85px;
+}
+.giamgia > .tragop{
+    width: 76px;
+    background: #f28902;
+    font: 12px/18px Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
+}
+.quatang{
+    display: block;
+    padding: 0 10px;
+    margin: 0 10px 0 0;
+    color: black;
+    font-size: 12px;
+    font-weight: 200;
+    font-family: 'Helvetica,Arial,DejaVu Sans,Liberation Sans,Freesans',sans-serif;
+}
+.chuyensanpham{
+    position: absolute;
+    margin: 0;
+    background: #fff;
+    width: 34px;
+    height: 64px;
+    box-shadow: 0 0 4px 2px rgba(0,0,0,.15);
+    top: 30%;
+    cursor: pointer;
+    user-select: none;
+    text-align: center;
+    font-size: 46px;
+    color: #999;
+    font-family: -webkit-body;
+}
+#toright{
+    right: 1px;
+    border-radius: 5px 0 0 5px;
+    background-position-x: 200px;
+    background-position-y: 200px;
+}
+#toleft{
+    border-radius: 0 5px 5px 0;
+    left: 1px;
+}
+
+.list1hienthiRight{
+    animation: listHienThiRight 1s forwards;
+}
+.list1bienmatRight{
+    animation: listBienMatRight 1.5s forwards;
+}
+
+.list1hienthiLeft{
+    animation: listHienThiLeft 1s forwards;
+}
+.list1bienmatLeft{
+    animation: listBienMatLeft 1.5s forwards;
+}
+/* DONE CSS FOR KHUYEN MAI HOT NHAT */
+
+
+
+/* CSS DIEN THOAI NOI BAT */
+.dienthoainoibat{
+    margin-bottom: 20px;
+    width:100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    position: relative;
+    grid-auto-rows: minmax(50px, 51px);
+    grid-template-areas: 
+    "tieudenoibat tieudenoibat tieudenoibat tieudenoibat tieudenoibat"
+    "anhnho1 anhnho1 listdienthoai listdienthoai listdienthoai"
+    "anhnho2 anhnho2 listdienthoai listdienthoai listdienthoai"
+}
+.tieudenoibat{
+    grid-area: tieudenoibat;
+    grid-row: 1;
+    background: white;
+    border-bottom: 1px solid #eee;
+}
+.tieudenoibat > h2{
+    float: left;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+    padding: 18px 10px;
+    margin: 0;
+    font-family: 'Helvetica,Arial,DejaVu Sans,Liberation Sans,Freesans',sans-serif;
+}
+.tieudenoibat ul{
+    float: right;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+    width: 58%;
+}
+.tieudenoibat > ul li a {
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 14px;
+    color: #288ad6;
+    padding: 14px 10px;
+    font: 14px/18px Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
+}
+.tieudenoibat > ul li a:hover{
+    text-decoration-line: underline;
+}
+.anhnho1{
+    grid-area: anhnho1;
+    background: white;
+    grid-row: 2 / 8;
+    border-right: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+} 
+.anhnho2{
+    grid-area: anhnho2;
+    background: white;
+    grid-row: 8 / 14;
+    border-right: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+.sanpham a {
+    text-decoration: none;
+    position: relative;
+}
+.sanpham a .tragop{
+    background: #f28902;
+    position: absolute;
+    top:100%;
+    right: 2%;
+    color: white;
+    font-size: 14px;
+    width: 73px;
+    height: 18px;
+    text-align: center;
+    border-radius: 2px;
+    padding: 2px 4px;
+}
+.sanpham a .giamgia{
+    position: absolute;
+    right: 2%;
+    top: 100%;
+    height: 18px;
+    background: linear-gradient(-90deg,#ec1f1f 0%,#ff9c00 100%);
+    color: white;
+    border-radius: 5px;
+    padding: 2px 4px;
+    width: 113px;
+    font-size: 14px;
+    text-align: center;
+}
+.listdienthoai{
+    grid-area: listdienthoai;
+    background: white;
+    grid-row: 2 / 14;
+}
+.hot-phone{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.hot-phone >.hot-item{
+    width: 33.1%;
+    height: 50%;
+    border-right: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.tabletnoibat{
+    width: 100%;
+    height: 376px;
+}
+.tieudetablet{
+    width: 100%;
+    height: 46px;
+    background: white;
+}
+.tieudetablet > h2{
+    float: left;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+    padding: 18px 10px;
+    margin: 0;
+    font-family: 'Helvetica,Arial,DejaVu Sans,Liberation Sans,Freesans',sans-serif;
+}
+#ultablet{
+    float: right;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+    width: 63%;
+}
+#ultablet li a {
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 14px;
+    color: #288ad6;
+    padding: 14px 10px;
+    font: 14px/18px Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
+}
+#ultablet li a:hover{
+    text-decoration-line: underline;
+}
+.sanphamtablet{
+    clear: both;
+    float: left;
+    background: white;
+    border-right: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    margin-top: -7px;
+    height: 295px;
+    width: 39.3%;
+}
+.sanphamtablet a {
+    text-decoration: none;
+    position: relative;
+}
+.listtablet{
+    float: left;
+    width: 60.6%;
+    background: white;
+    height: 295px;
+    margin-top: -7px;
+}
+.tragoptablet{
+    background: #f28902;
+    position: absolute;
+    top:100%;
+    right: 2%;
+    color: white;
+    font-size: 14px;
+    width: 73px;
+    height: 18px;
+    text-align: center;
+    border-radius: 2px;
+    padding: 2px 4px;
+}
+.tablethotnhat{
+    width: 33%;
+    height: 100%;
+}
+.tablethotnhat a{
+    text-decoration: none;
+    position: relative;
+}
+.tablethotnhat a img{
+    padding-left: 5px;
+    position: absolute;
+    top: 15px;
+    left: 34px;
+}
+.tablethotnhat a h3{
+    position: absolute;
+    top: 204px;
+    left: 5px;
+    width: 165px;
+}
+.tablethotnhat a .giasanpham{
+    position: absolute;
+    top: 222px;
+    left: 6px;
+}
+.tablethotnhat a .giamgia {
+    position: absolute;
+    left: 6px;
+}
+.tablethotnhat a .quatang{
+    position: absolute;
+    top: 253px;
+    left: 6px;
+    width: 200px;
+}
+
+/* XONG CSS CHO BODY */
+
+
+
+
+
+
+/* CSS FOR FOOTER */
+.footer{
+    width: 100%;
+    height: 237px;
+    margin: 0 auto;
+    background: #fff;
+    overflow: hidden;
+    clear: both;
+}
+.rowfood1{
+    width: 85%;
+    height: 100%;
+    margin: auto;
+}
+.rowfood1 ul {
+    height: 100%;
+    padding-left: 0px;
+    margin-top: 20px;
+    position: relative;
+}
+.rowfood1 ul li{
+    list-style: none;
+    padding-bottom: 10px;
+}
+.rowfood1 ul li a{
+    text-decoration: none;
+    display: block;
+    color: #288ad6;
+    font-size: 14px;
+    line-height: 25px;
+    padding-top: 5px;
+    font-family: sans-serif;
+}
+.rowfood1 ul li a:hover{
+    color: #999;
+}
+.ul1{
+    float: left;
+    width: 25%;
+    margin: 0;
+}
+.ul2{
+    float: left;
+    width: 28%;
+    margin: 0;
+}
+.ul3{
+    float: left;
+    width: 21%;
+    margin: 0;
+}
+.ul3 li a strong{
+    color: #333;
+    display: inline;
+    padding-right: 67px;
+    float: right;
+}
+.congnhan{
+    width: 100px;
+    height: 28px;
+    background: url("../image/sanpham/icon.png");
+    background-position-x: 910px;
+    background-position-y: 44px;
+    background-size: 456px;
+}
+.ul4{
+    width: 11%;
+    float: right;
+}
+
+.facebook{
+    float: left;
+    padding: 0 10px 0 0;
+    margin: 9px 17px 2px;
+    border-right: 1px solid #e9e9e9;
+    font-size: 12px;
+    line-height: 1;
+    color: #288ad6;
+}
+.icon-fb{
+    width: 14px;
+    height: 14px;
+    background: url("../image/sanpham/icon.png");
+    background-position-x: 1361px;
+    background-position-y: 336px;
+    position: absolute;
+    background-size: 453px;
+    top: 20px;
+    left: -3px;
+}
+.youtube{
+    float: left;
+    padding: 0 0 0 10px;
+    margin: -30px 68px 0px;
+    font-size: 12px;
+    color: #288ad6;
+    line-height: 1;
+}
+.icon-ytb{
+    width: 14px;
+    height: 14px;
+    background: url("../image/sanpham/icon.png");
+    background-position-x: 1344px;
+    background-position-y: 336px;
+    position: absolute;
+    background-size: 453px;
+    top: 21px;
+    left: 62px;
+}
+.group{
+    clear: both;
+}
+ .group > label {
+    font-size: 12px;
+    color: #888;
+    margin-top: 10px;
+ }
+ .logo-dmx{
+    width: 100px;
+    height: 20px;
+    background: url("../image/sanpham/icon.png");
+    background-position-y: 66px;
+    background-position-x: -32px;
+    background-size: 462px;
+    position: absolute;
+ }
+
+/* 
+ANIMATION */
+@-webkit-keyframes bigsize {
+   from{
+       opacity: 1;
+   }
+   to{
+       opacity: 0.6;
+   }
+}
+
+@-webkit-keyframes pingBall {
+    0%{
+        opacity: 1;
+        transform: scale(1);
+    }
+    100%{
+        opacity: 0;
+        transform: scale(3);
+    }
+ }
+
+
+ @-webkit-keyframes divao{
+    from{
+		transform: scale(1.5);
+		opacity: 0;
+	}
+	to{
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes bienmat{
+    from{
+		transform-origin: 100% 100%;
+		transform: rotateY(0deg);
+		opacity: 1;
+	}
+	to{
+		transform-origin: 100% 100%;
+		transform: rotateY(-35deg);
+		opacity: 0;
+	}
+}
+
+@-webkit-keyframes listHienThiRight{
+    from{
+		opacity: 0.9;
+        transform: translateX(100%);
+	}
+	to{
+        opacity: 1;
+        transform: translateX(0%);
+	}
+}
+
+@-webkit-keyframes listBienMatRight{
+    from{
+        left: 0;
+        opacity: 1;
+	}
+	to{
+        left: -100%;
+        opacity: 0;
+	}
+}
+
+@-webkit-keyframes listHienThiLeft{
+    from{
+		opacity: 0.9;
+        transform: translateX(-100%);
+	}
+	to{
+        opacity: 1;
+        transform: translateX(0%);
+	}
+}
+
+@-webkit-keyframes listBienMatLeft{
+    from{
+        transform: translateX(0%);
+        opacity: 1;
+	}
+	to{
+        transform: translateX(100%);
+        opacity: 0;
+	}
+}
+ 
+
+

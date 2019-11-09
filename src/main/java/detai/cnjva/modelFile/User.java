@@ -18,7 +18,7 @@ public class User {
 	}
 	public void setIdUser(int idUser) {
 		this.idUser = idUser;
-	}
+	} 
 	public int getRole() {
 		return role;
 	}

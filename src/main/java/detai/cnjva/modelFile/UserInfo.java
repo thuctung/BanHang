@@ -66,6 +66,6 @@ public class UserInfo {
 	
 	
 
-	public UserInfo() {};
-	
+	public UserInfo() {}; 
+		
 }
