@@ -290,8 +290,7 @@
 				                <img src="image/sanpham/tablet/<%= tl.getHinhAnh() %>" alt="" width="180px" height="180px">
 				                <h3><%= tl.getTenSanPham() %></h3>
 				                <div class="giasanpham">
-				                    <strong>đ</strong>
-				                </div>
+				                     <strong><%= vn.format(tl.getDonGia()) %>đ</strong>				                </div>
 				                <div class ="quatang">
 				                    <p><?php echo "Mua loa kẹo kéo giảm 15%"?></p>
 				                </div>
