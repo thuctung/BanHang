@@ -19,5 +19,4 @@ public class helloController {
 	public String hello(Model model) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
 		return "index";
 	}
-	
 }

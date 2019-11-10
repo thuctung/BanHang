@@ -1,0 +1,362 @@
+/* css cho phan Header */
+body{
+	width:100%;
+	height:100vh;
+	margin:0;
+	pading:0;
+	background: #eee;
+}
+
+.header{
+	width: 100%;
+	height: 53px;
+	background: #fed700;
+    margin-bottom: 10px;
+}
+.newreponsive, .denbaophu,.buycall{
+    display: none;
+}
+.contentHeader{
+	width: 85%;
+	margin: 0 auto;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+form{
+    height: 100%;
+    width: 35%;
+}
+.logo{
+	height: 100%;
+    width: 100%;
+    background: black;
+    position: relative;
+}
+.avartar{
+	height: 29px;
+    width: 30px;
+    background: url(../image/sanpham/icon.png);
+    background-size: 535px 100px;
+    position: absolute;
+    top: 19%;
+    left: 3%;
+}
+.title{
+	height: 30px;
+    width: 121px;
+    background: url(../image/sanpham/icon.png);
+    background-size: 490px 117px;
+    background-position-x: -31px;
+    position: absolute;
+    top: 16%;
+    left: 12%;
+}
+.search{
+	position: absolute;
+    height: 35px;
+    width: 48%;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    top: 13%;
+    left: 46%;
+    padding-left: 18px;
+    outline: none;
+}
+.iconsearch{
+	height: 35px;
+    width: 35px;
+    background: url(../image/sanpham/icon.png);
+    background-position-x: -183px;
+    background-size: 586px 116px;
+    position: absolute;
+	top: 26%;
+    right: 5%;
+    border: none;
+    outline: none;
+}
+
+.navabar{
+    height: 100%;
+    width: 66%;
+}
+
+.items{
+	width: 10%;
+	height: 53px;
+	position: relative;
+	cursor: pointer;
+	float: left;
+}
+
+.items:hover{
+	background-color: white;
+}
+.product{
+	position: absolute;
+	top :2px;
+	left: 13%;
+	background: url(../image/sanpham/icon.png);
+}
+.phone{
+	background-position-x: -211px;
+	background-size: 586px 116px;
+	width: 33px;
+	height: 35px;
+}
+.tablet{
+	width: 40px;
+    height: 35px;
+    background-position-x: -244px;
+    background-size: 586px 116px;
+}
+
+.Laptop{
+	width: 49px;
+    height: 35px;
+    background-position-x: -286px;
+    background-size: 586px 116px;
+}
+
+.phukien{
+	width: 36px;
+    height: 35px;
+    background-position-x: -333px;
+    background-size: 586px 116px;
+}
+.watch{
+    width: 37px;
+    height: 38px;
+    background-position-x: -1201px;
+    background-position-y: 63px;
+    background-size: 702px;
+}
+.older{
+	width: 47px;
+    height: 35px;
+    background-position-x: -368px;
+    background-size: 586px 116px;
+}
+.technology{
+    width: 43px;
+    height: 35px;
+    background-position-x: -509px;
+    background-size: 586px 116px;
+}
+.cart{
+    width: 41px;
+    height: 37px;
+    background-position-x: -361px;
+    background-position-y: 243px;
+    background-size: 687px;
+}
+.countitem{
+    text-decoration: none;
+    position: absolute;
+    top: 0px;
+    left: 34px;
+    font-size: small;
+    font-family: monospace;
+}
+.items  p{
+	position: absolute;
+	bottom: -6px;
+    text-decoration: none;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+	font-weight: 300;
+    font-size: 0.6em;
+    text-align: center;
+}
+.sim{
+    width: 30px;
+    height: 35px;
+    background-position-x: -412px;
+    background-size: 586px 116px;
+    left: 26%;
+}
+#login{
+ 	position: absolute;
+    bottom: 0px;
+    right: 32%;
+    text-decoration: none;
+    color: black;
+    font-size: 13px;
+}
+
+
+.aphone{
+    left: 10%;
+}
+.atablet{
+    left: 18%;
+}
+#alaptop{
+    left: 20%;
+}
+.aphukien, .awatch, .aolder{
+    left: 10%;
+}
+.ahelp{
+    left: 10%;
+}
+.atechnology{
+    left: 10%;
+}
+.asim{
+    left: 21%;
+}
+#asim{
+    left: 8%;
+}
+
+
+/* xong css header */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* CSS FOR FOOTER */
+.footer{
+    width: 100%;
+    height: 237px;
+    margin: 0 auto;
+    background: #fff;
+    overflow: hidden;
+    clear: both;
+}
+.rowfood1{
+    width: 85%;
+    height: 100%;
+    margin: auto;
+}
+.rowfood1 ul {
+    height: 100%;
+    padding-left: 0px;
+    margin-top: 20px;
+    position: relative;
+}
+.rowfood1 ul li{
+    list-style: none;
+    padding-bottom: 10px;
+}
+.rowfood1 ul li a{
+    text-decoration: none;
+    display: block;
+    color: #288ad6;
+    font-size: 14px;
+    line-height: 25px;
+    padding-top: 5px;
+    font-family: sans-serif;
+}
+.rowfood1 ul li a:hover{
+    color: #999;
+}
+.ul1{
+    float: left;
+    width: 25%;
+    margin: 0;
+}
+.ul2{
+    float: left;
+    width: 28%;
+    margin: 0;
+}
+.ul3{
+    float: left;
+    width: 21%;
+    margin: 0;
+}
+.ul3 li a strong{
+    color: #333;
+    display: inline;
+    padding-right: 67px;
+    float: right;
+}
+.congnhan{
+    width: 100px;
+    height: 28px;
+    background: url("../image/sanpham/icon.png");
+    background-position-x: 910px;
+    background-position-y: 44px;
+    background-size: 456px;
+}
+.ul4{
+    width: 11%;
+    float: right;
+}
+
+.facebook{
+    float: left;
+    padding: 0 10px 0 0;
+    margin: 9px 17px 2px;
+    border-right: 1px solid #e9e9e9;
+    font-size: 12px;
+    line-height: 1;
+    color: #288ad6;
+}
+.icon-fb{
+    width: 14px;
+    height: 14px;
+    background: url("../image/sanpham/icon.png");
+    background-position-x: 1361px;
+    background-position-y: 336px;
+    position: absolute;
+    background-size: 453px;
+    top: 20px;
+    left: -3px;
+}
+.youtube{
+    float: left;
+    padding: 0 0 0 10px;
+    margin: -30px 68px 0px;
+    font-size: 12px;
+    color: #288ad6;
+    line-height: 1;
+}
+.icon-ytb{
+    width: 14px;
+    height: 14px;
+    background: url("../image/sanpham/icon.png");
+    background-position-x: 1344px;
+    background-position-y: 336px;
+    position: absolute;
+    background-size: 453px;
+    top: 21px;
+    left: 62px;
+}
+.group{
+    clear: both;
+}
+ .group > label {
+    font-size: 12px;
+    color: #888;
+    margin-top: 10px;
+ }
+ .logo-dmx{
+    width: 100px;
+    height: 20px;
+    background: url("../image/sanpham/icon.png");
+    background-position-y: 66px;
+    background-position-x: -32px;
+    background-size: 462px;
+    position: absolute;
+ }
+
