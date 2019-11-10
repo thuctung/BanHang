@@ -37,4 +37,23 @@ public class SanPhamDAO {
 		}
 		return list;
 	}
+	
+	public SanPham LaySanPhamTheoMa(int masp) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException{
+		String sql ="SELECT * FROM SanPham where masanpham = ?";
+		SanPham sp = new SanPham();
+		Connection connec = connection.getMySQLConnection();
+		PreparedStatement pre = connec.prepareStatement(sql);
+		pre.setInt(1, masp);
+		ResultSet res = pre.executeQuery();
+		while(res.next()) {
+			sp.setMaSanPham(res.getInt(1));
+			sp.setTenSanPham(res.getString(2));
+			sp.setDonGia(res.getInt(3));
+			sp.setHinhAnh(res.getString(4));
+			sp.setMoTa(res.getString(5));
+			sp.setMaDanhMuc(res.getInt(6));
+			sp.setHangSanXuat(res.getInt(7));
+		}
+		return sp;
+	}
 }

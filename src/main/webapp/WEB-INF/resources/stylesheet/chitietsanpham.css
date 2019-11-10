@@ -1,7 +1,7 @@
 /* css cho phan Header */
 body{
 	width:100%;
-	height:100vh;
+	height:687px;
 	margin:0;
 	pading:0;
 	background: #eee;
@@ -216,6 +216,212 @@ form{
 /* xong css header */
 
 
+/* CSS CONTAINER */
+
+.container{
+	 width: 85%;
+	 margin: 0 auto;
+	background:#fff;
+    height: 100%;
+    font: 14px/18px Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
+}
+.tenchitietsanpham{
+    overflow: hidden;
+    font-size: 24px;
+    color: #333;
+    font-weight: 500;
+    line-height: 40px;
+    height: 55px;
+    margin: -8px 0 0px 50px;
+    border-bottom: 1px solid #e5e5e5;
+    padding-top: 18px;
+}
+.picture{
+    float: left;
+    width: 25%;
+    height: 88%;
+    margin-top: 10px;
+}
+.picture > img{
+    width: 100%;
+    height: 318px;
+}
+.price-sale{
+    float: left;
+    width: 33%;
+    height: 88%;
+    margin-top: 10px;
+    margin-left: 51px;
+}
+.area-price{
+    width: 100%;
+    height: 30px;
+}
+.area-price .installment{
+    float: right;
+    background: #f28902;
+    color: white;
+    width: 76px;
+    text-align: center;
+    border-radius: 3px;
+}
+
+.area-price > strong{
+    float: right;
+    font-size: 24px;
+    color: #e10c00;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+.area-promotion{
+    width: 100%;
+    height: 300px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    position: relative;
+}
+.khuyenmaitieude{
+    position: absolute;
+    top: 5%;
+    left: 7%;
+    display: block;
+    overflow: hidden;
+    font-size: 15px;
+    color: #333;
+    text-transform: uppercase;
+}
+.pro521609{
+    position: absolute;
+    top: 18%;
+    left: 9%;
+}
+.pro521609 > a{
+    color: dodgerblue;
+    text-decoration: none;
+}
+.pro521609 > label > span{
+    color: #e7362c;
+}
+
+.khuyenmaichitiet{
+    position: absolute;
+    top: 41%;
+    left: 9%;
+}
+.khuyenmaiphukien{
+    position: absolute;
+    top: 69%;
+    left: 9%;
+}
+.notkhuyenmai{
+    position: absolute;
+    bottom: 8%;
+    left: 3%;
+    color: #d0021b;
+}
+.muangay{
+    width: 100%;
+    height: 50px;
+    margin-top: 6px;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    line-height: normal;
+    background: rgb(255,178,15);
+    background: linear-gradient(180deg, rgba(255,178,15,1) 0%, rgba(218,83,32,1) 100%);
+    font-weight: 700;
+    cursor: pointer;
+}
+.muangay > p{
+    display: block;
+    font-size: 13px;
+    color: white;
+    margin: 1px 0 0 0;
+    font-weight: 400;
+}
+.btnmua{
+    width: 48.5%;
+    height: 50px;
+    background: dodgerblue;
+    margin: 6px 0 11px 0;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+}
+.btnmua > strong{
+    display: block;
+    margin-top:5px; 
+}
+.btnmua > span{
+    display: block;
+    margin-top: 4px;
+}
+.muatragop{
+    float: left;
+}
+.tragopquathe{
+    float: right;
+}
+.goidatmua{
+    clear: both;
+    margin-left: 41px;
+}
+.goidatmua > span{
+    color: dodgerblue;
+}
+
+.thongsokithuat{
+    float: right;
+    width: 32%;
+}
+.thongsokithuat > h2{
+    display: block;
+    line-height: 1.3em;
+    font-size: 20px;
+    color: #333;
+    font-weight: 500;
+}
+.ulkithuat{
+    list-style: none;
+    padding: 0;
+}
+.ulkithuat li{
+    width: 100%;
+    height: 38px;
+    border-top: 1px solid #eee;
+    padding: 6px 0 0 4px;
+}
+.ulkithuat li span{
+    width: 40%;
+    font-size: 14px;
+    color: #666;
+}
+.ulkithuat li div{
+    float: right;
+    width: 58%;
+    font-size: 14px;
+    color: #333;
+}
+.ulkithuat li .mauxanhchitiet{
+    color: dodgerblue;
+}
+.xemcauhinhchitiet{
+    width: 97%;
+    height: 26px;
+    text-decoration: none;
+    color: dodgerblue;
+    border: 1px solid dodgerblue;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    padding-top: 8px;
+}
+.xemcauhinhchitiet:hover{
+    background: dodgerblue;
+    color: white;
+}
+/* XONG CSS CONTAINER */
 
 
 

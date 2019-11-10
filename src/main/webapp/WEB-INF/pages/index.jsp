@@ -19,14 +19,14 @@
         <div class="contentHeader">
             <form action="" name="formTimkiem" onsubmit="return checkValue()">
                 <div class="logo">
-                    <a href="" class="avartar"></a>
-                    <a href="" class="title"></a>
+                    <a href="./" class="avartar"></a>
+                    <a href="./" class="title"></a>
                     <input id="searchBox" type="text" placeholder="Bạn tìm gì ..." name ="Timkiem" class="search" >
                     <input type="submit" class="iconsearch" value="" name="XnTim">
                 </div>
             </form>
             <div class="navabar">
-            <a href="/PTMPCN/view/dienthoai.php" class="items">
+            	<a href="/PTMPCN/view/dienthoai.php" class="items">
                     <div class="product phone"></div>
                     <p class="aphone">Điện thoại</p>
                 </a>
@@ -146,7 +146,7 @@
 					for(SanPham sp : listSP){
 				  %>	
 						<div class="hot-item">	
-							<a href="">
+							<a href="./chitietsanpham?Masp=<%=sp.getMaSanPham()%>">
 								<img src="image/sanpham/dienthoai/<%= sp.getHinhAnh()%>" alt="" width="180px" height="180px">
 								<h3><%= sp.getTenSanPham() %></h3>
 								<div class="giasanpham">
@@ -171,7 +171,7 @@
 					for(SanPham sp : tablet){
 				  %>	
 						<div class="hot-item">	
-							<a href="">
+							<a href="./chitietsanpham?Masp=<%=sp.getMaSanPham()%>">
 								<img src="image/sanpham/tablet/<%= sp.getHinhAnh()%>" alt="" width="180px" height="180px">
 								<h3><%= sp.getTenSanPham() %></h3>
 								<div class="giasanpham">
@@ -208,7 +208,7 @@
                 </ul>
             </div>
              <div class="sanpham anhnho1">
-                <a href="">
+                <a href="./chitietsanpham?Masp=42">
                     <img src="image/sanpham/dienthoainoibat1.jpg" alt="">
                     <h3>Samsung Galaxy Note 10+</h3>
                     <div class="giasanpham">
@@ -218,7 +218,7 @@
                 </a>
             </div>
             <div class="sanpham anhnho2">
-                <a href="">
+                <a href="./chitietsanpham?Masp=33">
                     <img src="image/sanpham/dienthoainoibat2.jpg" alt="">
                     <h3>Oppo Reno 10X</h3>
                     <div class="giasanpham">
@@ -234,7 +234,7 @@
 					for(SanPham dienthoai : listdienthoai){
 				%>
 					<div class="hot-item">
-					    <a href="">
+					    <a href="./chitietsanpham?Masp=<%=dienthoai.getMaSanPham()%>">
 					      <img src="image/sanpham/dienthoai/<%= dienthoai.getHinhAnh() %>" alt="" width="180px" height="180px">
 					      <h3><%= dienthoai.getTenSanPham() %></h3>
 					           <div class="giasanpham">
@@ -270,7 +270,7 @@
 	                </ul>
 	            </div>
 	             <div class="sanphamtablet">
-	                <a href="">
+	                <a href="./chitietsanpham?Masp=52">
 	                    <img src="image/sanpham/tablet/tabs6.jpg" alt="">
 	                    <h3>SamSung Galaxy Tab S6</h3>
 	                    <div class="giasanpham">
@@ -286,7 +286,7 @@
 						for(SanPham tl : listablt){
 					%>
 	                    <div class="tablethotnhat">
-				            <a href="">
+				            <a href="./chitietsanpham?Masp=<%=tl.getMaSanPham()%>">
 				                <img src="image/sanpham/tablet/<%= tl.getHinhAnh() %>" alt="" width="180px" height="180px">
 				                <h3><%= tl.getTenSanPham() %></h3>
 				                <div class="giasanpham">
