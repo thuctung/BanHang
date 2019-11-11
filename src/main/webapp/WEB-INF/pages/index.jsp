@@ -1,7 +1,5 @@
-<%@page import="java.util.*"%>
-<%@page import="detai.cnjva.DAOFile.*"%>
-<%@page import="detai.cnjva.modelFile.*"%>
-<%@page import="java.text.NumberFormat" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -26,11 +24,11 @@
                 </div>
             </form>
             <div class="navabar">
-            	<a href="/PTMPCN/view/dienthoai.php" class="items">
+            	<a href="./hienthisanpham?Madm=1" class="items">
                     <div class="product phone"></div>
                     <p class="aphone">Điện thoại</p>
                 </a>
-                <a href="/PTMPCN/view/tablet.php" class="items">
+                <a href="./hienthisanpham?Madm=2" class="items">
                     <div class="product tablet"></div>
                     <p class="atablet">Tablet</p>
                 </a>
@@ -58,8 +56,8 @@
                     <div class="product sim"></div>
                     <p class="asim" href="">Sim đẹp</p>
                 </a>
-                <a class="items">
-                    <p id="login" href="">Login</p>
+                <a class="items" href="./login">
+                    <p id="login">Login</p>
                 </a>
                 <div class="buycall">
                     GỌI MUA HÀNG:
@@ -138,56 +136,51 @@
             </div>
             <div class="listkhuyenmai">
                 <div class="listkhuyenmai1 danghienthi">
-               	 <% ArrayList<SanPham> listSP = new ArrayList<SanPham>();
-					SanPhamDAO sqpdao = new SanPhamDAO();
-					Locale localeVN = new Locale("vi", "VN");
-				    NumberFormat vn = NumberFormat.getInstance(localeVN);
-					listSP = sqpdao.LaySanPhamTheoDanhMuc(1,5,0);	
-					for(SanPham sp : listSP){
-				  %>	
-						<div class="hot-item">	
-							<a href="./chitietsanpham?Masp=<%=sp.getMaSanPham()%>">
-								<img src="image/sanpham/dienthoai/<%= sp.getHinhAnh()%>" alt="" width="180px" height="180px">
-								<h3><%= sp.getTenSanPham() %></h3>
-								<div class="giasanpham">
-								<% String tien = vn.format(sp.getDonGia()); String tiengiam = vn.format(sp.getDonGia()+1000000); %>
-									<strong><%=tien %> đ</strong>
-									<span><%=tiengiam %> đ</span>
+               	 <c:forEach items = "${dienthoai}" var="dt">
+
+               	 	<div class="hot-item">	
+							<a href="./chitietsanpham?Masp=${dt.getMaSanPham()}">
+								<img src="image/sanpham/dienthoai/${dt.getHinhAnh()}" alt="" width="180px" height="180px">
+								<h3>${dt.getTenSanPham()}</h3>
+								<div class="giasanpham"> 
+									<c:set var = "dongia" value = "${dt.getDonGia() }" />
+	           						 <strong>
+	            						<fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${dongia}"/>đ
+	            					</strong>
+									<span><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${dongia+1000000}"/>đ</span>
 							</div>
 							<div class ="quatang">
-								<p> <%=(sp.getMoTa().substring(0, 73))%>...</p>
+								<p> ${dt.getMoTa().substring(0, 73)}...</p>
 							</div>
 							<div class="giamgia">
 								<label>Giảm 1.000.000đ</label>
 							</div>
 							</a>
 						</div>
-					<%} %>
-                </div>
+               	 </c:forEach>
+               </div>
                 <div class="listkhuyenmai1 angiatri">
-                	<%
-                	ArrayList<SanPham> tablet = new ArrayList<SanPham>();
-                	tablet = sqpdao.LaySanPhamTheoDanhMuc(2,5,0);	
-					for(SanPham sp : tablet){
-				  %>	
+                	<c:forEach items = "${tablet}" var="tl">
 						<div class="hot-item">	
-							<a href="./chitietsanpham?Masp=<%=sp.getMaSanPham()%>">
-								<img src="image/sanpham/tablet/<%= sp.getHinhAnh()%>" alt="" width="180px" height="180px">
-								<h3><%= sp.getTenSanPham() %></h3>
+							<a href="./chitietsanpham?Masp=${tl.getMaSanPham() }">
+								<img src="image/sanpham/tablet/${tl.getHinhAnh()}" alt="" width="180px" height="180px">
+								<h3>${tl.getTenSanPham()}</h3>
 								<div class="giasanpham">
-								<% String tien = vn.format(sp.getDonGia()); String tiengiam = vn.format(sp.getDonGia()+1000000); %>
-									<strong><%=tien %> đ</strong>
-									<span><%=tiengiam %> đ</span>
+								<c:set var = "dongia" value = "${tl.getDonGia() }" />
+	           						 <strong>
+	            						<fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${dongia}"/>đ
+	            					</strong>
+									<span><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${dongia+1000000}"/>đ</span>
 							</div>
 							<div class ="quatang">
-								<p><%= sp.getMoTa()%>...</p>
+								<p>${tl.getMoTa()}...</p>
 							</div>
 							<div class="giamgia">
 								<label>Giảm 1.000.000đ</label>
 							</div>
 							</a>
 						</div>
-					<%} %>
+					</c:forEach>
 			  	</div>
 		</div>
 		<!-- XONG KHUYEN MAI HOT NHAT -->	
@@ -229,27 +222,26 @@
             </div>
             <div class="listdienthoai">
                   <div class="hot-phone">
-				<% ArrayList<SanPham> listdienthoai = new ArrayList<SanPham>();
-					listdienthoai = sqpdao.LaySanPhamTheoDanhMuc(1,6,1);
-					for(SanPham dienthoai : listdienthoai){
-				%>
+					<c:forEach items = "${dienthoaiHot}" var="dthot">
 					<div class="hot-item">
-					    <a href="./chitietsanpham?Masp=<%=dienthoai.getMaSanPham()%>">
-					      <img src="image/sanpham/dienthoai/<%= dienthoai.getHinhAnh() %>" alt="" width="180px" height="180px">
-					      <h3><%= dienthoai.getTenSanPham() %></h3>
+					    <a href="./chitietsanpham?Masp=${dthot.getMaSanPham()}">
+					      <img src="image/sanpham/dienthoai/${dthot.getHinhAnh()}" alt="" width="180px" height="180px">
+					      <h3>${ dthot.getTenSanPham()}</h3>
 					           <div class="giasanpham">
-					              <strong><%= vn.format(dienthoai.getDonGia()) %>đ</strong>
+					              <c:set var = "dongia" value = "${dthot.getDonGia() }" />
+	           					  <strong>
+	            					<fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${dongia}"/>đ
+	            				  </strong>
 					            </div>
 					            <div class ="quatang">
 					                <p><?php echo "Mua loa kẹo kéo giảm 15%"?></p>
 					             </div>
 					             <div class="giamgia">
 					                <label class ="tragop">Trả góp 0% </label>
-					             </div>
+					            </div>
 					      </a>
 					  </div>
-				<%} %>
-			    	
+			    	</c:forEach>
 				</div>
             </div>
         </div>
@@ -281,25 +273,26 @@
 	            </div>
 	            <div class="listtablet">
 	            	<div class="hot-phone tablethot">
-	            	<% ArrayList<SanPham> listablt= new ArrayList<SanPham>();
-	            		listablt = sqpdao.LaySanPhamTheoDanhMuc(2,3,1);
-						for(SanPham tl : listablt){
-					%>
+	            		<c:forEach items = "${tabletHot}" var="tlhot">
 	                    <div class="tablethotnhat">
-				            <a href="./chitietsanpham?Masp=<%=tl.getMaSanPham()%>">
-				                <img src="image/sanpham/tablet/<%= tl.getHinhAnh() %>" alt="" width="180px" height="180px">
-				                <h3><%= tl.getTenSanPham() %></h3>
+				            <a href="./chitietsanpham?Masp=${tlhot.getMaSanPham()}">
+				                <img src="image/sanpham/tablet/${tlhot.getHinhAnh()}" alt="" width="180px" height="180px">
+				                <h3>${tlhot.getTenSanPham()}</h3>
 				                <div class="giasanpham">
-				                     <strong><%= vn.format(tl.getDonGia()) %>đ</strong>				                </div>
+				                     <c:set var = "dongia" value = "${tlhot.getDonGia() }" />
+	           					  	<strong>
+	            						<fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${dongia}"/>đ
+	            				  	</strong>				                
+	            				  	</div>
 				                <div class ="quatang">
-				                    <p><?php echo "Mua loa kẹo kéo giảm 15%"?></p>
+				                    <p>Mua loa kẹo kéo giảm 15%</p>
 				                </div>
 				                <div class="giamgia">
 				                    <label class ="tragoptablet">Trả góp 0% </label>
 				                </div>
 				            </a>
 				        </div>
-				    <% } %>
+				    </c:forEach>
 				    </div>
 	            </div>
 	        </div>

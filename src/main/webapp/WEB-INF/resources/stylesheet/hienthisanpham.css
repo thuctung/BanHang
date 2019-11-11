@@ -1,0 +1,149 @@
+.menuhangSanXuat{
+    width: 85%;
+    height: 82px;
+    margin: 5px auto;
+    display: flex;
+    flex-wrap: wrap;
+    background: white;
+}
+.menuhangSanXuat > a{
+    display: inline-block;
+    width: 12.4%;
+    border: 1px solid #eee;
+    height: 40px;
+    line-height: 40px;
+    vertical-align: middle;
+    text-align: center;
+    margin-left: -1px;
+    margin-bottom: -1px;
+}
+.menuhangSanXuat > a > img{
+    max-height: 25px;
+    vertical-align: middle;
+}
+.container-dienthoai{
+    width: 85%;
+    height: auto;
+    margin: 5px auto;
+    background: white;
+    position: relative;
+}
+.container-dienthoai > h3{
+    display: block;
+    margin: 10px 5px;
+    font-weight: bold;
+    line-height: 50px;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-family: "Roboto",sans-serif;
+    color: #333;
+    width: 100%;
+}
+.listDienThoai{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    border: 1px solid #eee;
+}
+.moreHight{
+    height: 3424px;
+}
+.listDienThoai > a{
+    width: 24.9%;
+    height: 308px;
+    text-decoration: none;
+    position: relative;
+    border-bottom: 1px solid #eee;
+    border-right: 1px solid #eee;
+}
+.listDienThoai > a > img{
+    position: absolute;
+    top:8%;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: 0.2s;
+}
+.listDienThoai > a:hover img{
+    top:2%;
+}
+.listDienThoai > a > .donGiaSP{
+    position: absolute;
+    bottom: 9%;
+    left: 9%;
+    margin: 0;
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+    font-size: 14px;
+    color: #e10c00;
+    line-height: 15px;
+    font: 14px/18px Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
+    font-weight: 800;
+}
+.listDienThoai > a > .tenSanPham{
+    position: absolute;
+    bottom: 18%;
+    left: 9%;
+    margin: 0;
+    line-height: 1.3em;
+    font-size: 15px;
+    color: #333;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-weight: 350;
+    outline: none;
+    font: 14px/18px Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
+}
+.divchuyentrang{
+	width: 85%;
+    height: 45px;
+    margin: 0 auto;
+    background: white;
+    margin-top: -6px;
+    text-align: center;
+    padding-top: 14px;
+    margin-bottom: 44px;
+}
+.pchuyenTrang{
+	display: inline;
+    font-size: 23px;
+    padding: 0;
+    margin: 0;
+    color: dodgerblue;
+    font-family: sans-serif;
+}
+.viewmore{
+    background: dodgerblue;
+    color: white;
+    font-family: sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    width: 40px;
+    height: 30px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.8s;
+}
+a{
+	text-decoration: none;
+}
+.viewmore:hover{
+	background: white;
+	border: 1px solid dodgerblue;
+	color: dodgerblue;
+}
+
+.noneClick{
+	background: white;
+	border: 1px solid dodgerblue;
+	color: dodgerblue;
+}
+
+/* CSS của trang tablet */
+.Tablet{
+    height: 623px;
+}

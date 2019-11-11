@@ -1,20 +1,22 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
-<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <LINK REL="SHORTCUT ICON" HREF="image/sanpham/logoTittle.png">
-<link href="stylesheet/chitietsanpham.css" rel="stylesheet">
 <title>Thế giới di đông </title>
+<link href="stylesheet/index.css" rel="stylesheet">
+<link href="stylesheet/hienthisanpham.css" rel="stylesheet">
+
 </head>
 <body>
 	<header>
 		<!-- Create Header -->
     <div class="header">
-        <div class="contentHeader">
+        <div class="contentHeader"> 
             <form action="" name="formTimkiem" onsubmit="return checkValue()">
                 <div class="logo">
                     <a href="./" class="avartar"></a>
@@ -24,7 +26,7 @@
                 </div>
             </form>
             <div class="navabar">
-            <a href="./hienthisanpham?Madm=1" class="items">
+            	<a href="./hienthisanpham?Madm=1" class="items">
                     <div class="product phone"></div>
                     <p class="aphone">Điện thoại</p>
                 </a>
@@ -56,8 +58,8 @@
                     <div class="product sim"></div>
                     <p class="asim" href="">Sim đẹp</p>
                 </a>
-                <a class="items">
-                    <p id="login" href="">Login</p>
+                <a class="items" href="./login">
+                    <p id="login">Login</p>
                 </a>
                 <div class="buycall">
                     GỌI MUA HÀNG:
@@ -66,99 +68,101 @@
                 </div>
             </div>
         </div>
-	</header>
-<!-- Done Header -->	
-
+    </div>
+        <div class="vedau">
+        <a class="scroll" title="Về đầu"></a>
+    </div>  
+<!-- Done Header -->
+	
 <!-- HTML CONTAINER -->
-	<div class="container">
-        <h1 class ="tenchitietsanpham">${sanpham.getTenSanPham()}</h1>
-        <aside class="picture">
-        	<c:set var = "hinhanh" value = "dienthoai"/>
-        	<c:if test = "${sanpham.getMaDanhMuc() == 2}">
-        		<c:set var = "hinhanh" value = "tablet"/>
-        	</c:if>
-	        <img src="image/sanpham/${hinhanh}/${sanpham.getHinhAnh()} " />
-        </aside>
-        <aside class="price-sale">
-            <div class="area-price">
-                <label class="installment">Trả góp 0%</label>
-                <c:set var = "dongia" value = "${sanpham.getDonGia() }" />
-	            <strong>
+	<!-- Hãng sản xuất -->
+    <div class="menuhangSanXuat">
+        <a >
+            <img src="image/sanpham/anhnhasanxuat/apple.jpg">
+        </a>
+        <a >
+            <img src="image/sanpham/anhnhasanxuat/samsung.jpg">
+        </a>
+        <a>
+            <img src="image/sanpham/anhnhasanxuat/oppo.jpg">
+        </a>
+        <a >
+            <img src="image/sanpham/anhnhasanxuat/xiaomi.jpg">
+        </a>
+        <a>
+            <img src="image/sanpham/anhnhasanxuat/vivo.jpg">
+        </a>
+        <a>
+            <img src="image/sanpham/anhnhasanxuat/huawei.jpg">
+        </a>
+        <a >
+            <img src="image/sanpham/anhnhasanxuat/realmi.jpg">
+        </a>
+        <a>
+            <img src="image/sanpham/anhnhasanxuat/vinsmart.jpg">
+        </a>
+        <a>
+            <img src="image/sanpham/anhnhasanxuat/nokia.jpg">
+        </a>
+        <a>
+            <img src="image/sanpham/anhnhasanxuat/mobell.jpg">
+        </a>
+        <a>
+            <img src="image/sanpham/anhnhasanxuat/itel.jpg">
+        </a>
+        <a>
+            <img src="image/sanpham/anhnhasanxuat/coolpad.jpg">
+        </a>
+        <a>
+            <img src="image/sanpham/anhnhasanxuat/BlackBerry.jpg">
+        </a>
+    </div>
+    <div class="container-dienthoai">
+        <h3>Điện thoại nổi bật nhất</h3>
+        <div class="listDienThoai">
+        <c:forEach items = "${listSP}" var="page">
+        	<a href="./chitietsanpham?Masp=${page.getMaSanPham() }">
+        		<c:set var = "hinhanh" value = "dienthoai"/>
+        		<c:if test = "${page.getMaDanhMuc() == 2}">
+        			<c:set var = "hinhanh" value = "tablet"/>
+        		</c:if>
+	            <img src="image/sanpham/${hinhanh}/${page.getHinhAnh()} " width="180px" height="180px" />
+	            <p class="tenSanPham">${page.getTenSanPham() }</p>
+	            <c:set var = "dongia" value = "${page.getDonGia() }" />
+	            <p class="donGiaSP">
 	            	<fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${dongia}"/>đ
-	            </strong>
-            </div>
-            <div class="area-promotion">
-                <strong class="khuyenmaitieude">Khuyến mãi</strong>
-                <span class="pro521609">
-                    <label><span>Giảm thêm 5% </span>cho khách mua online có là học sinh</label> 
-                    <a href="" target="_blank">Xem chi tiết*</a>
-                </span><br>
-                <span class="khuyenmaichitiet">
-                    ${sanpham.getMoTa()}
-                </span>
-                <span class="khuyenmaiphukien">Tặng mã giảm giá 100.000đ để mua phụ kiện online (áp dụng đơn hàng phụ kiện trên 200.000đ)</span>
-                <span class="notkhuyenmai">*Không áp dụng khi mua trả góp</span>
-            </div>
-            <button class="muangay">MUA NGAY<p>Giao tận nơi hoặc nhận tại siêu thị</p></button>
-            <div class="muatragop btnmua">
-                <strong>MUA TRẢ GÓP</strong><span>Thủ tục đơn giản</span>
-            </div>
-            <div class="tragopquathe btnmua">
-                <strong>TRẢ GÓP QUA THẺ</strong><span>Visa, Master, JCB</span>
-            </div>
-            <p class="goidatmua">Gọi đặt mua:<span> 1800.1060</span> (miễn phí - 7:30~22:00)</p>
-        </aside>
-        <div class="thongsokithuat">
-            <h2>Thông số kỹ thuật</h2>
-            <ul class="ulkithuat">
-                <li>
-                    <span>Màn hình:</span>
-                    <div>${ctsp.getManHinh()}</div>
-                </li>
-                <li>
-                    <span>CPU:</span>
-                    <div class="mauxanhchitiet">${ctsp.getCpu()}</div>
-                </li>
-                <li>
-                    <span>Hệ điều hành:</span>
-                    <div class="mauxanhchitiet">${ctsp.getHeDieuHanh()}</div>
-                </li>
-                <li>
-                    <span>Camera sau:</span>
-                    <div>${ctsp.getCameraSau()}</div>
-                </li>
-                <li>
-                    <span>Camera trước:</span>
-                    <div>${ctsp.getCammeraTruoc()}</div>
-                </li>
-                <li>
-                    <span>Bộ nhớ RAM:</span>
-                    <div>${ctsp.getRam()}</div>
-                </li>
-                <li>
-                    <span>Bộ nhớ trong:</span>
-                    <div>${ctsp.getBoNhoTrong()}</div>
-                </li>
-                <li>
-                    <span>Thẻ nhớ:</span>
-                    <div class="mauxanhchitiet">${ctsp.getTheNho()}</div>
-                </li>
-                <li>
-                    <span>Kết nối:</span>
-                    <div class="mauxanhchitiet">${ctsp.getSim()}</div>
-                </li>
-                <li>
-                    <span>Dung lượng PIN:</span>
-                    <div>${ctsp.getDungLuongPin()}</div>
-                </li>
-            </ul>
-            <div class ="xemcauhinhchitiet">Xem cấu hình chi tiết</div>
+	            </p>
+           	</a>
+        </c:forEach>	
         </div>
     </div>
-	
-<!-- XONG HTML CONTAINER -->	
-	
-	
+    <div class="divchuyentrang">
+    	<p class="pchuyenTrang">Trang:</p>
+    	
+    	<c:if test = "${tranghientai > 1}">
+    		<a href="./hienthisanpham?Madm=${danhmuc}&&page=1" ><button class="viewmore"><<</button></a>
+    		<a href="./hienthisanpham?Madm=${danhmuc}&&page=${tranghientai - 1}" ><button class="viewmore">Pre</button></a>
+    	</c:if>
+    	
+    	<c:set var = "trangke" value = "${tranghientai+2}"/>
+    		<c:if test = "${tranghientai >=  page - 2}">
+    			<c:set var = "trangke" value = "${page}"/>
+    		</c:if>
+    		
+    	<c:forEach var ="i" begin="${tranghientai}" end = "${trangke}" step="1">
+    		<c:set var = "tenlop" value = "viewmore"/>
+    		<c:if test = "${i == tranghientai}">
+    			<c:set var = "tenlop" value = "viewmore noneClick"/>
+    		</c:if>
+    		<a href="./hienthisanpham?Madm=${danhmuc}&&page=${i}" ><button class="${tenlop}">${i}</button></a>
+    	</c:forEach>
+    		
+    	<c:if test = "${tranghientai < page}">
+    		<a href="./hienthisanpham?Madm=${danhmuc}&&page=${tranghientai+1}" ><button class="viewmore">Nex</button></a>
+    		<a href="./hienthisanpham?Madm=${danhmuc}&&page=${page}" ><button class="${tenlop}">>></button></a>
+    	</c:if>
+    </div>
+<!-- XONG HTML CONTAINER -->
 <!-- HTML FOOTER -->
 	<div class="footer">
         <div class="rowfood1">
@@ -195,6 +199,6 @@
         </div>
     </div>
     <!-- XONG HML FOOTER -->	
-    <script src="script/chitiet.js"></script>
+    <script src="script/hienthisanpham.js"></script>
 </body>
 </html>

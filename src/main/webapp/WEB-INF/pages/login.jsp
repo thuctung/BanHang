@@ -53,6 +53,4 @@
 	</div>
 </body>
 		<script src="script/login.js"></script>
-		<script src="script/bootstrap.js"></script>
-		<script src="script/jquery.js"></script>
 </html>

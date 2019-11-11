@@ -37,7 +37,7 @@ public class loginController {
 		// goi DAO
 		if(userDao.checkLogin(user)) {
 			request.setAttribute("mess","Ok" );
-			return "redirect:/";
+			return "redirect:/"; 
 		}
 		request.setAttribute("mess","Fails" );
 		return "login";
