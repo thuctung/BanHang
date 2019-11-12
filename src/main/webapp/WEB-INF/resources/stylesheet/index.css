@@ -774,7 +774,7 @@ a  h3{
 
 .tabletnoibat{
     width: 100%;
-    height: 376px;
+    height: 635px;
 }
 .tieudetablet{
     width: 100%;
@@ -819,8 +819,12 @@ a  h3{
     border-right: 1px solid #eee;
     border-bottom: 1px solid #eee;
     margin-top: -7px;
-    height: 295px;
+    height: 588px;
     width: 39.3%;
+}
+.sanphamtablet > div{
+	height: 50%;
+	border-bottom: 1px solid #eee;
 }
 .sanphamtablet a {
     text-decoration: none;
@@ -830,7 +834,7 @@ a  h3{
     float: left;
     width: 60.6%;
     background: white;
-    height: 295px;
+    height: 588px;
     margin-top: -7px;
 }
 .tragoptablet{
@@ -848,7 +852,7 @@ a  h3{
 }
 .tablethotnhat{
     width: 33%;
-    height: 100%;
+    height: 50%;
 }
 .tablethotnhat a{
     text-decoration: none;
@@ -859,7 +863,12 @@ a  h3{
     position: absolute;
     top: 15px;
     left: 34px;
+    transition:0.2s;
 }
+.tablethotnhat a:hover img{
+	top: 10px;
+}
+
 .tablethotnhat a h3{
     position: absolute;
     top: 204px;
@@ -896,6 +905,7 @@ a  h3{
     margin: 0 auto;
     background: #fff;
     overflow: hidden;
+    margin-top: 32px;
     clear: both;
 }
 .rowfood1{

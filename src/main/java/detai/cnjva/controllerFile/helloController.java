@@ -26,7 +26,7 @@ public class helloController {
 		listSP = sqpdao.LaySanPhamTheoDanhMuc(1,5,0); // lay dien thoai noi bat
 		listTablet = sqpdao.LaySanPhamTheoDanhMuc(2,5,0); // lay tablet noi bat
 		listSPHot = sqpdao.LaySanPhamTheoDanhMuc(1,6,1); // lat dien thoai hot
-		listTabletHot = sqpdao.LaySanPhamTheoDanhMuc(2,3,0);
+		listTabletHot = sqpdao.LaySanPhamTheoDanhMuc(2,6,0);
 		model.addAttribute("dienthoai", listSP);
 		model.addAttribute("tablet", listTablet);
 		model.addAttribute("dienthoaiHot", listSPHot);

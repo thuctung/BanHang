@@ -239,5 +239,6 @@
     </div>
     <!-- XONG HML FOOTER -->	
     <script src="script/hienthisanpham.js"></script>
+    <script src="script/jquery.js"></script>
 </body>
 </html>

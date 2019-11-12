@@ -197,7 +197,7 @@
                     <li><a href="">Iphone 11</a></li>
                     <li><a href="">Iphone 11 Pro</a></li>
                     <li><a href="">Iphone 11 Pro Max</a></li>
-                    <li class="all"><a href="">Xem<strong> tất cả</strong> điện thoại</a></li>
+                    <li class="all"><a href="./hienthisanpham?Madm=1">Xem<strong> tất cả</strong> điện thoại</a></li>
                 </ul>
             </div>
              <div class="sanpham anhnho1">
@@ -257,19 +257,31 @@
 	                    <li><a href="">Máy tính bảng Ipad</a></li>
 	                    <li><a href="">Ipad Mini 2019</a></li>
 	                    <li><a href="">Samsung Tab S6</a></li>
-	                    <li><a href="./view/tablet.php">Xem<strong> tất cả</strong> Tablet</a></li>
+	                    <li><a href="./hienthisanpham?Madm=2">Xem<strong> tất cả</strong> Tablet</a></li>
 	                    <li class="all"><a href="">Xem<strong> tất cả</strong> Laptop</a></li>
 	                </ul>
 	            </div>
 	             <div class="sanphamtablet">
-	                <a href="./chitietsanpham?Masp=52">
-	                    <img src="image/sanpham/tablet/tabs6.jpg" alt="">
-	                    <h3>SamSung Galaxy Tab S6</h3>
-	                    <div class="giasanpham">
-	                        <strong>18.490.000đ</strong>
-	                    </div>
-	                    <label class="tragoptablet">Trả góp 0%</label>
-	                </a>
+	             	<div>
+		                <a href="./chitietsanpham?Masp=52">
+		                    <img src="image/sanpham/tablet/tabs6.jpg" alt="">
+		                    <h3>SamSung Galaxy Tab S6</h3>
+		                    <div class="giasanpham">
+		                        <strong>18.490.000đ</strong>
+		                    </div>
+		                    <label class="tragoptablet">Trả góp 0%</label>
+		                </a>
+	                </div>
+	                <div>
+		                <a href="./chitietsanpham?Masp=53">
+		                    <img src="image/sanpham/tablet/ipad10.2inchwifi20191.jpg" alt="">
+		                    <h3>Ipad 10.2 inch Wifi (2019) 32G</h3>
+		                    <div class="giasanpham">
+		                        <strong>9.990.000đ</strong>
+		                    </div>
+		                    <label class="tragoptablet">Trả góp 0%</label>
+		                </a>
+		             </div>
 	            </div>
 	            <div class="listtablet">
 	            	<div class="hot-phone tablethot">
