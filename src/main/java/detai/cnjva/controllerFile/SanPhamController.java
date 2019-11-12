@@ -38,27 +38,45 @@ public class SanPhamController {
 	
 	@RequestMapping(value = "/hienthisanpham", method= RequestMethod.GET)
 	public String HienThiSanPham(Model model , HttpServletRequest request) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
+		// kiem tra trang hien tai co ton tai khong, khong co co thi mac dinh = 1
 		int trangHienTai =  request.getParameter("page") == null ? 1 : Integer.parseInt(request.getParameter("page"));
-		int soSanPham1Trang = 10;
-		
+		float soSanPham1Trang = 20;
+		int hangSanXuat = 0;
+		// kiem tra nguoi dung co xem san pham theo hang san xuat hay khong, vi co 4 hang san xuat nen mac dinh hang <= 4
+		if(request.getParameter("hang") != null) {
+			hangSanXuat = Integer.parseInt(request.getParameter("hang")) > 4 ? 4 : Integer.parseInt(request.getParameter("hang"));
+		}
+		// kiem tra nguoi dung co check sap xep san pham theo don gia hay khong
+		boolean sapxep = true;
+		if(request.getParameter("sapxep") != null) {
+			 if(Integer.parseInt(request.getParameter("sapxep")) == 1){
+				 sapxep = false;
+			 }
+		}
 		if(request.getParameter("Madm") != null) {
 			ArrayList<SanPham> list = new ArrayList<SanPham>();
 			SanPhamDAO spDAO = new SanPhamDAO();
 			int madm = Integer.parseInt( request.getParameter("Madm"));
-			int tongSoSanPham = spDAO.TongSoSanPham(madm);
-			int tongSoTrang = 1;
-			if( Math.ceil(tongSoSanPham / soSanPham1Trang) > 1) {
-				tongSoTrang = (int)(tongSoSanPham / soSanPham1Trang) + 1;
-			}
+			// lay tong so san pham theo ma, neu hangSanXuat > 0 thi truy van them dieu kien hang san xuat
+			float tongSoSanPham = spDAO.TongSoSanPham(madm, hangSanXuat); 
+			int tongSoTrang = (int)Math.ceil(tongSoSanPham / soSanPham1Trang);
 			if(trangHienTai > tongSoTrang) {
 				trangHienTai = tongSoTrang;
 			}
-			int trangBatDau  = (trangHienTai - 1)*soSanPham1Trang;
-			list = spDAO.HienThiDanhSachSanPham(madm, soSanPham1Trang, trangBatDau);
+			int trangBatDau  = (trangHienTai - 1)*(int)soSanPham1Trang;
+			
+			if(tongSoSanPham <= 0) {
+				list = list;
+			}else {
+				list = spDAO.HienThiDanhSachSanPham(madm, hangSanXuat,(int)soSanPham1Trang, trangBatDau, sapxep);
+			}
 			model.addAttribute("listSP", list);
+			model.addAttribute("sapxep", sapxep);
 			model.addAttribute("page",tongSoTrang);
 			model.addAttribute("danhmuc",madm);
 			model.addAttribute("tranghientai",trangHienTai);
+			model.addAttribute("hang", hangSanXuat);
+			model.addAttribute("tongsanpham", (int)tongSoSanPham);
 			return "hienthisanpham";
 		}
 		else {

@@ -73,27 +73,26 @@
         <a class="scroll" title="Về đầu"></a>
     </div>  
 <!-- Done Header -->
-	
 <!-- HTML CONTAINER -->
 	<!-- Hãng sản xuất -->
     <div class="menuhangSanXuat">
-        <a >
+        <a href="./hienthisanpham?Madm=${danhmuc}&&hang=1">
             <img src="image/sanpham/anhnhasanxuat/apple.jpg">
         </a>
-        <a >
+        <a href="./hienthisanpham?Madm=${danhmuc}&&hang=4">
             <img src="image/sanpham/anhnhasanxuat/samsung.jpg">
         </a>
-        <a>
+        <a href="./hienthisanpham?Madm=${danhmuc}&&hang=3">
             <img src="image/sanpham/anhnhasanxuat/oppo.jpg">
         </a>
-        <a >
+        <a>
             <img src="image/sanpham/anhnhasanxuat/xiaomi.jpg">
         </a>
         <a>
             <img src="image/sanpham/anhnhasanxuat/vivo.jpg">
         </a>
-        <a>
-            <img src="image/sanpham/anhnhasanxuat/huawei.jpg">
+        <a href="./hienthisanpham?Madm=${danhmuc}&&hang=2">
+            <img src="image/sanpham/anhnhasanxuat/huawei.jpg"> 
         </a>
         <a >
             <img src="image/sanpham/anhnhasanxuat/realmi.jpg">
@@ -118,9 +117,46 @@
         </a>
     </div>
     <div class="container-dienthoai">
-        <h3>Điện thoại nổi bật nhất</h3>
+   		 <c:set var = "hienthidanhmuc" value = "Điện thoại"/>
+   		 <c:set var = "hienthihangsx" value = ""/>
+    		<c:if test = "${danhmuc == 2}">
+    			<c:set var = "hienthidanhmuc" value = "Tablet"/>
+    		</c:if>
+    		<c:if test = "${hang == 1}">
+    			<c:set var = "hienthihangsx" value = "Apple"/>
+    		</c:if>
+    		<c:if test = "${hang == 2}">
+    			<c:set var = "hienthihangsx" value = "> Huawei"/>
+    		</c:if>
+    		<c:if test = "${hang == 3}">
+    			<c:set var = "hienthihangsx" value = "Oppo"/>
+    		</c:if>
+    		<c:if test = "${hang == 4}">
+    			<c:set var = "hienthihangsx" value = "Samsung"/>
+    		</c:if>
+        <div class="thongtindanhsach">
+        	<h3>Danh Sách ${hienthidanhmuc}</h3>
+        	<p class="thongtinhangsx">${hienthihangsx}</p>
+        	<p class="soluong">Tổng số sản phẩm: <strong>${tongsanpham}</strong></p>
+        	<div class="sapxep">
+        		<strong>Sắp xếp</strong>
+        		<c:if test ="${sapxep == true}">
+        		<select class="dropdown">
+            		<option value="0">Giá thấp - cao</option>
+            		<option value="1">Giá cao - thấp</option>
+            	</select>
+            	</c:if>
+            	<c:if test ="${sapxep == false}">
+        		<select class="dropdown">
+            		<option value="1">Giá cao - thấp</option>
+            		<option value="0">Giá thấp - cao</option>
+            	</select>
+            	</c:if>
+        	</div>        	
+        </div>
         <div class="listDienThoai">
-        <c:forEach items = "${listSP}" var="page">
+        <c:if test="${ listSP != null }"> 
+        	<c:forEach items = "${listSP}" var="page">
         	<a href="./chitietsanpham?Masp=${page.getMaSanPham() }">
         		<c:set var = "hinhanh" value = "dienthoai"/>
         		<c:if test = "${page.getMaDanhMuc() == 2}">
@@ -133,15 +169,18 @@
 	            	<fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${dongia}"/>đ
 	            </p>
            	</a>
-        </c:forEach>	
+        	</c:forEach>
+        </c:if>
         </div>
     </div>
     <div class="divchuyentrang">
-    	<p class="pchuyenTrang">Trang:</p>
-    	
+    	<c:set var = "sx" value = "1"/>
+    	<c:if test = "${sapxep == true}">
+    		<c:set var = "sx" value = "0"/>
+    	</c:if>
     	<c:if test = "${tranghientai > 1}">
-    		<a href="./hienthisanpham?Madm=${danhmuc}&&page=1" ><button class="viewmore"><<</button></a>
-    		<a href="./hienthisanpham?Madm=${danhmuc}&&page=${tranghientai - 1}" ><button class="viewmore">Pre</button></a>
+    		<a href="./hienthisanpham?Madm=${danhmuc}&&sapxep=${sx}&&page=1&&hang=${hang}" ><button class="viewmore vedauvecuoi"><<</button></a>
+    		<a href="./hienthisanpham?Madm=${danhmuc}&&sapxep=${sx}&&page=${tranghientai - 1}&&hang=${hang}" ><button class="viewmore">Pre</button></a>
     	</c:if>
     	
     	<c:set var = "trangke" value = "${tranghientai+2}"/>
@@ -154,12 +193,12 @@
     		<c:if test = "${i == tranghientai}">
     			<c:set var = "tenlop" value = "viewmore noneClick"/>
     		</c:if>
-    		<a href="./hienthisanpham?Madm=${danhmuc}&&page=${i}" ><button class="${tenlop}">${i}</button></a>
+    		<a href="./hienthisanpham?Madm=${danhmuc}&&sapxep=${sx}&&page=${i}&&hang=${hang}" ><button class="${tenlop}">${i}</button></a>
     	</c:forEach>
     		
     	<c:if test = "${tranghientai < page}">
-    		<a href="./hienthisanpham?Madm=${danhmuc}&&page=${tranghientai+1}" ><button class="viewmore">Nex</button></a>
-    		<a href="./hienthisanpham?Madm=${danhmuc}&&page=${page}" ><button class="${tenlop}">>></button></a>
+    		<a href="./hienthisanpham?Madm=${danhmuc}&&sapxep=${sx}&&page=${tranghientai+1}&&hang=${hang}" ><button class="viewmore">Nex</button></a>
+    		<a href="./hienthisanpham?Madm=${danhmuc}&&sapxep=${sx}&&page=${page}&&hang=${hang}" ><button class="${tenlop} vedauvecuoi">>></button></a>
     	</c:if>
     </div>
 <!-- XONG HTML CONTAINER -->

@@ -31,3 +31,18 @@ function scrollToTop(){
 }
 
 btnScroll.addEventListener("click",scrollToTop);
+
+
+let dropdown = document.querySelector(".dropdown");
+dropdown.addEventListener("change", ()=>{
+	console.log(dropdown.value);
+	let url = window.location.href;
+	let vitri =url.indexOf("&&sapxep=");
+	let chuoicon = url.slice(vitri,vitri+10);
+	url = url.replace(chuoicon,'');
+	url = url+"&&sapxep="+dropdown.value;
+	console.log(url);
+	window.location.href=url;
+})
+
+
