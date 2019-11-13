@@ -15,12 +15,12 @@
 		<!-- Create Header -->
     <div class="header">
         <div class="contentHeader">
-            <form action="" name="formTimkiem" onsubmit="return checkValue()">
+            <form action="timkiem" method="POST" name="formTimkiem" onsubmit="return checkValue()">
                 <div class="logo">
                     <a href="./" class="avartar"></a>
                     <a href="./" class="title"></a>
-                    <input id="searchBox" type="text" placeholder="Bạn tìm gì ..." name ="Timkiem" class="search" >
-                    <input type="submit" class="iconsearch" value="" name="XnTim">
+                    <input id="searchBox" type="text" placeholder="Bạn tìm gì ..." name ="key" class="search" >
+                    <input type="submit" class="iconsearch" value="">
                 </div>
             </form>
             <div class="navabar">
@@ -70,8 +70,9 @@
         <div class="vedau">
         <a class="scroll" title="Về đầu"></a>
     </div>  
+    </header>
 <!-- Done Header -->
-	</header>
+	
 	<div class="container">
 		<!-- QUANG CAO -->
 		<div class="advant">

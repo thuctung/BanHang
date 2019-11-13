@@ -35,6 +35,16 @@ public class SanPhamController {
 		}
 		
 	}
+	@RequestMapping(value = "/timkiem", method = RequestMethod.POST)
+	public String TimKiemSanPham(Model model, HttpServletRequest request) {
+		if(request.getParameter("key") != null) {
+			String tenCanTim = request.getParameter("key");
+			model.addAttribute("key", tenCanTim);
+			return "timkiem";
+		}else {
+			return "redirect:/";
+		}
+	}
 	
 	@RequestMapping(value = "/hienthisanpham", method= RequestMethod.GET)
 	public String HienThiSanPham(Model model , HttpServletRequest request) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {

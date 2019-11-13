@@ -15,11 +15,11 @@
 		<!-- Create Header -->
     <div class="header">
         <div class="contentHeader">
-            <form action="" name="formTimkiem" onsubmit="return checkValue()">
+            <form action="timkiem" name="formTimkiem" method="POST" onsubmit="return checkValue()">
                 <div class="logo">
                     <a href="./" class="avartar"></a>
                     <a href="./" class="title"></a>
-                    <input id="searchBox" type="text" placeholder="Bạn tìm gì ..." name ="Timkiem" class="search" >
+                    <input id="searchBox" type="text" placeholder="Bạn tìm gì ..." name ="key" class="search" >
                     <input type="submit" class="iconsearch" value="" name="XnTim">
                 </div>
             </form>
