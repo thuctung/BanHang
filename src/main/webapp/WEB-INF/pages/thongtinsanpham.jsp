@@ -77,7 +77,21 @@
         	<c:if test = "${sanpham.getMaDanhMuc() == 2}">
         		<c:set var = "hinhanh" value = "tablet"/>
         	</c:if>
-	        <img src="image/sanpham/${hinhanh}/${sanpham.getHinhAnh()} " />
+	        <img src="image/sanpham/${hinhanh}/${sanpham.getHinhAnh()} " class="anhsanpham"/>
+	        <div class="danhgiasanpham">
+	        	<c:if test ="${diemdanhgia > 0}">
+	        		<h4>${diemdanhgia}</h4>
+	        	<c:forEach var ="i" begin="1" end = "${diemdanhgia}" step="1">
+	        		<img src ="image/star.jpg" class="saodanhgia"/>
+	        	</c:forEach>
+	        		<img src ="image/motnuasao.jpg" class="saodanhgia"/>
+	        		<a class="xemdanhgia">Xem đánh giá</a>
+	        	</c:if>
+	        	<c:if test ="${diemdanhgia <= 0}">
+	        		<h4>Chưa có đánh giá</h4>
+	        		<button id=""danhgiasanpham>Đánh giá</button>
+	        	</c:if>
+	        </div>
         </aside>
         <aside class="price-sale">
             <div class="area-price">
@@ -154,7 +168,31 @@
             </ul>
             <div class ="xemcauhinhchitiet">Xem cấu hình chi tiết</div>
         </div>
-    </div>
+		
+		<!-- ĐÁNH GIÁ SẢN PHẨM -->
+		<div class="formDanhGia">
+			<form action="" method="POST" class="formDanhGia">
+				<lable>Đánh giá sao</lable>
+				<label for="ip1">1<img src ="image/star.jpg" width="19px" height="20px"/></label>
+				<input id="ip1" type="radio" name="sao" value="1"/>
+				<label for="ip2">2<img src ="image/star.jpg" width="19px" height="20px"/></label>
+				<input id="ip2" type="radio" name="sao" value="4"/>
+				<label for="ip3">3<img src ="image/star.jpg" width="19px" height="20px"/></label>
+				<input id="ip3" type="radio" name="sao" value="5"/>
+				<label for="ip4">4<img src ="image/star.jpg" width="19px" height="20px"/></label>
+				<input id="ip4" type="radio" name="sao" value="4"/>
+				<label for="ip5">5<img src ="image/star.jpg" width="19px" height="20px"/></label>
+				<input id="ip5" type="radio" name="sao" value="5"/>
+				<textarea placeholder="Nhập nội dung đánh giá"></textarea>
+				<input type="submit" value="guidanhgia"></input>
+			</form>
+		</div>
+		
+		<!-- XONG DANH GIA SAN PHAM -->         
+        
+        
+        
+</div>
 	
 <!-- XONG HTML CONTAINER -->	
 	

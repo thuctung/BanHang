@@ -12,10 +12,7 @@ import detai.cnjva.connecDatabase.connection;
 import detai.cnjva.modelFile.User;
 
 public class UserDAO {
-	private JdbcTemplate jdbcTemplate;
-	public UserDAO(DataSource dataSource) {
-		jdbcTemplate = new JdbcTemplate(dataSource);
-	}
+	
 	public Boolean checkLogin(User user) throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
 		
 		Connection connec = connection.getMySQLConnection();

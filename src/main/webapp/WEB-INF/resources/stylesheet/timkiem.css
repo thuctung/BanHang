@@ -248,7 +248,137 @@ form{
 }
 /* xong css scroll top */
 
+/* CSS CONTAINER*/
 
+.container{
+	height: auto;
+    width: 85%;
+    margin: 0 auto;
+    background: white;
+}
+
+.thongtinsoluong{
+	width :100%;
+	height : 30px;
+	background: #eee;
+}
+.thongtinsoluong > p{
+	font-size: 18px;
+    color: #000;
+    display: inline;
+    outline: none;
+    font-family: sans-serif;
+}
+
+.danhmucsoluong{
+	height: 67px;
+    border-bottom: 1px solid #eee;
+}
+.soluong{
+	display: inline-flex;
+    width: 127px;
+    height: 26px;
+    background: #4b8fe2;
+    color: white;
+    text-align: center;
+    margin: 10px 5px 0 5px;
+    border: 1px solid #4b8fe2;
+    border-radius: 5px;
+    padding-top: 11px;
+    transition: 0.1s;
+    cursor: pointer;
+}
+.soluong > p{
+	margin:0;
+	display:inline;
+	padding:0;
+	font-size: 15px;
+    font-family: sans-serif;
+	width: 100%;
+	transition: 0.1s;
+}
+.soluong:hover{
+	background: white;
+}
+
+.soluong:hover p{
+	color : dodgerblue;
+}
+
+.listdienthoai{
+	width:100%;
+	height:auto;
+	
+}
+.listdienthoai > h1{
+	font-family: sans-serif;
+    font-weight: 500;
+    font-size: 21px;
+    color: dodgerblue;
+    margin-left: 22px;
+}
+.listdienthoai > h1 > strong{
+	font-weight: 400;
+    color : black;
+    font-size: 18px;
+}
+.listsanpham{
+	width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    border: 1px solid #eee;
+}
+.listsanpham > a{
+	width: 24.9%;
+    height: 308px;
+    text-decoration: none;
+    position: relative;
+    border-bottom: 1px solid #eee;
+    border-right: 1px solid #eee;
+}
+
+.listsanpham > a > img{
+    position: absolute;
+    top:8%;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: 0.2s;
+}
+.listsanpham > a:hover img{
+    top:2%;
+}
+.listsanpham > a > .donGiaSP{
+    position: absolute;
+    bottom: 9%;
+    left: 9%;
+    margin: 0;
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+    font-size: 14px;
+    color: #e10c00;
+    line-height: 15px;
+    font: 14px/18px Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
+    font-weight: 800;
+}
+.listsanpham > a > .tenSanPham{
+    position: absolute;
+    bottom: 18%;
+    left: 9%;
+    margin: 0;
+    line-height: 1.3em;
+    font-size: 15px;
+    color: #333;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-weight: 350;
+    outline: none;
+    font: 14px/18px Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
+}
+
+/*XONG CSS CONTAINER */
 
 
 
