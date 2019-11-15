@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import detai.cnjva.connecDatabase.connection;
+import detai.cnjva.modelFile.DanhGiaSanPham;
 import detai.cnjva.modelFile.SanPham;
 
 public class SanPhamDAO {
@@ -59,9 +60,9 @@ public class SanPhamDAO {
 		return list;
 	}
 	
-	public float SoDanhGiaTrungBinhSanPham(int masanpham) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
-		float sodanhgiaTrungBinh = 0;
-		float soDanhGia = 1;
+	public double SoDanhGiaTrungBinhSanPham(int masanpham) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
+		double sodanhgiaTrungBinh = 0.0;
+		double soDanhGia = 1.0;
 		String sql = "SELECT COUNT(*) as soluong from DanhGiaSanPham Where masanpham = ?";
 		connec = connection.getMySQLConnection();
 		pre = connec.prepareStatement(sql);
@@ -69,21 +70,21 @@ public class SanPhamDAO {
 		ResultSet res = pre.executeQuery();
 		while(res.next()) 
 		{
-			soDanhGia = (float) res.getInt("soluong");
+			soDanhGia = res.getDouble("soluong");
 		}
-		soDanhGia = soDanhGia <= 0 ? 1 : soDanhGia; // TRANH TRUONG HOP CHIA CHO KHONG;
+		soDanhGia = soDanhGia <= 0 ? soDanhGia = 1 : soDanhGia;
 		sodanhgiaTrungBinh = TinhTongSoDiemDanhGia(masanpham) / soDanhGia;
 		return sodanhgiaTrungBinh;
 	}
-	public float TinhTongSoDiemDanhGia(int masanpham) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
-		float sodiem = 0;
+	public double TinhTongSoDiemDanhGia(int masanpham) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
+		double sodiem = 0;
 		String sql = "SELECT diemdanhgia from SanPham WHERE masanpham = ?";
 		connec = connection.getMySQLConnection();
 		pre = connec.prepareStatement(sql);
 		pre.setInt(1, masanpham);
 		ResultSet res = pre.executeQuery();
 		if(res.next()) {
-			sodiem = (float) res.getInt(1);
+			sodiem = res.getDouble(1);
 		}
 		return sodiem;
 	}
@@ -171,6 +172,7 @@ public class SanPhamDAO {
 			sp.setMoTa(res.getString(5));
 			sp.setMaDanhMuc(res.getInt(6));
 			sp.setHangSanXuat(res.getInt(7));
+			sp.setDiemDanhGia(res.getDouble(9));
 		}
 		pre.close();
 		return sp;
@@ -202,16 +204,16 @@ public class SanPhamDAO {
 	}
 	
 	public static void main(String [] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
-		String sql = "SELECT COUNT(*) as soluong from DanhGiaSanPham Where masanpham = ?";
+		String sql = "SELECT HoTen from KhachHang Where idKhachHang = ?";
+		String ten = "";
 		Connection connec = connection.getMySQLConnection();
 		PreparedStatement pre = connec.prepareStatement(sql);
-		float sodiem = -1;
-		pre.setInt(1, 40);
+		pre.setInt(1, 2);
 		ResultSet res = pre.executeQuery();
-		if(res.next()) {
-			sodiem = (float) res.getInt(1);
+		while(res.next()) 
+		{
+			ten = res.getString(1);
 		}
-		System.out.print(sodiem);
-		
+		System.out.print(ten);
 	}
 }

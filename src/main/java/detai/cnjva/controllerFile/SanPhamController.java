@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import detai.cnjva.DAOFile.ChiTietSanPhamDAO;
+import detai.cnjva.DAOFile.DanhGiaSanPhamDAO;
 import detai.cnjva.DAOFile.SanPhamDAO;
 import detai.cnjva.modelFile.ChiTietSanPham;
+import detai.cnjva.modelFile.DanhGiaSanPham;
 import detai.cnjva.modelFile.SanPham;
 
 @Controller
@@ -22,7 +24,9 @@ public class SanPhamController {
 	public SanPham sanpham;
 	public ChiTietSanPham ctsp;
 	public ChiTietSanPhamDAO  ctspDAO;
+	public DanhGiaSanPhamDAO danhgiaDAO = new DanhGiaSanPhamDAO();
 	public ArrayList<SanPham> list, listTimKiemDT, listTimKiemTablet;
+	public ArrayList<DanhGiaSanPham> listDanhGiaSP;
 	@RequestMapping(value="/chitietsanpham", method = RequestMethod.GET)
 	public String XemThongTinSanPham(Model model,HttpServletRequest request) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
 		if( request.getParameter("Masp") != null) {
@@ -31,8 +35,12 @@ public class SanPhamController {
 			spDAO = new SanPhamDAO();
 			sanpham = spDAO.LaySanPhamTheoMa(masp);
 			ctsp = ctspDAO.LayThongTinSanPham(masp);
-			float diemdanhgia = spDAO.SoDanhGiaTrungBinhSanPham(masp);
-			model.addAttribute("diemdanhgia", 4.5);
+			listDanhGiaSP = danhgiaDAO.LayDanhSachDanhGiaTheoMaSanPham(masp);
+			double diemdanhgia = spDAO.SoDanhGiaTrungBinhSanPham(masp);
+			double diemle = diemdanhgia - (int)diemdanhgia;
+			model.addAttribute("listDanhGia", listDanhGiaSP);
+			model.addAttribute("diemdanhgia", diemdanhgia);
+			model.addAttribute("diemle", diemle);
 		    model.addAttribute("sanpham", sanpham);
 		    model.addAttribute("ctsp", ctsp);
 			return "thongtinsanpham";

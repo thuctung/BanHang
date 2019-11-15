@@ -222,7 +222,7 @@ form{
 	 width: 85%;
 	 margin: 0 auto;
 	background:#fff;
-    height: 100%;
+    height: auto;
     font: 14px/18px Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
 }
 .tenchitietsanpham{
@@ -256,6 +256,7 @@ form{
 	margin 0;
 	font-size: 18px;
 	display:inline;
+	color:#fd9727;
 }
 .xemdanhgia{
 	display: block;
@@ -443,6 +444,138 @@ form{
     background: dodgerblue;
     color: white;
 }
+
+.clearn{
+	height: 62px;
+    clear: both;
+}
+
+/* FORM DANH GIA SAN PHAM */
+.formDanhGia{
+	width: 100%;
+    height: 208px;
+    display: block;
+}
+.formDanhGia form{
+	width: 60%;
+    height: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-left: 42px;
+}
+
+.formDanhGia form h4{
+	float: left;
+	margin: 21px 5px 0 19px;
+	font-size: 18px;
+}
+.group1{
+	cursor: pointer;
+    width: 10%;
+    display: inline-block;
+    margin: 18px 0px 14px 20px;
+    position: relative;
+}
+.group1 > label{
+	position: absolute;
+    top: 0%;
+    left: -11%;
+    font-size: 20px;
+    cursor: pointer;
+}
+.group1 > label img{
+	transform: translate(3px, 1px);
+}
+.group1 input{
+	transform: translate(31px, 2px);
+}
+textarea{
+	clear: both;
+    display: block;
+    overflow: scroll;
+    width: 96.5%;
+    min-height: 100px !important;
+    border: 1px solid #dadada;
+    border-radius: 4px;
+    font-size: 13px;
+    margin-left: 9px;
+}
+.submit{
+	padding: 5px 25px;
+    height: 27px;
+    font-size: 14px;
+    color: #fff;
+    text-transform: uppercase;
+    border: 1px solid #288ad6;
+    border-radius: 4px;
+    background: #288ad6;
+    margin: 12px;
+    float: right;
+}
+#danhgiasanpham{
+	margin: 0;
+    display: inline-block;
+    margin-top: -5px;
+}
+.hienthidanhgia{
+	height: auto;
+	width:100%;
+	margin-top: 16px;
+}
+
+.motdanhgia{
+	margin-left: 43px;
+	margin-bottom: 9px;
+    width: 60%;
+    border-radius: 4px;
+    height: 92px;
+    position: relative;
+    border: 1px solid #eee;
+}
+.motdanhgia > p,.motdanhgia > h4, .ngaydanhgia, .sosaodanhgia, .noidungdanhgia{
+	position: absolute;
+	margin: 0;
+}
+.motdanhgia > h4{
+	width: 39%;
+    font-family: sans-serif;
+    left: 2%;
+    top: 9%;
+}
+.motdanhgia .ngaydanhgia{
+    top: 11%;
+    color: dodgerblue;
+    right: 3%;
+}
+.sosaodanhgia{
+	width: 20%;
+    top: 36%;
+    left: 2%;
+}
+.saodanhgia1{
+	width :14px;
+	height:14px;
+}
+.noidungdanhgia{
+    bottom: 10%;
+    left: 2%;
+    width: 100%;
+    font-style: normal;
+    line-height: 1.5;
+    color: #333;	
+}
+
+
+
+
+
+
+
+
+
+
+/* XONG FORM DANH GIA SAN PHAM */
+
 /* XONG CSS CONTAINER */
 
 
@@ -469,6 +602,7 @@ form{
     background: #fff;
     overflow: hidden;
     clear: both;
+    margin-top: 26px;
 }
 .rowfood1{
     width: 85%;

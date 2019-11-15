@@ -3,15 +3,13 @@ package detai.cnjva.controllerFile;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import detai.cnjva.DAOFile.SanPhamDAO;
-import detai.cnjva.DAOFile.UserInfoDAO;
 import detai.cnjva.modelFile.SanPham;
-import detai.cnjva.modelFile.UserInfo;
+
 @Controller
 public class helloController {
 	//@Autowired
@@ -32,5 +30,10 @@ public class helloController {
 		model.addAttribute("dienthoaiHot", listSPHot);
 		model.addAttribute("tabletHot", listTabletHot);
 		return "index";
+	}
+	@RequestMapping("/giohang")
+	public String giohang() {
+		
+		return "giohang";
 	}
 }

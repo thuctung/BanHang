@@ -11,62 +11,8 @@
 <title>Thế giới di đông </title>
 </head>
 <body>
-	<header>
-		<!-- Create Header -->
-    <div class="header">
-        <div class="contentHeader">
-            <form action="timkiem" name="formTimkiem" method="POST" onsubmit="return checkValue()">
-                <div class="logo">
-                    <a href="./" class="avartar"></a>
-                    <a href="./" class="title"></a>
-                    <input id="searchBox" type="text" placeholder="Bạn tìm gì ..." name ="key" class="search" >
-                    <input type="submit" class="iconsearch" value="" name="XnTim">
-                </div>
-            </form>
-            <div class="navabar">
-            <a href="./hienthisanpham?Madm=1" class="items">
-                    <div class="product phone"></div>
-                    <p class="aphone">Điện thoại</p>
-                </a>
-                <a href="./hienthisanpham?Madm=2" class="items">
-                    <div class="product tablet"></div>
-                    <p class="atablet">Tablet</p>
-                </a>
-                <a class="items">
-                    <div class="Laptop product"></div>
-                    <p id="alaptop" href="">Laptop</p>
-                </a>
-                <a class="items">
-                    <div class="product phukien"></div>
-                    <p class="aphukien">Phụ kiện</p>
-                </a>
-                <a class="items">
-                    <div class="product watch"></div>
-                    <p class="awatch" >Đồng hồ</p>
-                </a>
-                <a class="items">
-                    <div class="product older"></div>
-                    <p class="aolder" href="">Cũ giá rẻ</p>
-                </a>
-                <a class="items">
-                    <div class="product technology"></div>
-                    <p class="atechnology" >Công nghệ</p>
-                </a>
-                <a class="items">
-                    <div class="product sim"></div>
-                    <p class="asim" href="">Sim đẹp</p>
-                </a>
-                <a class="items">
-                    <p id="login" href="">Login</p>
-                </a>
-                <div class="buycall">
-                    GỌI MUA HÀNG:
-                    <a href="">1800.1068</a>
-                    <span>(7:30 - 22:00)</span>
-                </div>
-            </div>
-        </div>
-	</header>
+<!-- REQUIRE TEMPLATE HEADER -->
+	<%@ include file="template/header.jsp" %> 
 <!-- Done Header -->	
 
 <!-- HTML CONTAINER -->
@@ -84,12 +30,14 @@
 	        	<c:forEach var ="i" begin="1" end = "${diemdanhgia}" step="1">
 	        		<img src ="image/star.jpg" class="saodanhgia"/>
 	        	</c:forEach>
-	        		<img src ="image/motnuasao.jpg" class="saodanhgia"/>
+	        		<c:if test ="${diemle != 0}">
+	        			<img src ="image/motnuasao.jpg" class="saodanhgia"/>
+	        		</c:if>
 	        		<a class="xemdanhgia">Xem đánh giá</a>
 	        	</c:if>
 	        	<c:if test ="${diemdanhgia <= 0}">
 	        		<h4>Chưa có đánh giá</h4>
-	        		<button id=""danhgiasanpham>Đánh giá</button>
+	        		<a class="xemdanhgia">Đánh giá ngay</a>
 	        	</c:if>
 	        </div>
         </aside>
@@ -113,7 +61,9 @@
                 <span class="khuyenmaiphukien">Tặng mã giảm giá 100.000đ để mua phụ kiện online (áp dụng đơn hàng phụ kiện trên 200.000đ)</span>
                 <span class="notkhuyenmai">*Không áp dụng khi mua trả góp</span>
             </div>
-            <button class="muangay">MUA NGAY<p>Giao tận nơi hoặc nhận tại siêu thị</p></button>
+            <a href="giohang?maSanpham=${sanpham.getMaSanPham()}">
+               	<button class="muangay">MUA NGAY<p>Giao tận nơi hoặc nhận tại siêu thị</p></button>
+            </a>            
             <div class="muatragop btnmua">
                 <strong>MUA TRẢ GÓP</strong><span>Thủ tục đơn giản</span>
             </div>
@@ -168,71 +118,64 @@
             </ul>
             <div class ="xemcauhinhchitiet">Xem cấu hình chi tiết</div>
         </div>
-		
+		<div class="clearn"></div>
 		<!-- ĐÁNH GIÁ SẢN PHẨM -->
 		<div class="formDanhGia">
-			<form action="" method="POST" class="formDanhGia">
-				<lable>Đánh giá sao</lable>
-				<label for="ip1">1<img src ="image/star.jpg" width="19px" height="20px"/></label>
-				<input id="ip1" type="radio" name="sao" value="1"/>
-				<label for="ip2">2<img src ="image/star.jpg" width="19px" height="20px"/></label>
-				<input id="ip2" type="radio" name="sao" value="4"/>
-				<label for="ip3">3<img src ="image/star.jpg" width="19px" height="20px"/></label>
-				<input id="ip3" type="radio" name="sao" value="5"/>
-				<label for="ip4">4<img src ="image/star.jpg" width="19px" height="20px"/></label>
-				<input id="ip4" type="radio" name="sao" value="4"/>
-				<label for="ip5">5<img src ="image/star.jpg" width="19px" height="20px"/></label>
-				<input id="ip5" type="radio" name="sao" value="5"/>
-				<textarea placeholder="Nhập nội dung đánh giá"></textarea>
-				<input type="submit" value="guidanhgia"></input>
+			<form action="danhgiasanpham" name="formDanhGia" method="POST" onsubmit="return checkGuiDanhGia()">
+				<h4>Chọn đánh giá của bạn</h4>
+				<div class="group1">
+					<label for="ip1">1<img src ="image/star.jpg" width="19px" height="20px"/></label>
+					<input id="ip1" type="radio" name="sao" value="1"/>
+				</div>
+				<div class="group1">
+					<label for="ip2">2<img src ="image/star.jpg" width="19px" height="20px"/></label>
+					<input id="ip2" type="radio" name="sao" value="4"/>
+				</div>
+				<div class="group1">
+					<label for="ip3">3<img src ="image/star.jpg" width="19px" height="20px"/></label>
+					<input id="ip3" type="radio" name="sao" value="5"/>
+				</div>
+				<div class="group1">
+					<label for="ip4">4<img src ="image/star.jpg" width="19px" height="20px"/></label>
+					<input id="ip4" type="radio" name="sao" value="4"/>
+				</div>
+				<div class="group1">
+					<label for="ip5">5<img src ="image/star.jpg" width="19px" height="20px"/></label>
+					<input id="ip5" type="radio" name="sao" value="5"/>
+				</div>
+				<input type="hidden" name="ngaydanhgia" value="" id ="ngaydanhgia" />
+				<textarea id="noidungdanhgia" name="noidungdanhgia" placeholder="Nhập nội dung đánh giá (Không quá 100 kí tự)"></textarea>
+				<input class="submit" type="submit" value="Gửi"></input>
 			</form>
 		</div>
-		
 		<!-- XONG DANH GIA SAN PHAM -->         
         
-        
-        
+        <!-- HIEN THI NHUNG DANH GIA CUA SAN PHAM -->
+        <c:if test="${listDanhGia.size() > 0}">
+        	<div class="hienthidanhgia">
+        		<c:forEach items="${listDanhGia}" var ="danhgia">
+        			<div class="motdanhgia">
+        				<h4>${ danhgia.getHoTenKhachHang()}</h4>
+        				<div class="sosaodanhgia">
+        					<c:forEach var ="i" begin="1" end = "${danhgia.getDiemDanhGia()}" step="1">
+	        					<img src ="image/star.jpg" class="saodanhgia1"/>
+	        				</c:forEach>
+        				</div>
+        				<p class="ngaydanhgia">${danhgia.getNgayDanhGia()}</p>
+        				<p class="noidungdanhgia">${danhgia.getNoiDungDanhGia()}</p>
+        			</div>
+        		</c:forEach>
+        	</div>
+        </c:if>
+        <!-- XONG HIEN THI NHUNG DANH GIA CUA SAN PHAM -->
 </div>
 	
 <!-- XONG HTML CONTAINER -->	
 	
 	
 <!-- HTML FOOTER -->
-	<div class="footer">
-        <div class="rowfood1">
-            <ul class = "ul1">
-                <li><a href="">Tìm hiểu về bảo hành</a></li>
-                <li><a href="">Chính sách đổi trả</a></li>
-                <li><a href="">Cách thức thanh toán</a></li>
-                <li><a href="">Hướng dẫn mua online</a></li>
-                <li><a href="">Thông tin cửa hàng</a></li>
-            </ul>
-            <ul class="ul2">
-                <li><a href="">Giới thiệu công ty</a></li>
-                <li><a href="">Tuyển dụng</a></li>
-                <li><a href="">Gửi thư góp ý</a></li>
-                <li><a href="">Tìm cửa hàng</a></li>
-            </ul>
-            <ul class="ul3">
-                <li><a href="">Gọi mua hàng <strong>1800.1574</strong></a></li>
-                <li><a href="">Gọi khiếu nại <strong> 1800.1062</strong></a></li>
-                <li><a href="">Gọi bảo hành <strong> 1800.1068</strong></a></li>
-                <li><a href="">Kỹ thuật <strong> 1800.7425</strong></a></li>
-                <li class="congnhan"><a href=""></a></li>
-            </ul>
-            <ul class="ul4">
-                <li>
-                    <a href="" class="facebook"><i class="icon-fb"></i>3.5tr</a>
-                    <a href="" class="youtube"><i class="icon-ytb"></i>162k</a>
-                    <div class="group">
-                        <label>Sản phẩm cùng tập đoàn</label>
-                        <a href=""><i class="logo-dmx"></i></a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <!-- XONG HML FOOTER -->	
+	<%@ include file="template/footer.jsp" %>  	
+<!-- XONG HML FOOTER -->	
     <script src="script/chitiet.js"></script>
 </body>
 </html>
