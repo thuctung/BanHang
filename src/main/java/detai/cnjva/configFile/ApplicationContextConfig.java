@@ -1,17 +1,17 @@
 package detai.cnjva.configFile;
 
 
-import javax.sql.DataSource;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.context.annotation.Configuration;import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+<<<<<<< HEAD
 import detai.cnjva.DAO.Implement.giohangImplement;
 import detai.cnjva.DAO.Interface.giohangInterface;
 import detai.cnjva.DAOFile.UserDAO;
+=======
+>>>>>>> 52e6a33538b2e5838241aa8910f6bc7c9dc53908
 
 
  
@@ -26,6 +26,7 @@ public class ApplicationContextConfig {
         return viewResolver;
     }  
     
+<<<<<<< HEAD
     @Bean
 	public DataSource getDataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -45,5 +46,7 @@ public class ApplicationContextConfig {
     {
     	return new giohangImplement(getDataSource());
     }
+=======
+>>>>>>> 52e6a33538b2e5838241aa8910f6bc7c9dc53908
     
 }

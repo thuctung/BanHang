@@ -602,6 +602,7 @@ a  h3{
     left: 6px;
     font-size: 11px;
     width: 85px;
+    font-family: sans-serif;
 }
 .giamgia > .tragop{
     width: 76px;
@@ -873,7 +874,7 @@ a  h3{
     position: absolute;
     top: 204px;
     left: 5px;
-    width: 165px;
+    width: 200px;
 }
 .tablethotnhat a .giasanpham{
     position: absolute;

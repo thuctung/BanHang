@@ -23,10 +23,10 @@ public class helloController {
 		ArrayList<SanPham> listSPHot = new ArrayList<SanPham>();
 		ArrayList<SanPham> listTabletHot = new ArrayList<SanPham>();
 		SanPhamDAO sqpdao = new SanPhamDAO();
-		listSP = sqpdao.LaySanPhamTheoDanhMuc(1,5,0); // lay dien thoai noi bat
-		listTablet = sqpdao.LaySanPhamTheoDanhMuc(2,5,0); // lay tablet noi bat
-		listSPHot = sqpdao.LaySanPhamTheoDanhMuc(1,6,1); // lat dien thoai hot
-		listTabletHot = sqpdao.LaySanPhamTheoDanhMuc(2,6,0);
+		listSP = sqpdao.SanPhamKhuyenMaiHot(1,5); // lay dien thoai khuyen mai hot
+		listTablet = sqpdao.SanPhamKhuyenMaiHot(2,5); // lay tablet khuyen mai hot
+		listSPHot = sqpdao.SanPhamNoiBat(1,6); // lat dien thoai hot CO DANH GIA CAO NHAT
+		listTabletHot = sqpdao.SanPhamNoiBat(2,6); //lay dien thoai co danh gia cao nhat
 		model.addAttribute("dienthoai", listSP);
 		model.addAttribute("tablet", listTablet);
 		model.addAttribute("dienthoaiHot", listSPHot);

@@ -18,14 +18,21 @@ import detai.cnjva.modelFile.SanPham;
 @Controller
 public class SanPhamController {
 	
+	public SanPhamDAO  spDAO = new SanPhamDAO();
+	public SanPham sanpham;
+	public ChiTietSanPham ctsp;
+	public ChiTietSanPhamDAO  ctspDAO;
+	public ArrayList<SanPham> list, listTimKiemDT, listTimKiemTablet;
 	@RequestMapping(value="/chitietsanpham", method = RequestMethod.GET)
 	public String XemThongTinSanPham(Model model,HttpServletRequest request) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
 		if( request.getParameter("Masp") != null) {
 			int masp = Integer.parseInt(request.getParameter("Masp"));
-			ChiTietSanPhamDAO  ctspDAO = new ChiTietSanPhamDAO();
-			SanPhamDAO  spDAO = new SanPhamDAO();
-			SanPham sanpham = spDAO.LaySanPhamTheoMa(masp);
-			ChiTietSanPham ctsp = ctspDAO.LayThongTinSanPham(masp);
+			ctspDAO = new ChiTietSanPhamDAO();
+			spDAO = new SanPhamDAO();
+			sanpham = spDAO.LaySanPhamTheoMa(masp);
+			ctsp = ctspDAO.LayThongTinSanPham(masp);
+			float diemdanhgia = spDAO.SoDanhGiaTrungBinhSanPham(masp);
+			model.addAttribute("diemdanhgia", 4.5);
 		    model.addAttribute("sanpham", sanpham);
 		    model.addAttribute("ctsp", ctsp);
 			return "thongtinsanpham";
@@ -35,15 +42,19 @@ public class SanPhamController {
 		}
 		
 	}
+	
 	@RequestMapping(value = "/timkiem", method = RequestMethod.POST)
-	public String TimKiemSanPham(Model model, HttpServletRequest request) {
+	public String TimKiemSanPham(Model model, HttpServletRequest request) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
 		if(request.getParameter("key") != null) {
 			String tenCanTim = request.getParameter("key");
-			model.addAttribute("key", tenCanTim);
+			listTimKiemDT = spDAO.TimKiemSanPham(tenCanTim ,1);
+			listTimKiemTablet = spDAO.TimKiemSanPham(tenCanTim ,2);
+			model.addAttribute("listDT", listTimKiemDT);
+			model.addAttribute("listTL", listTimKiemTablet);
 			return "timkiem";
-		}else {
-			return "redirect:/";
 		}
+		
+		return "redirect:/";
 	}
 	
 	@RequestMapping(value = "/hienthisanpham", method= RequestMethod.GET)
@@ -64,8 +75,8 @@ public class SanPhamController {
 			 }
 		}
 		if(request.getParameter("Madm") != null) {
-			ArrayList<SanPham> list = new ArrayList<SanPham>();
-			SanPhamDAO spDAO = new SanPhamDAO();
+			list = new ArrayList<SanPham>();
+			spDAO = new SanPhamDAO();
 			int madm = Integer.parseInt( request.getParameter("Madm"));
 			// lay tong so san pham theo ma, neu hangSanXuat > 0 thi truy van them dieu kien hang san xuat
 			float tongSoSanPham = spDAO.TongSoSanPham(madm, hangSanXuat); 

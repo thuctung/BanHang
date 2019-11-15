@@ -242,9 +242,31 @@ form{
     height: 88%;
     margin-top: 10px;
 }
-.picture > img{
+.picture  .anhsanpham{
     width: 100%;
     height: 318px;
+}
+.danhgiasanpham{
+	width: 100%;
+    height: 63px;
+    padding-top: 21px;
+    text-align: center;
+}
+.danhgiasanpham > h4{
+	margin 0;
+	font-size: 18px;
+	display:inline;
+}
+.xemdanhgia{
+	display: block;
+    color: dodgerblue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.saodanhgia{
+	width: 19px;
+    height: 19px;
+    display: inline-flex;	
 }
 .price-sale{
     float: left;

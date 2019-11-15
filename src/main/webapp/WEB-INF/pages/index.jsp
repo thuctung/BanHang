@@ -138,7 +138,6 @@
             <div class="listkhuyenmai">
                 <div class="listkhuyenmai1 danghienthi">
                	 <c:forEach items = "${dienthoai}" var="dt">
-
                	 	<div class="hot-item">	
 							<a href="./chitietsanpham?Masp=${dt.getMaSanPham()}">
 								<img src="image/sanpham/dienthoai/${dt.getHinhAnh()}" alt="" width="180px" height="180px">
@@ -238,7 +237,7 @@
 					                <p><?php echo "Mua loa kẹo kéo giảm 15%"?></p>
 					             </div>
 					             <div class="giamgia">
-					                <label class ="tragop">Trả góp 0% </label>
+					                <label class ="tragop">Ưu thích nhất</label>
 					            </div>
 					      </a>
 					  </div>
@@ -301,7 +300,7 @@
 				                    <p>Mua loa kẹo kéo giảm 15%</p>
 				                </div>
 				                <div class="giamgia">
-				                    <label class ="tragoptablet">Trả góp 0% </label>
+				                    <label class ="tragoptablet">Ưu thích nhất</label>
 				                </div>
 				            </a>
 				        </div>
