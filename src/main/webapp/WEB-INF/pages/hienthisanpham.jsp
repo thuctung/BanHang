@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <LINK REL="SHORTCUT ICON" HREF="image/sanpham/logoTittle.png">
-<title>Thế giới di đông </title>
+<title>Thế giới di động </title>
 <link href="stylesheet/index.css" rel="stylesheet">
 <link href="stylesheet/hienthisanpham.css" rel="stylesheet">
 

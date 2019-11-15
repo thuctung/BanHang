@@ -15,9 +15,9 @@ public class connection {
 // Nếu bạn dùng Java6, thì ko cần dòng này cũng được.
 		String hostName = "localhost";
 
-		String dbName = "PTMPCN";
+		String dbName = "ptmpcn";
 		String userName = "root";
-		String password = "thuctung";
+		String password = "votandong";
  
 		Class.forName("com.mysql.jdbc.Driver").newInstance();
 

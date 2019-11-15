@@ -6,6 +6,14 @@ public class SanPham {
 	public int getMaSanPham() {
 		return maSanPham;
 	}
+	public SanPham(int maSanPham, int donGia, String tenSanPham, String hinhAnh, String moTa) {
+		super();
+		this.maSanPham = maSanPham;
+		this.donGia = donGia;
+		this.tenSanPham = tenSanPham;
+		this.hinhAnh = hinhAnh;
+		this.moTa = moTa;
+	}
 	public void setMaSanPham(int maSanPham) {
 		this.maSanPham = maSanPham;
 	}
@@ -46,4 +54,9 @@ public class SanPham {
 		this.moTa = moTa;
 	}
 		public SanPham() {}
+		@Override
+		public String toString() {
+			return "SanPham [maSanPham=" + maSanPham + ", donGia=" + donGia + ", tenSanPham=" + tenSanPham
+					+ ", hinhAnh=" + hinhAnh + ", moTa=" + moTa + "]";
+		}
 }
