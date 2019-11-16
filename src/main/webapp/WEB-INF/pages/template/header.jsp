@@ -45,14 +45,20 @@
                     <div class="product sim"></div>
                     <p class="asim" href="">Sim đẹp</p>
                 </a>
-                <a class="items" href="./login">
-                    <p id="login">Login</p>
-                </a>
-                <div class="buycall">
-                    GỌI MUA HÀNG:
-                    <a href="">1800.1068</a>
-                    <span>(7:30 - 22:00)</span>
-                </div>
+                <c:choose>
+   					<c:when test="${sessionScope.idKhachHang != null}">
+   						<a class="items" href="./logout">
+                    		<img class="imgLogin" src="image/user.png"/>
+                    		<p class="plogin">Logout</p>
+                		</a>
+   					</c:when>
+   					<c:otherwise>
+   						<a class="items" href="./login">
+                    		<img class="imgLogin" src="image/logout.png"/>
+                    		<p class="plogin">Logint</p>
+                		</a>
+   					</c:otherwise>
+   				</c:choose>
             </div>
         </div>
     </div>

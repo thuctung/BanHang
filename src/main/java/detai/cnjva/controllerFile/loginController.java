@@ -3,6 +3,7 @@ package detai.cnjva.controllerFile;
 import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,15 +15,15 @@ import detai.cnjva.modelFile.User;
 
 @Controller
 public class loginController {
-	private UserDAO userDao;
 	@RequestMapping("/login")
 	public String login(Model model) {
 		return "login";
 	}
 	
 	@RequestMapping(value = "/login", method=RequestMethod.POST)
-	public String Posstlogin(HttpServletRequest request) throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
-		//UserDAO userDao = new UserDAO();
+	public String Posstlogin(Model model, HttpServletRequest request) throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
+		UserDAO userDao = new UserDAO();
+		HttpSession session = request.getSession();
 		String userName = request.getParameter("username");
 		String password = request.getParameter("matkhau");
 		User user = new User();
@@ -30,10 +31,21 @@ public class loginController {
 		user.setPassWord(password);		
 		// goi DAO
 		if(userDao.checkLogin(user)) {
-			request.setAttribute("mess","Ok" );
-			return "redirect:/"; 
-		}
-		request.setAttribute("mess","Fails" );
-		return "login";
+			User userRs = new User();
+			userRs = userDao.LayThongTinUser(userName);
+			session.setAttribute("idKhachHang", userRs.getIdUser());
+			return "redirect:"+ request.getHeader("Referer");
+		}else {
+			request.setAttribute("mess","Mật khẩu hoặc tài khoản không đúng!");
+			return "login";
+		}		
+	}
+	
+	@RequestMapping("/logout")
+	public String LogOut(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		session.removeAttribute("idKhachHang");
+		String referer = request.getHeader("Referer");
+		return "redirect:"+ referer;
 	}
 }

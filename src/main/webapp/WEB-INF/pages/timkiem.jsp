@@ -8,6 +8,8 @@
 <meta charset="UTF-8">
 <LINK REL="SHORTCUT ICON" HREF="image/sanpham/logoTittle.png">
 <title>Thế giới di đông </title>
+<link href="stylesheet/header.css" rel="stylesheet">
+<link href="stylesheet/footer.css" rel="stylesheet">
 <link href="stylesheet/timkiem.css" rel="stylesheet">
 
 </head>

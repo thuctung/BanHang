@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import detai.cnjva.connecDatabase.connection;
 import detai.cnjva.modelFile.DanhGiaSanPham;
@@ -127,6 +129,8 @@ public class SanPhamDAO {
 			sp.setMoTa(res.getString(5));
 			sp.setMaDanhMuc(res.getInt(6));
 			sp.setHangSanXuat(res.getInt(7));
+			sp.setKhuyenMai(res.getInt(8));
+			sp.setDiemDanhGia(res.getDouble(9));
 			list.add(sp);
 		}
 		pre.close();
@@ -204,16 +208,20 @@ public class SanPhamDAO {
 	}
 	
 	public static void main(String [] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
-		String sql = "SELECT HoTen from KhachHang Where idKhachHang = ?";
-		String ten = "";
+		int diem = 0;
+		String sql ="Select diemdanhgia from SanPham where masanpham = 1";
 		Connection connec = connection.getMySQLConnection();
 		PreparedStatement pre = connec.prepareStatement(sql);
-		pre.setInt(1, 2);
 		ResultSet res = pre.executeQuery();
-		while(res.next()) 
-		{
-			ten = res.getString(1);
+		while(res.next()) {
+			diem =res.getInt(1);
 		}
-		System.out.print(ten);
+		diem = diem * -1 ;
+		String sql1 ="Update SanPham set diemdanhgia = ? where masanpham = 1";
+		connec = connection.getMySQLConnection();
+		 pre = connec.prepareStatement(sql1);
+		 pre.setInt(1, diem);
+		int kt = pre.executeUpdate();
+		System.out.println(diem);
 	}
 }

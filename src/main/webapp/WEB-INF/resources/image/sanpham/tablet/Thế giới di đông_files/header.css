@@ -1,0 +1,253 @@
+/* css cho phan Header */
+body{
+	width:100%;
+	height:100vh;
+	margin:0;
+	pading:0;
+	background: #eee;
+}
+
+.header{
+	width: 100%;
+	height: 53px;
+	background: #fed700;
+    margin-bottom: 10px;
+}
+.newreponsive, .denbaophu,.buycall{
+    display: none;
+}
+.contentHeader{
+	width: 85%;
+	margin: 0 auto;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+form{
+    height: 100%;
+    width: 35%;
+}
+.logo{
+	height: 100%;
+    width: 100%;
+    background: black;
+    position: relative;
+}
+.avartar{
+	height: 29px;
+    width: 30px;
+    background: url(../image/sanpham/icon.png);
+    background-size: 535px 100px;
+    position: absolute;
+    top: 19%;
+    left: 3%;
+}
+.title{
+	height: 30px;
+    width: 121px;
+    background: url(../image/sanpham/icon.png);
+    background-size: 490px 117px;
+    background-position-x: -31px;
+    position: absolute;
+    top: 16%;
+    left: 12%;
+}
+.search{
+	position: absolute;
+    height: 35px;
+    width: 48%;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    top: 13%;
+    left: 46%;
+    padding-left: 18px;
+    outline: none;
+}
+.iconsearch{
+	height: 35px;
+    width: 35px;
+    background: url(../image/sanpham/icon.png);
+    background-position-x: -183px;
+    background-size: 586px 116px;
+    position: absolute;
+	top: 26%;
+    right: 5%;
+    border: none;
+    outline: none;
+}
+
+.navabar{
+    height: 100%;
+    width: 66%;
+}
+
+.items{
+	width: 10%;
+	height: 53px;
+	position: relative;
+	cursor: pointer;
+	float: left;
+}
+
+.items:hover{
+	background-color: white;
+}
+.product{
+	position: absolute;
+	top :2px;
+	left: 13%;
+	background: url(../image/sanpham/icon.png);
+}
+.phone{
+	background-position-x: -211px;
+	background-size: 586px 116px;
+	width: 33px;
+	height: 35px;
+}
+.tablet{
+	width: 40px;
+    height: 35px;
+    background-position-x: -244px;
+    background-size: 586px 116px;
+}
+
+.Laptop{
+	width: 49px;
+    height: 35px;
+    background-position-x: -286px;
+    background-size: 586px 116px;
+}
+
+.phukien{
+	width: 36px;
+    height: 35px;
+    background-position-x: -333px;
+    background-size: 586px 116px;
+}
+.watch{
+    width: 37px;
+    height: 38px;
+    background-position-x: -1201px;
+    background-position-y: 63px;
+    background-size: 702px;
+}
+.older{
+	width: 47px;
+    height: 35px;
+    background-position-x: -368px;
+    background-size: 586px 116px;
+}
+.technology{
+    width: 43px;
+    height: 35px;
+    background-position-x: -509px;
+    background-size: 586px 116px;
+}
+.cart{
+    width: 41px;
+    height: 37px;
+    background-position-x: -361px;
+    background-position-y: 243px;
+    background-size: 687px;
+}
+.countitem{
+    text-decoration: none;
+    position: absolute;
+    top: 0px;
+    left: 34px;
+    font-size: small;
+    font-family: monospace;
+}
+.items  p{
+	position: absolute;
+	bottom: -6px;
+    text-decoration: none;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+	font-weight: 300;
+    font-size: 0.6em;
+    text-align: center;
+}
+.sim{
+    width: 30px;
+    height: 35px;
+    background-position-x: -412px;
+    background-size: 586px 116px;
+    left: 26%;
+}
+#login{
+ 	position: absolute;
+    bottom: 0px;
+    right: 32%;
+    text-decoration: none;
+    color: black;
+    font-size: 13px;
+}
+
+
+.aphone{
+    left: 10%;
+}
+.atablet{
+    left: 18%;
+}
+#alaptop{
+    left: 20%;
+}
+.aphukien, .awatch, .aolder{
+    left: 10%;
+}
+.ahelp{
+    left: 10%;
+}
+.atechnology{
+    left: 10%;
+}
+.asim{
+    left: 21%;
+}
+#asim{
+    left: 8%;
+}
+
+
+/* xong css header */
+
+
+/* css scroll top top */
+/* CSS FOR BUTTON SCROLL TO TOP */
+.vedau{
+    position: fixed;
+    right: 14px;
+    bottom: 40px;
+    width: 35px;
+    height: 45px;
+    border-radius: 6px;
+    background: #fed700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.scroll{
+    position: relative;
+    width: 35px;
+    height: 45px;
+}
+.scroll::before{
+    content: "";
+    position: absolute;
+    top: 18px;
+    left: 8px;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-bottom: 9px solid black;
+}
+.anScroll{
+    opacity: 0;
+}
+/* xong css scroll top */
+
+.imgLogin{
+	position:absolute;
+}

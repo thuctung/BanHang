@@ -51,6 +51,9 @@
 			</div>
 		</div>
 	</div>
+	<c:if test="${mess != null}">
+		<script>alert("Tên đăng nhập hoặc mật khẩu không đúng")</script>
+	</c:if>
 </body>
 		<script src="script/login.js"></script>
 </html>

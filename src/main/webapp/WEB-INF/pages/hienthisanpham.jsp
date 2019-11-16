@@ -8,7 +8,8 @@
 <meta charset="UTF-8">
 <LINK REL="SHORTCUT ICON" HREF="image/sanpham/logoTittle.png">
 <title>Thế giới di đông </title>
-<link href="stylesheet/index.css" rel="stylesheet">
+<link href="stylesheet/header.css" rel="stylesheet">
+<link href="stylesheet/footer.css" rel="stylesheet">
 <link href="stylesheet/hienthisanpham.css" rel="stylesheet">
 
 </head>
@@ -109,8 +110,17 @@
 	            <p class="tenSanPham">${page.getTenSanPham() }</p>
 	            <c:set var = "dongia" value = "${page.getDonGia() }" />
 	            <p class="donGiaSP">
-	            	<fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${dongia}"/>đ
+	            	<fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${dongia-1000000}"/>đ
 	            </p>
+	            <c:if test="${page.getDiemDanhGia() > 0}">
+	            	<img src="image/star.jpg" class="anhdanhgia">
+	            </c:if>
+	            <c:if test="${page.getKhuyenMai() > 0}">
+	            	<strong class="tiengiamgia">
+						<fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${dongia}"/>đ
+			     	</strong>
+	            	<label class="labelGiamgia">Giảm 1.000.000đ</label>
+	            </c:if>
            	</a>
         	</c:forEach>
         </c:if>

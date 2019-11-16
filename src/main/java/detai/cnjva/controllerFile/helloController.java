@@ -31,9 +31,4 @@ public class helloController {
 		model.addAttribute("tabletHot", listTabletHot);
 		return "index";
 	}
-	@RequestMapping("/giohang")
-	public String giohang() {
-		
-		return "giohang";
-	}
 }

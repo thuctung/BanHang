@@ -1,4 +1,1 @@
-USE PTMPCN;
-SET SQL_SAFE_UPDATES = 0;
-
-Update SanPham set diemdanhgia = 4 where masanpham = 1;
+Insert into DanhGiaSanPham values(1, "adfda", "adfadsfa", 1, 3);

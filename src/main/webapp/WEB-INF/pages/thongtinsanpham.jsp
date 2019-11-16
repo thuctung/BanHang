@@ -7,6 +7,8 @@
 <head>
 <meta charset="UTF-8">
 <LINK REL="SHORTCUT ICON" HREF="image/sanpham/logoTittle.png">
+<link href="stylesheet/header.css" rel="stylesheet">
+<link href="stylesheet/footer.css" rel="stylesheet">
 <link href="stylesheet/chitietsanpham.css" rel="stylesheet">
 <title>Thế giới di đông </title>
 </head>
@@ -121,7 +123,7 @@
 		<div class="clearn"></div>
 		<!-- ĐÁNH GIÁ SẢN PHẨM -->
 		<div class="formDanhGia">
-			<form action="danhgiasanpham" name="formDanhGia" method="POST" onsubmit="return checkGuiDanhGia()">
+			<form action="chitietsanpham" name="formDanhGia" method="POST" onsubmit="return checkGuiDanhGia()">
 				<h4>Chọn đánh giá của bạn</h4>
 				<div class="group1">
 					<label for="ip1">1<img src ="image/star.jpg" width="19px" height="20px"/></label>
@@ -129,11 +131,11 @@
 				</div>
 				<div class="group1">
 					<label for="ip2">2<img src ="image/star.jpg" width="19px" height="20px"/></label>
-					<input id="ip2" type="radio" name="sao" value="4"/>
+					<input id="ip2" type="radio" name="sao" value="2"/>
 				</div>
 				<div class="group1">
 					<label for="ip3">3<img src ="image/star.jpg" width="19px" height="20px"/></label>
-					<input id="ip3" type="radio" name="sao" value="5"/>
+					<input id="ip3" type="radio" name="sao" value="3"/>
 				</div>
 				<div class="group1">
 					<label for="ip4">4<img src ="image/star.jpg" width="19px" height="20px"/></label>
@@ -143,10 +145,22 @@
 					<label for="ip5">5<img src ="image/star.jpg" width="19px" height="20px"/></label>
 					<input id="ip5" type="radio" name="sao" value="5"/>
 				</div>
-				<input type="hidden" name="ngaydanhgia" value="" id ="ngaydanhgia" />
+				<input  type="hidden" name="masp" value="${sanpham.getMaSanPham()}"></input>
 				<textarea id="noidungdanhgia" name="noidungdanhgia" placeholder="Nhập nội dung đánh giá (Không quá 100 kí tự)"></textarea>
-				<input class="submit" type="submit" value="Gửi"></input>
+				<c:choose>
+   					<c:when test="${sessionScope.idKhachHang != null}">
+   						<input class="submit" type="submit" value="Gửi"></input>
+   					</c:when>
+   					<c:otherwise>
+   						<a class="dangnhapdedanhgia" href="./login">Đăng nhập để đánh giá </a>
+   					</c:otherwise>
+   				</c:choose>
 			</form>
+			
+			<c:if test="${sessionScope.result == true}">
+				<script>alert("Ban da danh gia san pham nay!")</script>
+				<% request.getSession().removeAttribute("result");%>
+			</c:if>
 		</div>
 		<!-- XONG DANH GIA SAN PHAM -->         
         
@@ -163,6 +177,9 @@
         				</div>
         				<p class="ngaydanhgia">${danhgia.getNgayDanhGia()}</p>
         				<p class="noidungdanhgia">${danhgia.getNoiDungDanhGia()}</p>
+        				<c:if test="${sessionScope.idKhachHang == danhgia.getIdKhachHang()}">
+        					<a href="xoadanhgia?masp=${danhgia.getMaSanPham()}&&sosao=${danhgia.getDiemDanhGia()}" class="Xoacmt">Xóa đánh giá</a>
+        				</c:if>
         			</div>
         		</c:forEach>
         	</div>

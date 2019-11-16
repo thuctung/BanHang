@@ -9,7 +9,10 @@ public class SanPham {
 	public void setKhuyenMai(int intKhuyenMai) {
 		this.khuyenMai = intKhuyenMai;
 	}
-	public double gettongDiemDanhGia() {
+	public int getKhuyenMai() {
+		return khuyenMai;
+	}
+	public double getDiemDanhGia() {
 		return tongDiemDanhGia;
 	}
 	public void setDiemDanhGia(double diemDanhGia) {

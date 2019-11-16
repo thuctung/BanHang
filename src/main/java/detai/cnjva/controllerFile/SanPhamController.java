@@ -29,7 +29,6 @@ public class SanPhamController {
 	public ArrayList<DanhGiaSanPham> listDanhGiaSP;
 	@RequestMapping(value="/chitietsanpham", method = RequestMethod.GET)
 	public String XemThongTinSanPham(Model model,HttpServletRequest request) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
-		if( request.getParameter("Masp") != null) {
 			int masp = Integer.parseInt(request.getParameter("Masp"));
 			ctspDAO = new ChiTietSanPhamDAO();
 			spDAO = new SanPhamDAO();
@@ -44,25 +43,16 @@ public class SanPhamController {
 		    model.addAttribute("sanpham", sanpham);
 		    model.addAttribute("ctsp", ctsp);
 			return "thongtinsanpham";
-		}
-		else {
-			return "redirect:/"; 
-		}
-		
 	}
 	
 	@RequestMapping(value = "/timkiem", method = RequestMethod.POST)
 	public String TimKiemSanPham(Model model, HttpServletRequest request) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
-		if(request.getParameter("key") != null) {
 			String tenCanTim = request.getParameter("key");
 			listTimKiemDT = spDAO.TimKiemSanPham(tenCanTim ,1);
 			listTimKiemTablet = spDAO.TimKiemSanPham(tenCanTim ,2);
 			model.addAttribute("listDT", listTimKiemDT);
 			model.addAttribute("listTL", listTimKiemTablet);
 			return "timkiem";
-		}
-		
-		return "redirect:/";
 	}
 	
 	@RequestMapping(value = "/hienthisanpham", method= RequestMethod.GET)
@@ -82,34 +72,29 @@ public class SanPhamController {
 				 sapxep = false;
 			 }
 		}
-		if(request.getParameter("Madm") != null) {
-			list = new ArrayList<SanPham>();
-			spDAO = new SanPhamDAO();
-			int madm = Integer.parseInt( request.getParameter("Madm"));
-			// lay tong so san pham theo ma, neu hangSanXuat > 0 thi truy van them dieu kien hang san xuat
-			float tongSoSanPham = spDAO.TongSoSanPham(madm, hangSanXuat); 
-			int tongSoTrang = (int)Math.ceil(tongSoSanPham / soSanPham1Trang);
-			if(trangHienTai > tongSoTrang) {
-				trangHienTai = tongSoTrang;
-			}
-			int trangBatDau  = (trangHienTai - 1)*(int)soSanPham1Trang;
-			
-			if(tongSoSanPham <= 0) {
-				list = list;
-			}else {
-				list = spDAO.HienThiDanhSachSanPham(madm, hangSanXuat,(int)soSanPham1Trang, trangBatDau, sapxep);
-			}
-			model.addAttribute("listSP", list);
-			model.addAttribute("sapxep", sapxep);
-			model.addAttribute("page",tongSoTrang);
-			model.addAttribute("danhmuc",madm);
-			model.addAttribute("tranghientai",trangHienTai);
-			model.addAttribute("hang", hangSanXuat);
-			model.addAttribute("tongsanpham", (int)tongSoSanPham);
-			return "hienthisanpham";
+		list = new ArrayList<SanPham>();
+		spDAO = new SanPhamDAO();
+		int madm = Integer.parseInt( request.getParameter("Madm"));
+		// lay tong so san pham theo ma, neu hangSanXuat > 0 thi truy van them dieu kien hang san xuat
+		float tongSoSanPham = spDAO.TongSoSanPham(madm, hangSanXuat); 
+		int tongSoTrang = (int)Math.ceil(tongSoSanPham / soSanPham1Trang);
+		if(trangHienTai > tongSoTrang) {
+			trangHienTai = tongSoTrang;
 		}
-		else {
-			return "redirect:/"; 
+		int trangBatDau  = (trangHienTai - 1)*(int)soSanPham1Trang;
+		
+		if(tongSoSanPham <= 0) {
+			list = list;
+		}else {
+			list = spDAO.HienThiDanhSachSanPham(madm, hangSanXuat,(int)soSanPham1Trang, trangBatDau, sapxep);
 		}
+		model.addAttribute("listSP", list);
+		model.addAttribute("sapxep", sapxep);
+		model.addAttribute("page",tongSoTrang);
+		model.addAttribute("danhmuc",madm);
+		model.addAttribute("tranghientai",trangHienTai);
+		model.addAttribute("hang", hangSanXuat);
+		model.addAttribute("tongsanpham", (int)tongSoSanPham);
+		return "hienthisanpham";
 	}
 }

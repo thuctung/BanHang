@@ -189,3 +189,34 @@ a{
 .Tablet{
     height: 623px;
 }
+.listDienThoai > a > .anhdanhgia{
+	position: absolute;
+    top: 2% !important;
+    left: 92% !important;
+    idth: 21px;
+    height: 23px;
+}
+.labelGiamgia{
+	height: 14px;
+    background: linear-gradient(-90deg,#ec1f1f 0%,#ff9c00 100%);
+    color: white;
+    border-radius: 5px;
+    padding: 2px 5px;
+    position: absolute;
+    top: 86%;
+    left: 65%;
+    font-size: 11px;
+    width: 85px;
+    font-family: sans-serif;
+}
+.tiengiamgia{
+	display: inline-block;
+    font-size: 11px;
+    color: #635e5e;
+    text-decoration: line-through;
+    font-family: sans-serif;
+    font-weight: 300;
+    position: absolute;
+    bottom: 4%;
+    left: 9%;
+}

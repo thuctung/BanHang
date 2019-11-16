@@ -8,13 +8,14 @@
 <meta charset="UTF-8">
 <LINK REL="SHORTCUT ICON" HREF="image/sanpham/logoTittle.png">
 <title>Thế giới di đông </title>
+<link href="stylesheet/header.css" rel="stylesheet">
+<link href="stylesheet/footer.css" rel="stylesheet">
 <link href="stylesheet/index.css" rel="stylesheet">
 </head>
 <body>
  	<!-- NOI TEMPLATE HEADER -->
 	<%@ include file="template/header.jsp" %>
 	<!-- Done Header -->
-	
 	<div class="container">
 		<!-- QUANG CAO -->
 		<div class="advant">
@@ -87,9 +88,9 @@
 								<div class="giasanpham"> 
 									<c:set var = "dongia" value = "${dt.getDonGia() }" />
 	           						 <strong>
-	            						<fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${dongia}"/>đ
+	            						<fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${dongia-1000000}"/>đ
 	            					</strong>
-									<span><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${dongia+1000000}"/>đ</span>
+									<span><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${dongia}"/>đ</span>
 							</div>
 							<div class ="quatang">
 								<p> ${dt.getMoTa().substring(0, 73)}...</p>
@@ -110,9 +111,9 @@
 								<div class="giasanpham">
 								<c:set var = "dongia" value = "${tl.getDonGia() }" />
 	           						 <strong>
-	            						<fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${dongia}"/>đ
+	            						<fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${dongia-1000000}"/>đ
 	            					</strong>
-									<span><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${dongia+1000000}"/>đ</span>
+									<span><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${dongia}"/>đ</span>
 							</div>
 							<div class ="quatang">
 								<p>${tl.getMoTa()}...</p>
@@ -179,7 +180,7 @@
 					                <p><?php echo "Mua loa kẹo kéo giảm 15%"?></p>
 					             </div>
 					             <div class="giamgia">
-					                <label class ="tragop">Ưu thích nhất</label>
+					                <label class ="tragop">Top đánh giá</label>
 					            </div>
 					      </a>
 					  </div>
@@ -242,7 +243,7 @@
 				                    <p>Mua loa kẹo kéo giảm 15%</p>
 				                </div>
 				                <div class="giamgia">
-				                    <label class ="tragoptablet">Ưu thích nhất</label>
+				                    <label class ="tragoptablet">Top đánh giá</label>
 				                </div>
 				            </a>
 				        </div>
