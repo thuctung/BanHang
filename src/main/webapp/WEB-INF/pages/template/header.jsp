@@ -55,7 +55,7 @@
    					<c:otherwise>
    						<a class="items" href="./login">
                     		<img class="imgLogin" src="image/logout.png"/>
-                    		<p class="plogin">Logint</p>
+                    		<p class="plogin">Login</p>
                 		</a>
    					</c:otherwise>
    				</c:choose>

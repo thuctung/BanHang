@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import detai.cnjva.DAOFile.UserDAO;
+import detai.cnjva.modelFile.GetUser;
 import detai.cnjva.modelFile.User;
 
 @Controller
@@ -34,9 +35,9 @@ public class loginController {
 			User userRs = new User();
 			userRs = userDao.LayThongTinUser(userName);
 			session.setAttribute("idKhachHang", userRs.getIdUser());
-			return "redirect:"+ request.getHeader("Referer");
+			return "redirect:/";
 		}else {
-			request.setAttribute("mess","Mật khẩu hoặc tài khoản không đúng!");
+			request.setAttribute("mess","Mật khẩu hoặc tài khoản không đúng");
 			return "login";
 		}		
 	}
@@ -47,5 +48,28 @@ public class loginController {
 		session.removeAttribute("idKhachHang");
 		String referer = request.getHeader("Referer");
 		return "redirect:"+ referer;
+	}
+	
+	//Đăng ký tài khoản 11-17
+	@RequestMapping(value = "/dangki", method=RequestMethod.POST)
+	public String Signin(HttpServletRequest request) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
+		UserDAO userDao = new UserDAO();
+		GetUser getUser = new GetUser();
+		getUser.setUserName(request.getParameter("taikhoan"));
+		getUser.setPassWord(request.getParameter("password"));
+		getUser.setName(request.getParameter("name"));
+		getUser.setPhone(request.getParameter("phone"));
+		getUser.setAddress(request.getParameter("address"));
+		getUser.setEmail(request.getParameter("email"));
+		boolean kt = false;
+		kt = userDao.CheckUser(request.getParameter("taikhoan"));
+		if(!kt)
+		{
+			userDao.ThemUser(getUser);
+		}else {
+			request.setAttribute("mess1", "Tài khoản đã có người sử dụng");
+		}
+		
+		return "login";
 	}
 }

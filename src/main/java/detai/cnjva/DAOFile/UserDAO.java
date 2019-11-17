@@ -9,6 +9,7 @@ import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import detai.cnjva.connecDatabase.connection;
+import detai.cnjva.modelFile.GetUser;
 import detai.cnjva.modelFile.User;
 
 public class UserDAO {
@@ -17,7 +18,7 @@ public class UserDAO {
 		
 		connec = connection.getMySQLConnection();
 		String sql = "SELECT * FROM PTMPCN.Account where Account.UserName = ? and Account.Password = ?";
-		 // Tạo một đối tượng PreparedStatement.
+		 // Táº¡o má»™t Ä‘á»‘i tÆ°á»£ng PreparedStatement.
 	      PreparedStatement pstm = connec.prepareStatement(sql);
 	      pstm.setString(1, user.getUserName());
 	      pstm.setString(2, user.getPassWord());
@@ -27,6 +28,8 @@ public class UserDAO {
 	      }
 		return false;
 	}
+	
+	
 	public User LayThongTinUser(String userName) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
 		User user = new User();
 		String sql = "SELECT * FROM PTMPCN.Account where Account.UserName = ?";
@@ -40,10 +43,46 @@ public class UserDAO {
 	      }
 		return user;
 	}
+	
+	//thêm tài khoản
+	public Boolean ThemUser(GetUser getUser) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
+		connec = connection.getMySQLConnection();
+		String sql = "INSERT INTO account(UserName, Password, Name, Phone, Address, Email) VALUE(?, ?, ?, ?, ?, ?)";
+		PreparedStatement pstm = connec.prepareStatement(sql);
+		pstm.setString(1,  getUser.getUserName());
+		pstm.setString(2, getUser.getPassWord());
+		pstm.setString(3, getUser.getName());
+		pstm.setString(4, getUser.getPhone());
+		pstm.setString(5, getUser.getAddress());
+		pstm.setString(6, getUser.getEmail());
+		int rs = pstm.executeUpdate();
+		if(rs >0 ) {
+			return true;
+		}
+		return false;
+	}
+	//kiểm tra username đã tồn tại
+	public Boolean CheckUser(String UserName) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
+		connec = connection.getMySQLConnection();
+		String sql = "SELECT count(*) as Tong FROM PTMPCN.account WHERE account.UserName = ?";
+		PreparedStatement pstm = connec.prepareStatement(sql);
+//		GetUser getUser = new GetUser();
+		pstm.setString(1,  UserName);
+		ResultSet rs = pstm.executeQuery();
+		int soluong = 0;
+		if(rs.next())
+		{
+			soluong = rs.getInt("Tong");
+		}
+		if(soluong > 0) return true;
+		return false;
+	}
+	
+	
 	public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
 		Connection connec = connection.getMySQLConnection();
 		String sql = "SELECT * FROM PTMPCN.Account where Account.UserName = ? and Account.Password = ?";
-		 // Tạo một đối tượng PreparedStatement.
+		 // Táº¡o má»™t Ä‘á»‘i tÆ°á»£ng PreparedStatement.
 	      PreparedStatement pstm = connec.prepareStatement(sql);
 	      pstm.setString(1, "admin");
 	      pstm.setString(2, "admin");

@@ -38,13 +38,13 @@
 				<div class="lammo"></div>
 			</div>
 			<div class="formDangki">
-				<form action="">
+				<form action="dangki" method="POST">
 					<input  name ="taikhoan" placeholder="User Name" required/>
-					<input  type ="password" placeholder="Password" required/>
+					<input  type ="password" name="password" placeholder="Password" required/>
 					<input type="password" name ="confirmpass" placeholder="Confirm Password" required/>
 					<input  name ="name" placeholder="Name" required/>
 					<input  name ="phone" placeholder="Phone" required/>
-					<input  name ="adress" placeholder="Adress" required/>
+					<input  name ="address" placeholder="Adress" required/>
 					<input  name ="email" placeholder="Email" required/>
 					<button class="btnRegister">Register</button>
 				</form>
@@ -53,6 +53,9 @@
 	</div>
 	<c:if test="${mess != null}">
 		<script>alert("Tên đăng nhập hoặc mật khẩu không đúng")</script>
+	</c:if>
+		<c:if test="${mess1 != null}">
+		<script>alert("Tên đăng nhập đã có người sử dụng")</script>
 	</c:if>
 </body>
 		<script src="script/login.js"></script>
