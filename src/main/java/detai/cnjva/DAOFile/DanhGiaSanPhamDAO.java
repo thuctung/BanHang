@@ -33,6 +33,7 @@ public class DanhGiaSanPhamDAO {
 			dg.setDiemDanhGia(res.getInt(5));
 			list.add(dg);
 		}
+		pre.close();
 		return list;
 	}
 	
@@ -46,6 +47,7 @@ public class DanhGiaSanPhamDAO {
 		while(res.next()) {
 			ten = res.getString(1);
 		}
+		pre.close();
 		return ten;
 	}
 	
@@ -56,6 +58,7 @@ public class DanhGiaSanPhamDAO {
 		pre.setInt(1, makh);
 		pre.setInt(2, masp);
 		int res = pre.executeUpdate();
+		pre.close();
 		if(res > 0) {
 			return true;
 		}
@@ -73,6 +76,7 @@ public class DanhGiaSanPhamDAO {
 		if(res.next()) {
 			soluong = res.getInt("Tong");
 		}
+		pre.close();
 		if(soluong > 0 ) return true;
 		return false;
 	}
@@ -89,9 +93,29 @@ public class DanhGiaSanPhamDAO {
 		pre.setInt(4, masp);
 		pre.setInt(5, diem);
 		int res = pre.executeUpdate();
+		pre.close();
 		if(res > 0) return true;
 		return false;
 	}
+	
+	public boolean  CapNhatDanhGiaSanPham(int makh, int masp, int sosao, String noidung) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
+		Date d = new Date();
+		SimpleDateFormat dateFomat = new SimpleDateFormat ("dd/MM/yyyy");
+		String sql ="UPDATE DanhGiaSanPham SET diem = ?, noidung = ?, ngaydanhgia = ? WHERE idkhachhang = ? AND masanpham = ?";
+		
+		connec = connection.getMySQLConnection();
+		pre = connec.prepareStatement(sql);
+		pre.setInt(1, sosao);
+		pre.setString(2, noidung);
+		pre.setString(3, dateFomat.format(d).toString());
+		pre.setInt(4, makh);
+		pre.setInt(5, masp);
+		int res = pre.executeUpdate();
+		pre.close();
+		if(res > 0) return true;
+		return false;
+	}
+	// cap nhat tong diem danh gia cua san pham o bang SanPham
 	public boolean CapNhatSoDiemDanhGia(int masp, double sosao) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
 		double diem = 0;
 		String sql ="Select diemdanhgia from SanPham where masanpham = ?";
@@ -110,6 +134,7 @@ public class DanhGiaSanPhamDAO {
 		 pre.setDouble(1, diem);
 		 pre.setInt(2, masp);
 		int kt = pre.executeUpdate();
+		pre.close();
 		if(kt > 0) {
 			return true;
 		}

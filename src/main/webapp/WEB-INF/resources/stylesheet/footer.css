@@ -1,4 +1,60 @@
-
+.hienthiicongiohang{
+	display: block;
+    width: 180px;
+    height: 50px;
+    position: fixed;
+    bottom: 17%;
+    right: 4%;
+    background: white;
+    border: 1px solid #eee;
+    box-shadow: -1px 1px 12px #CCE;
+    border-radius: 46px;
+    z-index:3;
+}
+.divhinhanh{
+    background: #ffde31;
+    width: 26%;
+    height: 95%;
+    position: absolute;
+    top:  4%;
+    left: 1%;
+    border-radius: 50%;
+}
+.divgiohang{
+	width: 98%;
+    height: 99%;
+    position: relative;
+    border-radius: 22px;
+}
+.thongtingiohang{
+	
+}
+.hinhanhgiohang{
+	display:block;
+	width: 40px;
+    height: 40px;
+    background: url(../image/sanpham/icon.png);
+    background-size: 721px;
+    background-position-x: 345px;
+    background-position-y: 254px;
+    border-radius: 50%;
+}
+.noidung{
+	font-size: 15px;
+    width: 69%;
+    height: 100%;
+    position: absolute;
+    left: 33%;
+    top: 15%;
+    color: dodgerblue;
+    font-family: sans-serif;
+}
+.noidung > p{
+	margin:0;
+}
+.noidung > p > strong{
+	
+}
 /* CSS FOR FOOTER */
 .footer{
     width: 100%;

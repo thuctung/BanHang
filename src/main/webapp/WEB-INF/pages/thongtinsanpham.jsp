@@ -148,8 +148,11 @@
 				<input  type="hidden" name="masp" value="${sanpham.getMaSanPham()}"></input>
 				<textarea id="noidungdanhgia" name="noidungdanhgia" placeholder="Nhập nội dung đánh giá (Không quá 100 kí tự)"></textarea>
 				<c:choose>
-   					<c:when test="${sessionScope.idKhachHang != null}">
+   					<c:when test="${sessionScope.idKhachHang != null && checkdanhgia == false}">
    						<input class="submit" type="submit" value="Gửi"></input>
+   					</c:when>
+   					<c:when test="${checkdanhgia == true}">
+   						<a class="dangnhapdedanhgia">Bạn đã đánh giá sản phẩm này </a>
    					</c:when>
    					<c:otherwise>
    						<a class="dangnhapdedanhgia" href="./login">Đăng nhập để đánh giá </a>
@@ -157,9 +160,17 @@
    				</c:choose>
 			</form>
 			
-			<c:if test="${sessionScope.result == true}">
-				<script>alert("Ban da danh gia san pham nay!")</script>
-				<% request.getSession().removeAttribute("result");%>
+			<c:if test="${sessionScope.insert != null}">
+				<script>alert("Đánh giá thành công !")</script>
+				<% request.getSession().removeAttribute("insert");%>
+			</c:if>
+			<c:if test="${sessionScope.update != null}">
+				<script>alert("Cập nhật thành công thành công !")</script>
+				<% request.getSession().removeAttribute("update");%>
+			</c:if>
+			<c:if test="${sessionScope.delete != null}">
+				<script>alert("Xóa thành công !")</script>
+				<% request.getSession().removeAttribute("delete");%>
 			</c:if>
 		</div>
 		<!-- XONG DANH GIA SAN PHAM -->         
@@ -168,19 +179,61 @@
         <c:if test="${listDanhGia.size() > 0}">
         	<div class="hienthidanhgia">
         		<c:forEach items="${listDanhGia}" var ="danhgia">
-        			<div class="motdanhgia">
-        				<h4>${ danhgia.getHoTenKhachHang()}</h4>
-        				<div class="sosaodanhgia">
-        					<c:forEach var ="i" begin="1" end = "${danhgia.getDiemDanhGia()}" step="1">
-	        					<img src ="image/star.jpg" class="saodanhgia1"/>
-	        				</c:forEach>
-        				</div>
-        				<p class="ngaydanhgia">${danhgia.getNgayDanhGia()}</p>
-        				<p class="noidungdanhgia">${danhgia.getNoiDungDanhGia()}</p>
-        				<c:if test="${sessionScope.idKhachHang == danhgia.getIdKhachHang()}">
-        					<a href="xoadanhgia?masp=${danhgia.getMaSanPham()}&&sosao=${danhgia.getDiemDanhGia()}" class="Xoacmt">Xóa đánh giá</a>
-        				</c:if>
-        			</div>
+        			<c:choose>
+   						<c:when test="${sessionScope.idKhachHang == danhgia.getIdKhachHang()}">
+   							<div class="motdanhgia">
+   								<h4>${ danhgia.getHoTenKhachHang()}</h4>
+   								<form action="chitietsanpham" name="formUpdate" method="POST" onsubmit="return checkGuiUpdate()">
+		    						<div class="saoUpdate">
+	    								<div class="group1">
+											<label for="up1">1<img src ="image/star.jpg" width="19px" height="20px"/></label>
+											<input id="up1" type="radio" name="sao" value="1"/>
+										</div>
+										<div class="group1">
+											<label for="up2">2<img src ="image/star.jpg" width="19px" height="20px"/></label>
+											<input id="up2" type="radio" name="sao" value="2"/>
+										</div>
+										<div class="group1">
+											<label for="up3">3<img src ="image/star.jpg" width="19px" height="20px"/></label>
+											<input id="up3" type="radio" name="sao" value="3"/>
+										</div>
+										<div class="group1">
+											<label for="up4">4<img src ="image/star.jpg" width="19px" height="20px"/></label>
+											<input id="up4" type="radio" name="sao" value="4"/>
+										</div>
+										<div class="group1">
+											<label for="up5">5<img src ="image/star.jpg" width="19px" height="20px"/></label>
+											<input id="up5" type="radio" name="sao" value="5"/>
+										</div>	
+		    						</div>
+		    						<div class="sosaodanhgia saoupdate">
+		    							<input type="hidden" name="masp" value="${danhgia.getMaSanPham()}"/>
+		    							<input type="hidden" name="saodanhgiatruocupdate" value="${danhgia.getDiemDanhGia()}">
+		    							<c:forEach var ="i" begin="1" end = "${danhgia.getDiemDanhGia()}" step="1">
+		     								<img src ="image/star.jpg" class="saodanhgia1"/>
+		     							</c:forEach>
+		    						</div>
+		    						<input value="${danhgia.getNgayDanhGia()}" class="inputngaydanhgia" readonly/>
+		    						<input name="noidungdanhgia" value="${danhgia.getNoiDungDanhGia()}" autofocus class="formcomment" readonly/>
+		    						<input value="Cập nhật" type="submit" class="btnUpdate" />
+    							</form>
+    							<a href="xoadanhgia?masp=${danhgia.getMaSanPham()}&&sosao=${danhgia.getDiemDanhGia()}" class="Xoacmt">Xóa đánh giá</a>
+    							<a class="Xoacmt" id ="suadanhgia">Sửa đánh giá </a>
+   							</div>   							
+   						</c:when>
+   						<c:otherwise>
+   							<div class="motdanhgia">
+		    					<h4>${ danhgia.getHoTenKhachHang()}</h4>
+		    					<div class="sosaodanhgia">
+		    					<c:forEach var ="i" begin="1" end = "${danhgia.getDiemDanhGia()}" step="1">
+		     						<img src ="image/star.jpg" class="saodanhgia1"/>
+		     					</c:forEach>
+		    					</div>
+		    					<p class="ngaydanhgia">${danhgia.getNgayDanhGia()}</p>
+		    					<p class="noidungdanhgia">${danhgia.getNoiDungDanhGia()}</p>
+   							</div>
+   						</c:otherwise>
+   					</c:choose>					
         		</c:forEach>
         	</div>
         </c:if>

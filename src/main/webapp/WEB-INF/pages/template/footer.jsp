@@ -1,5 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <a href="" class="hienthiicongiohang">
+	    <div class="divgiohang">
+	    	<div class="divhinhanh">
+	    		<i class="hinhanhgiohang"></i>
+	    	</div>
+	    	<div class="noidung"><p>Giỏ hàng có <strong>${0} sản phẩm</strong> </p></div>
+	    </div>
+    </a>
 	<div class="footer">
         <div class="rowfood1">
             <ul class = "ul1">

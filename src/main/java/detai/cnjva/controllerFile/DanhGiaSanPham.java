@@ -25,9 +25,8 @@ public class DanhGiaSanPham {
 		DanhGiaSanPhamDAO dgspDAO = new DanhGiaSanPhamDAO();
 		boolean kqXoa = dgspDAO.XoaDanhGia(makh, masp);
 		boolean kqCapNhat = dgspDAO.CapNhatSoDiemDanhGia(masp, (sosao* -1));
-		String rs = "False";
 		if(kqXoa && kqCapNhat) {
-			rs = "Done";
+			session.setAttribute("delete",true);
 		}
 		model.addAttribute("Masp", masp);
 		return "redirect:/chitietsanpham";
@@ -46,9 +45,22 @@ public class DanhGiaSanPham {
 		if(!ktra) {
 			dgspDAO.ThemDanhGiaSanPham(makh,masp,(int) sosao, noidung);
 			dgspDAO.CapNhatSoDiemDanhGia(masp, sosao);
+			session.setAttribute("insert",ktra);
 		}
-		model.addAttribute("Masp", masp);
-		session.setAttribute("result",ktra);
+		else {
+			dgspDAO.CapNhatDanhGiaSanPham(makh, masp,(int) sosao, noidung);
+			int sosaotruocdo = Integer.parseInt(request.getParameter("saodanhgiatruocupdate"));
+			int saocapnhat = (int) Math.abs(sosaotruocdo - sosao);
+			if(sosaotruocdo < sosao) {
+				dgspDAO.CapNhatSoDiemDanhGia(masp, saocapnhat);
+			}
+			if(sosaotruocdo > sosao){
+				dgspDAO.CapNhatSoDiemDanhGia(masp, saocapnhat * -1);
+			}
+			
+			session.setAttribute("update",ktra);
+		}
+		model.addAttribute("Masp", masp); // ridetect se gan modelAttribute len thanh dia chi
 		return "redirect:/chitietsanpham";
 	}
 }

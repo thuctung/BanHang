@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,12 +30,19 @@ public class SanPhamController {
 	public ArrayList<DanhGiaSanPham> listDanhGiaSP;
 	@RequestMapping(value="/chitietsanpham", method = RequestMethod.GET)
 	public String XemThongTinSanPham(Model model,HttpServletRequest request) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
+			HttpSession session = request.getSession();
 			int masp = Integer.parseInt(request.getParameter("Masp"));
 			ctspDAO = new ChiTietSanPhamDAO();
 			spDAO = new SanPhamDAO();
 			sanpham = spDAO.LaySanPhamTheoMa(masp);
 			ctsp = ctspDAO.LayThongTinSanPham(masp);
 			listDanhGiaSP = danhgiaDAO.LayDanhSachDanhGiaTheoMaSanPham(masp);
+			// kiểm tra sản phẩm này người đang đăng nhập đã đánh gía chưa;
+			boolean ktra = false;
+			if(session.getAttribute("idKhachHang") != null) {
+				ktra = danhgiaDAO.KiemTraDanhGiaKhachHang((int) session.getAttribute("idKhachHang"), masp);
+				model.addAttribute("checkdanhgia", ktra);
+			}
 			double diemdanhgia = spDAO.SoDanhGiaTrungBinhSanPham(masp);
 			double diemle = diemdanhgia - (int)diemdanhgia;
 			model.addAttribute("listDanhGia", listDanhGiaSP);
@@ -77,7 +85,7 @@ public class SanPhamController {
 		int madm = Integer.parseInt( request.getParameter("Madm"));
 		// lay tong so san pham theo ma, neu hangSanXuat > 0 thi truy van them dieu kien hang san xuat
 		float tongSoSanPham = spDAO.TongSoSanPham(madm, hangSanXuat); 
-		int tongSoTrang = (int)Math.ceil(tongSoSanPham / soSanPham1Trang);
+		int tongSoTrang = (int)Math.ceil(tongSoSanPham / soSanPham1Trang); // Math.ceil : nhan 2 so float mới làm tròn trên phần dư 
 		if(trangHienTai > tongSoTrang) {
 			trangHienTai = tongSoTrang;
 		}

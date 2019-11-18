@@ -1,0 +1,68 @@
+.hienthiicongiohang{
+	display:none;
+}
+..avartar {
+    height: 29px;
+    width: 30px;
+    background: url(../image/sanpham/icon.png);
+    background-size: 535px 100px;
+    position: absolute;
+    top: 19%;
+    left: 38%;
+}
+.avartar {
+    height: 29px;
+    width: 30px;
+    background: url(../image/sanpham/icon.png);
+    background-size: 535px 100px;
+    position: absolute;
+    top: 19%;
+    left: 38%;
+}
+.title {
+    height: 30px;
+    width: 121px;
+    background: url(../image/sanpham/icon.png);
+    background-size: 490px 117px;
+    background-position-x: -31px;
+    position: absolute;
+    top: 16%;
+    left: 41%;
+}
+.items {
+    width: 10%;
+    height: 53px;
+    /* position: relative; */
+    cursor: pointer;
+    /* float: left; */
+    position: absolute;
+    top: 1%;
+    right: 0%;
+}
+.items:hover .plogin{
+	color: black;
+}
+.items > .plogin {
+        margin: 0;
+    color: white;
+    transform: translate(-46%, -24%);
+}
+.imgLogin {
+    transform: translate(36%, 2%);
+}
+
+.containerr{
+	width:100%;
+	height:500px;
+}   
+.menuchucnang{
+	float:left;
+	width:35%;
+	height;
+}    
+.manghinhchucnang{
+	float: right;
+	width:64%;
+	height:100%;
+	background:white;
+}    

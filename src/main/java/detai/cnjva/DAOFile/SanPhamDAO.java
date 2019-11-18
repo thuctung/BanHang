@@ -208,20 +208,20 @@ public class SanPhamDAO {
 	}
 	
 	public static void main(String [] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
-		int diem = 0;
-		String sql ="Select diemdanhgia from SanPham where masanpham = 1";
 		Connection connec = connection.getMySQLConnection();
+		String sql ="UPDATE DanhGiaSanPham SET diem = ?, noidung = ?, ngaydanhgia = ? WHERE idkhachhang = ? AND masanpham = ?";
 		PreparedStatement pre = connec.prepareStatement(sql);
-		ResultSet res = pre.executeQuery();
-		while(res.next()) {
-			diem =res.getInt(1);
+		Date d = new Date();
+		SimpleDateFormat dateFomat = new SimpleDateFormat ("dd/MM/yyyy");
+		pre.setInt(1, 1);
+		pre.setString(2, "Khong thichs");
+		pre.setString(3, dateFomat.format(d).toString());
+		pre.setInt(4, 2);
+		pre.setInt(5, 1);
+		int res = pre.executeUpdate();
+		pre.close();
+		if(res > 0) {
+			System.out.print("Da cap nhat");
 		}
-		diem = diem * -1 ;
-		String sql1 ="Update SanPham set diemdanhgia = ? where masanpham = 1";
-		connec = connection.getMySQLConnection();
-		 pre = connec.prepareStatement(sql1);
-		 pre.setInt(1, diem);
-		int kt = pre.executeUpdate();
-		System.out.println(diem);
 	}
 }
