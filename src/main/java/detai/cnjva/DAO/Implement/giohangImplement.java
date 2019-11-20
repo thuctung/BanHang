@@ -32,7 +32,8 @@ public class giohangImplement implements giohangInterface {
 					Integer donGia = rs.getInt("dongia");
 					String hinhAnh = rs.getString("hinhanh");
 					String moTa = rs.getString("mota");
-					return new SanPham(maSanPham,donGia,tenSanPham,hinhAnh,moTa);
+					Integer maDanhMuc = rs.getInt("madanhmuc");
+					return new SanPham(maSanPham,donGia,maDanhMuc,tenSanPham,hinhAnh,moTa);
 				}
 				return null;
 			}

@@ -1,0 +1,260 @@
+.divTong {
+	max-width: 50%;
+	min-height: 1000px;
+	border: 1px solid black;
+	margin: auto;
+	padding: 5px;
+}
+
+a {
+	text-decoration: none;
+}
+
+.divVeTrangChu {
+	min-height: 50px;
+	background: #f0f0f0;
+	padding-top: 20px;
+	font-size: 23px;
+	width: 100%;
+}
+
+.divMuaThemSanPhamKhac {
+	float: left;
+	min-width: 200px;
+}
+
+.divGioHangCuaBan {
+	float: right;
+}
+
+.divUuDaiSinhNhat {
+	display: block;
+	overflow: visible;
+	border-bottom: 1px solid #d8d8d8;
+	width: 90%;
+	padding: 3% 5%;
+	float: left;
+}
+
+.divSinhNhat {
+	float: left;
+	width: 100%;
+}
+
+.divApDungSinhNhat {
+	display: block;
+	overflow: hidden;
+	font-size: 16px;
+	color: #333;
+	line-height: 22px;
+	margin-top: 10px;
+}
+
+.divApDungSinhNhat button {
+	float: right;
+	background: #288ad6;
+	border-radius: 4px;
+	height: 40px;
+	font-size: 14px;
+	color: #fff;
+	width: 90px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.divApDungSinhNhat input {
+	display: block;
+	width: 36%;
+	border: 1px solid #d9d9d9;
+	border-radius: 4px;
+	padding: 9px;
+	height: 20px;
+	float: left;
+	margin-right: 10px;
+}
+
+.divListSanPham {
+	display: block;
+	overflow: visible;
+	background: #fff;
+	clear: both;
+	padding-top: 10px;
+}
+
+.divListSanPham	li {
+	display: block;
+	overflow: visible;
+	border-bottom: 1px solid #f5f5f5;
+	margin: 10px 30px;
+	padding-bottom: 10px;
+	min-height: 110px;
+}
+
+.divListSanPham li .divImgSanPham {
+	float: left;
+	overflow: hidden;
+	width: 85px;
+	text-align: center;
+}
+
+.divListSanPham li a {
+	display: block;
+	overflow: hidden;
+}
+
+.divListSanPham li .divImgSanPham button {
+	display: block;
+	text-align: center;
+	font-size: 12px;
+	color: #999;
+	width: 40px;
+	border: 0;
+	background: #fff;
+	margin: auto;
+	cursor: pointer;
+}
+
+.divListSanPham li .divThongTinSanPham {
+	display: inline-block;
+	overflow: visible;
+	width: 450px;
+	padding-left: 5px;
+}
+
+.divListSanPham li .divThongTinSanPham  strong {
+	font-weight: normal;
+	font-size: 14px;
+	color: #c10017;
+	float: right;
+}
+
+.divListSanPham li .divThongTinSanPham a {
+	display: inline-block;
+	font-weight: bold;
+	font-size: 14px;
+	color: #333;
+	width: 62%;
+}
+
+.divChonMau {
+	float: left;
+	position: relative;
+	width: 140px;
+	border: 1px solid #dfdfdf;
+	background: #fff;
+	border-radius: 3px;
+	line-height: 32px;
+	font-size: 14px;
+	color: #288ad6;
+	padding: 0 5px;
+	margin: 5px 10px 0 0;
+}
+
+.divChonSo {
+	float: right;
+	overflow: hidden;
+	position: relative;
+	width: 35%;
+	border: 1px solid #dfdfdf;
+	background: #fff;
+	border-radius: 3px;
+	line-height: 32px;
+	font-size: 14px;
+	color: #333;
+	margin: 5px 0 5px 0;
+}
+
+.divNumber {
+	font-size: 14px;
+	color: #333;
+	float: left;
+	width: 27%;
+	height: 32px;
+}
+
+.divNumber input {
+	height: 32px;
+	width: 100%;
+}
+.divAdd {
+	float: right;
+	border-left: 1px solid #dfdfdf;
+	background: #fff;
+	width: 71%;
+	height: 32px;
+	position: relative;
+	cursor: pointer;
+	font-size: 20px;
+}
+.divAdd button{
+	width: 100%;
+	height: 36px;
+}
+.divAdd button:hover{
+	background: blue;
+}
+.divThanhToan {
+	display: block;
+	overflow: hidden;
+	padding: 10px 35px 10px;
+	border-bottom: 1px solid #d8d8d8;
+	background: #fff;
+	clear: left;
+}
+
+.divThanhToan div {
+	display: block;
+	overflow: hidden;
+	font-size: 14px;
+	color: #333;
+	line-height: 22px;
+}
+
+.divThanhToan span {
+	float: left;
+}
+
+.divThanhToan strong {
+	float: right;
+}
+
+.divThongTinKhachHang {
+	display: block;
+	overflow: hidden;
+	background: #fff;
+	padding: 0 30px;
+}
+
+.divInputThongTin input {
+	display: block;
+	width: 90%;
+	padding: 9px 0;
+	height: 20px;
+	border: 1px solid #d9d9d9;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	margin: 10px 0 5px;
+	text-indent: 10px;
+}
+
+.divMuahang:hover {
+	background: blue;
+}
+
+.divMuahang {
+	cursor: pointer;
+	width: 20%;
+	margin-left: 40px;
+	height: 40px;
+	padding: 15px 0 0 25px;
+	border: 2px solid gray;
+	background: #FF9900;
+	color: white;
+	font-size: 25px;
+}
+
+.divLuuY {
+	padding-left: 10%;
+	font-size: 17px;
+}
