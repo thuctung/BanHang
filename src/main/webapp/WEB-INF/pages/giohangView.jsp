@@ -128,7 +128,7 @@
         <!-- Kết thúc mua hàng -->
 
         <!-- Mua Hàng -->
-        <a href="">
+        <a href="/BanHang/giohang/save">
 	        <div class="divMuahang">
 	        	Mua Hàng
 	        </div>
@@ -142,5 +142,6 @@
         	<h4>See You Agian</h4>
         </div>
 	</div>
+	${listCart }
 </body>
 </html>

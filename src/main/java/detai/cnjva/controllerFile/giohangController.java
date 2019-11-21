@@ -25,14 +25,17 @@ public class giohangController {
 	@RequestMapping(value="")
 	public ModelAndView gioHang(HttpServletRequest request, ModelAndView modelAndView, HttpSession session)
 	{
-		if(request.getParameter("maSanPham") == null)
+		if(request.getParameter("maSanPham") == null )
 		{
-			Map<Integer,Integer> listTT = (Map<Integer,Integer>) session.getAttribute("listTT");
-			float tongThanhTien = 0;
-			for (int value: listTT.values()) {
-				tongThanhTien += value;
+			if(session.getAttribute("listCart") !=null )
+			{
+				Map<Integer,Integer> listTT = (Map<Integer,Integer>) session.getAttribute("listTT");
+				float tongThanhTien = 0;
+				for (int value: listTT.values()) {
+					tongThanhTien += value;
+				}
+				session.setAttribute("tongThanhTien",tongThanhTien);
 			}
-			session.setAttribute("tongThanhTien",tongThanhTien);
 			modelAndView.setViewName("giohangView");
 			return modelAndView;
 		}
@@ -121,6 +124,15 @@ public class giohangController {
 			tongThanhTien += value;
 		}
 		session.setAttribute("tongThanhTien",tongThanhTien);
+		return new ModelAndView("redirect:/giohang");
+	}
+	@RequestMapping(value="/save")
+	public ModelAndView MuaHang(ModelAndView modelAndView, HttpSession session)
+	{
+		Map<Integer,SanPham> listCart = (Map<Integer,SanPham>) session.getAttribute("listCart");
+		Map<Integer,Integer> listSL = (Map<Integer,Integer>) session.getAttribute("listSL");
+		Map<Integer,Integer> listTT = (Map<Integer,Integer>) session.getAttribute("listTT");
+		
 		return new ModelAndView("redirect:/giohang");
 	}
 	

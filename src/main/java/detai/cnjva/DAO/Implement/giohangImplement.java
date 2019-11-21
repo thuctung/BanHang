@@ -40,5 +40,9 @@ public class giohangImplement implements giohangInterface {
 		};
 		return jdbcTemplate.query(sql, extractor);
 	}
-
+	@Override
+	public int save(String masanpham, String tensanpham, int soluong, int thanhtien, int idkhachhang) {
+		String sql = "INSERT INTO KHACHHANG(idKhachHang, HoTen, SoDienThoai, DiaChi, Email) VALUES(?, ?, ?, ?, ?)";
+		return jdbcTemplate.update(sql, masanpham,tensanpham,soluong,thanhtien,idkhachhang);
+	}
 }
