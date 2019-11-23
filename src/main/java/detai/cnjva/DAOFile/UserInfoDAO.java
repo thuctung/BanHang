@@ -30,5 +30,24 @@ public class UserInfoDAO {
 		return list;
 	}
 	
+	/* Đăng ký tài khoản
+	 * 
+	 * */
+	public Boolean ThemInforUser(UserInfo userInfo) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
+		Connection connec = connection.getMySQLConnection();
+		String sql = "INSERT INTO khachhang(HoTen, SoDienThoai, DiaChi, Email) VALUE(?, ?, ?, ?)";
+		PreparedStatement pstm = connec.prepareStatement(sql);
+		pstm.setString(1,  userInfo.getHoTen());
+		pstm.setString(2, userInfo.getSdThoai());
+		pstm.setString(3, userInfo.getDiaChi());
+		pstm.setString(4, userInfo.getEmail());
+		int rs = pstm.executeUpdate();
+		if(rs >0 ) {
+			return true;
+		}
+		return false;
+		
+	}
+	
 	
 }

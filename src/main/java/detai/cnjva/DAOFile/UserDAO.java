@@ -47,20 +47,17 @@ public class UserDAO {
 	//thêm tài khoản
 	public Boolean ThemUser(GetUser getUser) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
 		connec = connection.getMySQLConnection();
-		String sql = "INSERT INTO account(UserName, Password, Name, Phone, Address, Email) VALUE(?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO account(UserName, Password) VALUE(?, ?)";
 		PreparedStatement pstm = connec.prepareStatement(sql);
 		pstm.setString(1,  getUser.getUserName());
 		pstm.setString(2, getUser.getPassWord());
-		pstm.setString(3, getUser.getName());
-		pstm.setString(4, getUser.getPhone());
-		pstm.setString(5, getUser.getAddress());
-		pstm.setString(6, getUser.getEmail());
 		int rs = pstm.executeUpdate();
 		if(rs >0 ) {
 			return true;
 		}
 		return false;
 	}
+	
 	//kiểm tra username đã tồn tại
 	public Boolean CheckUser(String UserName) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
 		connec = connection.getMySQLConnection();

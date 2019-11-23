@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import detai.cnjva.DAOFile.UserDAO;
+import detai.cnjva.DAOFile.UserInfoDAO;
 import detai.cnjva.modelFile.GetUser;
 import detai.cnjva.modelFile.User;
+import detai.cnjva.modelFile.UserInfo;
 
 @Controller
 public class loginController {
@@ -54,18 +56,22 @@ public class loginController {
 	@RequestMapping(value = "/dangki", method=RequestMethod.POST)
 	public String Signin(HttpServletRequest request) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
 		UserDAO userDao = new UserDAO();
+		UserInfoDAO userInfoDao = new UserInfoDAO();
+		UserInfo userInfo = new UserInfo();
 		GetUser getUser = new GetUser();
 		getUser.setUserName(request.getParameter("taikhoan"));
 		getUser.setPassWord(request.getParameter("password"));
-		getUser.setName(request.getParameter("name"));
-		getUser.setPhone(request.getParameter("phone"));
-		getUser.setAddress(request.getParameter("address"));
-		getUser.setEmail(request.getParameter("email"));
+		userInfo.setHoTen(request.getParameter("name"));
+		userInfo.setSdThoai(request.getParameter("phone"));
+		userInfo.setDiaChi(request.getParameter("address"));
+		userInfo.setEmail(request.getParameter("email"));
 		boolean kt = false;
 		kt = userDao.CheckUser(request.getParameter("taikhoan"));
 		if(!kt)
 		{
 			userDao.ThemUser(getUser);
+			userInfoDao.ThemInforUser(userInfo);
+			
 		}else {
 			request.setAttribute("mess1", "Tài khoản đã có người sử dụng");
 		}

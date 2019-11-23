@@ -37,17 +37,42 @@
 			<div class="chuahinhanh">
 				<div class="lammo"></div>
 			</div>
+			<!-- HÀM XỬ LÝ PASSWORD VÀ CONFIRMPASSWORD
+				 dùng onkeyup trong javascript
+				 lấy giá trị của input này so sánh với giá trị của input kia
+				 giá trị sẽ cập nhật sau khi ta nhập vào ô input -->
 			<div class="formDangki">
 				<form action="dangki" method="POST">
 					<input  name ="taikhoan" placeholder="User Name" required/>
-					<input  type ="password" name="password" placeholder="Password" required/>
-					<input type="password" name ="confirmpass" placeholder="Confirm Password" required/>
+					<input  type ="password" name="password" id="password" placeholder="Password" onkeyup="equal_pass()" required/>
+					<input type="password" name ="confirmpass" id="confirmpass" placeholder="Confirm Password" onkeyup="equal_pass()"  required/>
+					<input type="text" id="result"/>
 					<input  name ="name" placeholder="Name" required/>
-					<input  name ="phone" placeholder="Phone" required/>
+					<input  type="number" name ="phone" placeholder="Phone" required/>
 					<input  name ="address" placeholder="Adress" required/>
 					<input  name ="email" placeholder="Email" required/>
-					<button class="btnRegister">Register</button>
+					<button class="btnRegister" id="btnRegister">Register</button>
 				</form>
+				<script type="text/javascript">
+					function equal_pass()
+					{
+						var password = document.getElementById("password");
+						var confirmpass = document.getElementById("confirmpass");
+						var result = document.getElementById("result");
+						var btnRegister = document.getElementById("btnRegister");
+						btnRegister.style.display();
+						/* chưa kiểm tra đc null */
+						if(password.value === confirmpass.value)
+							{
+								result.value = "success";
+								result.innerHTML = result.value;	
+							}
+						else{
+							result.value = "Confirm is not correct";
+							result.innerHTML = result.value;
+						}
+					}
+				</script>
 			</div>
 		</div>
 	</div>
