@@ -1,0 +1,243 @@
+
+
+.hienthiicongiohang , .vedau{
+	display: none;
+}
+
+.container {
+	width: 41%;
+	height: auto;
+	margin: 0 auto;
+	font-family: sans-serif;
+	margin-top: 30px;
+}
+
+a {
+	text-decoration: none;
+	color: #288ad6;
+	font-size: 14px;
+}
+
+.thep {
+	margin: 0;
+	display: inline;
+	float: right;
+	font-size: 13px;
+}
+
+h3 {
+	margin: 0;
+	text-align: center;
+	color: dodgerblue;
+}
+
+.contentGioHang {
+	width: 100%;
+	height: auto;
+	background: white;
+	box-shadow: 5px 5px 5px #ccc;
+	border-radius: 6px;
+}
+
+.listSanPham {
+	margin-top: 16px;
+	height: auto;
+	padding: 23px;
+}
+
+.motsanpham {
+	width: 100%;
+	height: 165px;
+	border-bottom: 1px solid #ccc;
+	position: relative;
+}
+.motsanpham > img, .motsanpham > h4, .motsanpham > p, .motsanpham > h5, .motsanpham > a, .soluong,
+.motsanpham > strong{
+	margin:0;
+	position:absolute;
+}
+.motsanpham > img{
+	top: 8%;
+}
+.motsanpham > h4{
+	left: 15%;
+    top: 8%;	
+}
+.motsanpham > p{
+	right: 5%;
+	top: 8%;
+    font-size: 14px;
+}
+.motsanpham > h5{
+	right: 5%;
+    top: 25%;
+    color: #c10017;
+    font-size: 11px;
+    font-weight: 500;
+}
+ .motsanpham > a{
+ 	bottom: 28%;
+    left: 5%;
+ }
+ .motsanpham > strong{
+ 	right: 5%;
+    bottom: 33%;
+    font-weight: 500;
+    color: #c10017;
+ }
+ .soluong{
+ 	display: flex;
+    bottom: 6%;
+    right: 5%;
+    height: 34px;
+ }
+ .btn{
+ 	width: 40px;
+    padding: 0;
+    font-size: 18px;
+    height: 28px;
+    background: none;
+    cursor: pointer;
+    display: inline-block;
+    border: 1px solid #ccc;
+    text-align: center;
+    padding-top: 6px;
+ }
+ .inputsoluong{
+ width: 40px;
+    height: 26px;
+    padding-top: 8px;
+    text-align: center;
+    display: inline-block;
+    border: 1px solid #ccc;
+    font-size: 19px;
+ }
+ .btncong{
+     color: dodgerblue;
+ }
+ 
+ 
+ 
+ 
+ 
+.thanhtien {
+	width: 100%;
+	height: 100px;
+	position: relative;
+}
+
+.thanhtien>label, .thanhtien>strong {
+	position: absolute;
+}
+
+.tongtien {
+	top: 2%;
+	left: 5%;
+}
+
+.tonggiatien {
+	top: 2%;
+	right: 5%;
+}
+
+.canthanhtoan {
+	bottom: 8%;
+	left: 5%;
+}
+
+.tienthanhtoan {
+	bottom: 8%;
+	right: 5%;
+	color: #c10017;
+}
+.tiengiam{
+	top: 40%;
+    left: 5%;
+    color: #e10c00;
+    font-size: 13px;
+}
+.sotiengiamgia{
+	top: 40%;
+    right: 5%;
+    color: #e10c00;
+    font-size: 13px;
+	
+}
+
+
+
+
+
+
+
+
+
+
+.thongtinKhachhang {
+	padding: 29px;
+	border-top: 1px solid #ccc;
+	width: 90%;
+	height: 306px;
+}
+
+.formKhachHang {
+	height: 100%;
+	width: 100%;
+}
+
+.input {
+	width: 46%;
+	height: 35px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	outline: none;
+	font-size: 15px;
+	padding-left: 12px;
+	margin-bottom: 12px;
+}
+
+.inputKh {
+	width: 46%;
+	float: left;
+}
+
+.inputsdt {
+	width: 46%;
+	float: right;
+}
+
+.inputGhiChu {
+	width: 97%;
+}
+
+.label {
+	color: #333;
+	font-size: 14px;
+	margin-top: 17px;
+	display: block;
+	margin-bottom: 15px;
+}
+
+label {
+	cursor: pointer;
+}
+
+.tinhtp {
+	margin-top: 19px;
+}
+
+.btnXacnhan{
+	height: 56px;
+    width: 200px;
+    font-size: 16px;
+    font-weight: 700;
+    background: -webkit-linear-gradient(top,#f59000,#fd6e1d);
+    color: white;
+    border-radius: 4px;
+    margin-bottom: 13px;
+    transform: translateX(90%);
+    cursor: pointer;
+}
+.btnXacnhan:hover{
+	background:#0e74c2;
+}
