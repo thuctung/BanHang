@@ -12,3 +12,16 @@ btnDangKi.addEventListener('click',()=>{
 btnHuyDn.addEventListener('click',()=>{
 	divDangKi.classList.remove("hienthiDangki");
 });
+
+//Ẩn hiện form login và register
+function removeLogin() {
+	console.log("ok");
+	document.querySelector(".form-login").classList.add("remove");
+	document.querySelector(".form-register").classList.add("add");
+}
+
+function removeRegister() {
+	console.log("ok");
+	document.querySelector(".form-login").classList.remove("remove");
+	document.querySelector(".form-register").classList.remove("add");
+}

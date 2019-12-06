@@ -17,7 +17,7 @@ public class connection {
 
 		String dbName = "PTMPCN";
 		String userName = "root";
-		String password = "thuctung";
+		String password = "votandong";
  
 		Class.forName("com.mysql.jdbc.Driver").newInstance();
 		String connectionURL = "jdbc:mysql://" + hostName + ":3306/" + dbName;

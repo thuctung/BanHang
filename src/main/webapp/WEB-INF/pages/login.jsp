@@ -11,49 +11,44 @@
 
 </head>
 <body>
-<div class="super"></div>
-	<div class="div-login">
-		<h2> Đăng nhập</h2>
-		<form action="login" method="POST">
-		<div class="input-group">
-			<input id="username" type="text" name="username" required/>
-			<lable class="label" for="username">User name</lable>
+<div class="form">
+		<!--form login-->
+		<form class="form-login" action="login" method="POST">
+		<div class="#">
+			<label>Login</label>
+				<input type="text" class="tb-login" name="UserName" placeholder="UserName"/>
+				<input type="password" class="tb-login" name="PassWord" placeholder="PassWord"/>
+				<p class="p-login">You don't have account?<a onclick="removeLogin()" class="a-login"> Create Account!!!</a></p>
+				<button type="submit" class="submit-login">Login</button>
 		</div>
-		<div class="input-group">
-			<input id="matkhau" type="password" name="matkhau" required/>
-			<lable class="label" for="matkhau">Password</lable>
-		</div>
-		<button class="btnLogin">Đăng nhập</button>
 		</form>
-		<p class="btnDangKi">Đăng ki tài khoản</p>
-		<a class="btnBack" href="/BanHang">Trở về</a>
-	</div>
-	
-
-	<div class="divDangki">
-		<img class="btnHuyDangKi" src="image/cross.png" width="20px" height="20px"/>
-		<h2>Đăng kí tài khoản </h2>		
-		<div class="contnet">
-			<div class="chuahinhanh">
-				<div class="lammo"></div>
-			</div>
-			<div class="formDangki">
-				<form action="">
-					<input  name ="taikhoan" placeholder="User Name" required/>
-					<input  type ="password" placeholder="Password" required/>
-					<input type="password" name ="confirmpass" placeholder="Confirm Password" required/>
-					<input  name ="name" placeholder="Name" required/>
-					<input  name ="phone" placeholder="Phone" required/>
-					<input  name ="adress" placeholder="Adress" required/>
-					<input  name ="email" placeholder="Email" required/>
-					<button class="btnRegister">Register</button>
-				</form>
-			</div>
-		</div>
+		<!--form register-->
+		<form class="form-register" action="dangki" method="POST">
+			<label>Register</label>
+			<input type="text" class="tb-register" name="UserName" placeholder="UserName"/>
+			<input type="password" class="tb-register" name="PassWord" placeholder="PassWord"/>
+			<input type="password" class="tb-register" name="ConfirmPass" placeholder="ConfirmPass"/>
+			<input type="text" class="tb-register" name="Name" placeholder="Name"/>
+			<input type="text" class="tb-register" name="Address" placeholder="Address"/>
+			<input type="text" class="tb-register" name="Phone" placeholder="Phone"/>
+			<input type="text" class="tb-register" name="Email" placeholder="Email"/>
+			<p class="p-register">I have account!!! <a onclick="removeRegister()" class="a-register">Login</a></p>
+			<button type="submit" class="submit-register">Register</button>
+		</form>
 	</div>
 	<c:if test="${mess != null}">
 		<script>alert("Tên đăng nhập hoặc mật khẩu không đúng")</script>
 	</c:if>
+	
+	
+	<c:if test="${checkuser != null && checkuser == 0}">
+					<script>alert("Đăng kí tài khoản thành công!")</script>
+				</c:if>
+	<c:if test = "${checkuser != null && checkuser == 1}">
+		<script>alert("Tài khoản đã có người sử dụng!!!")</script>
+	</c:if>
+	${checkuser}
 </body>
 		<script src="script/login.js"></script>
+		<script src="script/adduser.js"></script>
 </html>
