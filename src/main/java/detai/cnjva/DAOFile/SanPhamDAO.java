@@ -10,6 +10,7 @@ import java.util.Date;
 
 import detai.cnjva.connecDatabase.connection;
 import detai.cnjva.modelFile.DanhGiaSanPham;
+import detai.cnjva.modelFile.DonHangQuanLi;
 import detai.cnjva.modelFile.SanPham;
 
 public class SanPhamDAO {
@@ -176,6 +177,7 @@ public class SanPhamDAO {
 			sp.setMoTa(res.getString(5));
 			sp.setMaDanhMuc(res.getInt(6));
 			sp.setHangSanXuat(res.getInt(7));
+			sp.setKhuyenMai(res.getInt(8));
 			sp.setDiemDanhGia(res.getDouble(9));
 		}
 		pre.close();
@@ -207,21 +209,28 @@ public class SanPhamDAO {
 		return list;
 	}
 	
+	public int LayDonGia(int masp) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
+		int tien = 0;
+		String sql ="Select dongia from SanPham WHERE masanpham = ?";
+		connec = connection.getMySQLConnection();
+		pre = connec.prepareStatement(sql);
+		pre.setInt(1, masp);
+		ResultSet res = pre.executeQuery();
+		if(res.next()) {
+			tien = res.getInt(1);
+		}
+		return tien;
+	}
+	
 	public static void main(String [] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
 		Connection connec = connection.getMySQLConnection();
-		String sql ="UPDATE DanhGiaSanPham SET diem = ?, noidung = ?, ngaydanhgia = ? WHERE idkhachhang = ? AND masanpham = ?";
+		String sql = "SELECT * FROM DonHang, ThongTinNguoiMuaHang where ThongTinNguoiMuaHang.sodienthoai = DonHang.sodienthoai";
 		PreparedStatement pre = connec.prepareStatement(sql);
-		Date d = new Date();
-		SimpleDateFormat dateFomat = new SimpleDateFormat ("dd/MM/yyyy");
-		pre.setInt(1, 1);
-		pre.setString(2, "Khong thichs");
-		pre.setString(3, dateFomat.format(d).toString());
-		pre.setInt(4, 2);
-		pre.setInt(5, 1);
-		int res = pre.executeUpdate();
-		pre.close();
-		if(res > 0) {
-			System.out.print("Da cap nhat");
+		pre = connec.prepareStatement(sql);
+		ArrayList<DonHangQuanLi> list = new ArrayList<DonHangQuanLi>();
+		ResultSet res = pre.executeQuery();
+		while(res.next()) {
+			System.out.print(res.getString(4));
 		}
 	}
 }

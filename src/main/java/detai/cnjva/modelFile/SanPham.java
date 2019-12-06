@@ -1,7 +1,13 @@
 package detai.cnjva.modelFile;
 
 public class SanPham {
-	private int maSanPham, donGia, maDanhMuc, hangSanXuat, khuyenMai;
+	private int maSanPham, donGia, maDanhMuc, hangSanXuat, khuyenMai, soLuong;
+	public int getSoLuong() {
+		return soLuong;
+	}
+	public void setSoLuong(int soLuong) {
+		this.soLuong = soLuong;
+	}
 	private double tongDiemDanhGia;
 	public int getkhuyenMai() {
 		return khuyenMai;

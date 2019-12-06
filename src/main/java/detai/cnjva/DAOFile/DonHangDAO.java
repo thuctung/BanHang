@@ -4,9 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import detai.cnjva.connecDatabase.connection;
 import detai.cnjva.modelFile.DonHang;
+import detai.cnjva.modelFile.DonHangQuanLi;
 
 
 public class DonHangDAO {
@@ -68,7 +70,56 @@ public class DonHangDAO {
 		}
 		return soluong;
 	}
-	public boolean CapNhatTrangThaiDonHang(int trangthai) {
+
+	public ArrayList<DonHangQuanLi> LayDonHangQuanLi(boolean dieukien, int tinhtrang) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException{
+		ArrayList<DonHangQuanLi> list = new  ArrayList<DonHangQuanLi>();
+		String sql = "";
+		connec = connection.getMySQLConnection();
+		if(dieukien) {
+			 sql = "SELECT * FROM DonHang, ThongTinNguoiMuaHang where ThongTinNguoiMuaHang.idDonHang = DonHang.idDonHang AND TrangThai = ?";
+			 pre = connec.prepareStatement(sql);
+			 pre.setInt(1, tinhtrang);
+		}
+		else {
+			 sql = "SELECT * FROM DonHang, ThongTinNguoiMuaHang where ThongTinNguoiMuaHang.idDonHang = DonHang.idDonHang";
+			 pre = connec.prepareStatement(sql);
+		}
+		ResultSet res = pre.executeQuery();
+		while(res.next()) {
+			DonHangQuanLi dhql = new DonHangQuanLi();
+			String diachi ="";
+			dhql.setIdDonHang(res.getInt(1));
+			dhql.setNgayTao(res.getString(2));
+			dhql.setTrangThai(res.getInt(3));
+			dhql.setSoDienThoai(res.getString(4));
+			dhql.setLoaiDonHang(res.getInt(5));
+			dhql.setGiamGia(res.getInt(6));
+			dhql.setTongTien(res.getInt(7));
+			dhql.setThanhTien(res.getInt(8));
+			dhql.setYeuCau(res.getString(9));
+			dhql.setHoTen(res.getString(11));
+			diachi = res.getString(15)+", "+res.getString(14)+", "+res.getString(13)+", "+res.getString(12);
+			dhql.setDiaChi(diachi);
+			list.add(dhql);
+		}
+		ChiTietDonHangDAO ctdhDAO = new ChiTietDonHangDAO();
+		for(DonHangQuanLi dh : list) {
+			dh.setChiTietDonHang(ctdhDAO.LayDanhSachDonHangTheoMa(dh.getIdDonHang()));
+		}
+		return list;
+	}
+	
+	public boolean CapNhatTrangThaiDonHang(int trangthai, int madonhang) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
+		int soluong = 0;
+		String sql = "UPDATE DonHang SET trangthai = ? WHERE idDonHang = ? ";
+		connec = connection.getMySQLConnection();
+		pre = connec.prepareStatement(sql);
+		pre.setInt(1, trangthai);
+		pre.setInt(2, madonhang);
+		soluong = pre.executeUpdate();
+		if(soluong > 0) {
+			return true;
+		}
 		return false;
 	}
 }

@@ -1,1 +1,2 @@
-Insert into DanhGiaSanPham values(1, "adfda", "adfadsfa", 1, 3);
+use PTMPCN;
+SELECT * FROM DonHang, ThongTinNguoiMuaHang where ThongTinNguoiMuaHang.sodienthoai = DonHang.sodienthoai EXCEPT Select sodienthoai from ThongTinNguoiMuaHang;
