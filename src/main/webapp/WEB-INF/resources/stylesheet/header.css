@@ -88,8 +88,8 @@ form{
 	position: relative;
 	cursor: pointer;
 	float: left;
+	overflow: hidden;
 }
-
 .items:hover{
 	background-color: white;
 }
@@ -251,11 +251,11 @@ form{
 .imgLogin{
 	position: absolute;
     top: 6%;
-    left: 29%;
+    left: 32%;
 }
 .items > .plogin{
 	position: absolute;
-    top: 77%;
+    top: 74%;
     left: 50%;
     margin: 0;
     transform: translateX(-50%);

@@ -90,12 +90,23 @@ label{
     display: none;
 }
 
+.tb-register1{
+    display: block;
+    width: 290px;
+    height: 24px;
+    /* margin-top: 36px; */
+    margin: 19px auto 0 auto;
+    font-size: 15px;
+    font-family: "Roboto", sans-serif;
+}
+
+/*TEXTBOX(*) FOR VALIDATE*/
 .tb-register{
     display: block;
     width: 290px;
     height: 24px;
     /* margin-top: 36px; */
-    margin: 28px auto 0 auto;
+    margin: 27px auto 0 auto;
     font-size: 15px;
     font-family: "Roboto", sans-serif;
 }
@@ -119,11 +130,24 @@ label{
 
 .p-register{
     display: block;
-    margin: 5px 0 0 195px;
+    margin: 5px 0 0 140px;
     font-size: 14px;
 }
 
 .a-register{
     cursor: pointer;
     font-weight: 600;
+}
+
+.p-mess,.p-mess-fail, .mess-pass{
+    display: block;
+    font-size: 11px;
+    margin: 2px 0 0 54px;
+}
+.p-mess{
+    color: green;
+}
+.p-mess-fail
+{
+    color: red;
 }

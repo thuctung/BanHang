@@ -37,6 +37,7 @@ public class UserDAO {
 	      ResultSet rs = pstm.executeQuery(); // excute
 	      if(rs.next()) {
 	    	  user.setIdUser(rs.getInt(1));
+	    	  user.setUserName(rs.getString(2));
 	    	  user.setRole(rs.getInt(4));
 	      }
 		return user;

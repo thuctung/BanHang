@@ -141,9 +141,4 @@ public class DanhGiaSanPhamDAO {
 		return false;
 	}
 	
-	
-	
-	
-	
-	
 }

@@ -1,27 +1,105 @@
-let btnDangKi = document.querySelector(".btnDangKi");
-let btnHuyDn = document.querySelector(".btnHuyDangKi");
-
-
-
-
-let divDangKi = document.querySelector(".divDangki");
-btnDangKi.addEventListener('click',()=>{
-	divDangKi.classList.add("hienthiDangki");
-});
-
-btnHuyDn.addEventListener('click',()=>{
-	divDangKi.classList.remove("hienthiDangki");
-});
-
-//Ẩn hiện form login và register
 function removeLogin() {
-	console.log("ok");
 	document.querySelector(".form-login").classList.add("remove");
 	document.querySelector(".form-register").classList.add("add");
 }
 
 function removeRegister() {
-	console.log("ok");
 	document.querySelector(".form-login").classList.remove("remove");
 	document.querySelector(".form-register").classList.remove("add");
+}
+
+function checklogin() {
+	
+	var userlogin = document.getElementById('UserName-Login').value;
+	//var passlogin = document.getElementById('PassWord-Login').value;
+	if(userlogin == '' && passlogin == '')
+	{
+		alert("Tài khoản không được để trống");
+	}
+	else
+		return true;
+	return false;
+
+}
+	
+/*Kiểm tra validate các input trong form register*/
+function checkRegister()
+{
+	let elementRegister = document.querySelectorAll('.form-register input[type=text]');
+	let mess_username = document.querySelector(".form-register .mess-username");
+	if(elementRegister[0].value.length >= 5){
+		if(mess_username.classList.contains("p-mess-fail"))
+			{
+				mess_username.classList.remove("p-mess-fail");
+				mess_username.classList.add("p-mess");		
+			}
+				mess_username.innerHTML = "Thông tin hợp lệ!";
+				return true;
+	}
+	else
+		{
+			
+				mess_username.classList.remove("p-mess");
+				mess_username.classList.add("p-mess-fail");
+				mess_username.innerHTML = "Thông tin >= 5 ký tự!";
+				return false;
+
+		}
+}
+document.querySelector(".form-register input[name=UserName]").onchange = function(){
+	return checkRegister();
+}
+
+/* kiểm tra password và confirmpass */
+function checkpass() {
+	//dùng querySelectorAll không tối ưu vì sẽ trả về mảng bị thừa
+	let elementRegister = document.querySelector('.form-register input[name=PassWord]');
+	let mess_pass = document.querySelector('.form-register .mess-pass');
+	if(elementRegister.value.length >= 5){
+			mess_pass.classList.remove("p-mess-fail");
+			mess_pass.classList.add("p-mess");
+			mess_pass.innerHTML = "Mật khẩu hợp lệ";
+			return true;
+	}
+	else{
+		console.log(elementRegister.value);
+		mess_pass.classList.remove("p-mess");
+		mess_pass.classList.add("p-mess-fail");
+		mess_pass.innerHTML = "Mật khẩu >= 5 ký tự!";
+		return false;
+	}
+}
+
+document.querySelector(".form-register input[name=PassWord]").onchange = function(){
+	return checkpass();
+}
+
+//kiểm tra ConfirmPass và PassWord
+function checkConfim(){
+	let elementRegister = document.querySelectorAll('.form-register input[type=password]');
+	let mess_pass = document.querySelector('.form-register .mess-confirm');
+	if(elementRegister[0].value === elementRegister[1].value)
+	{
+		mess_pass.classList.remove("p-mess-fail");
+		mess_pass.classList.add("p-mess");
+		mess_pass.innerHTML = "Xác nhận mật khẩu hợp lệ";
+		return true;
+	}
+	else{
+			mess_pass.classList.remove("p-mess");
+			mess_pass.classList.add("p-mess-fail");
+			mess_pass.innerHTML = "Mật khẩu không khớp";
+			return false;
+		}
+}
+document.querySelector(".form-register input[name=ConfirmPass]").onchange = function(){
+	return checkConfim();
+}
+
+//kiểm tra các input trước khi cho nhấn submit
+function register(){
+	if(checkRegister() === false || checkpass() === false || checkConfim() === false)
+		return false;
+
+	return true;
 }

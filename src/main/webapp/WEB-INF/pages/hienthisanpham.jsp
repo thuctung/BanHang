@@ -70,7 +70,7 @@
     			<c:set var = "hienthihangsx" value = "Apple"/>
     		</c:if>
     		<c:if test = "${hang == 2}">
-    			<c:set var = "hienthihangsx" value = "> Huawei"/>
+    			<c:set var = "hienthihangsx" value = "Huawei"/>
     		</c:if>
     		<c:if test = "${hang == 3}">
     			<c:set var = "hienthihangsx" value = "Oppo"/>
@@ -109,15 +109,19 @@
 	            <img src="image/sanpham/${hinhanh}/${page.getHinhAnh()} " width="180px" height="180px" />
 	            <p class="tenSanPham">${page.getTenSanPham() }</p>
 	            <c:set var = "dongia" value = "${page.getDonGia() }" />
-	            <p class="donGiaSP">
-	            	<fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${dongia-1000000}"/>đ
+	            <c:set var = "classTheP" value = "donGiaSP" />
+	            <c:if test="${page.getKhuyenMai() > 0}">
+	            	<c:set var = "classTheP" value = "gachngang" />
+	            </c:if>
+	            <p class="${classTheP}">
+	            	<fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${dongia}"/>đ
 	            </p>
 	            <c:if test="${page.getDiemDanhGia() > 0}">
 	            	<img src="image/star.jpg" class="anhdanhgia">
 	            </c:if>
 	            <c:if test="${page.getKhuyenMai() > 0}">
 	            	<strong class="tiengiamgia">
-						<fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${dongia}"/>đ
+						<fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${dongia - 1000000}"/>đ
 			     	</strong>
 	            	<label class="labelGiamgia">Giảm 1.000.000đ</label>
 	            </c:if>

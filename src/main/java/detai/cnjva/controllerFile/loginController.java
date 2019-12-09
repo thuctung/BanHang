@@ -16,6 +16,7 @@ import detai.cnjva.modelFile.UserInfo;
 
 @Controller
 public class loginController {
+
 	
 	/* 
 	 * 6-12
@@ -25,6 +26,7 @@ public class loginController {
 	 * Kiểm tra nếu link là chuỗi url 'dangki' thì sẽ không lưu mà chỉ lưu chuỗi url trước đó nữa
 	 * */
 	private HttpSession session;
+	private String referer;
 	@RequestMapping("/login")
 	public String login(Model model, HttpServletRequest request) {
 		session = request.getSession();
@@ -45,6 +47,8 @@ public class loginController {
 		user.setUserName(userName);
 		user.setPassWord(password);		
 		// goi DAO
+//		String referer= session.getAttribute("linktruocdo").toString();
+//		session.removeAttribute("linktruocdo");
 		if(userDao.checkLogin(user)) {
 			User userRs = new User();
 			userRs = userDao.LayThongTinUser(userName);
@@ -53,7 +57,6 @@ public class loginController {
 			if(userRs.getRole() == 0) {
 				return "redirect:/quanly";
 			}else {
-				session = request.getSession();
 				String link = session.getAttribute("linktruocdo").toString();
 				session.removeAttribute("linktruocdo");
 				return "redirect:"+ link;
@@ -62,14 +65,15 @@ public class loginController {
 		{
 			request.setAttribute("mess","Mật khẩu hoặc tài khoản không đúng!");
 			return "login";
-		}		
+		}
 	}
 	
 	@RequestMapping("/logout")
 	public String LogOut(HttpServletRequest request) {
-		HttpSession session = request.getSession();
+		session = request.getSession();
 		session.removeAttribute("idKhachHang");
-		String referer = request.getHeader("Referer");
+		session.removeAttribute("TenKhachHang");
+		referer= request.getHeader("Referer");
 		return "redirect:"+ referer;
 	}
 	

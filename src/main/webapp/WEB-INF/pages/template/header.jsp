@@ -49,13 +49,13 @@
    					<c:when test="${sessionScope.idKhachHang != null}">
    						<a class="items" href="./logout">
                     		<img class="imgLogin" src="image/user.png"/>
-                    		<p class="plogin">Logout</p>
+                    		<p class="plogin">${sessionScope.TenKhachHang}</p>
                 		</a>
    					</c:when>
    					<c:otherwise>
    						<a class="items" href="./login">
                     		<img class="imgLogin" src="image/logout.png"/>
-                    		<p class="plogin">Logint</p>
+                    		<p class="plogin">Login</p>
                 		</a>
    					</c:otherwise>
    				</c:choose>

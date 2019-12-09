@@ -63,7 +63,7 @@
                 <span class="khuyenmaiphukien">Tặng mã giảm giá 100.000đ để mua phụ kiện online (áp dụng đơn hàng phụ kiện trên 200.000đ)</span>
                 <span class="notkhuyenmai">*Không áp dụng khi mua trả góp</span>
             </div>
-            <a href="giohang?maSanpham=${sanpham.getMaSanPham()}">
+            <a href="themgiohang?Masp=${sanpham.getMaSanPham()}">
                	<button class="muangay">MUA NGAY<p>Giao tận nơi hoặc nhận tại siêu thị</p></button>
             </a>            
             <div class="muatragop btnmua">

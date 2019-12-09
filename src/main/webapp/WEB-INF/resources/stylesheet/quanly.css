@@ -1,14 +1,8 @@
 .hienthiicongiohang{
 	display:none;
 }
-..avartar {
-    height: 29px;
-    width: 30px;
-    background: url(../image/sanpham/icon.png);
-    background-size: 535px 100px;
-    position: absolute;
-    top: 19%;
-    left: 38%;
+.header{
+ margin-bottom: inherit;
 }
 .avartar {
     height: 29px;
@@ -19,22 +13,34 @@
     top: 19%;
     left: 38%;
 }
-.title {
+.home{
+	width: 155px;
+    height: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    transform: translate(-50%, -50%);
+}
+.avartarr {
+	display: block;
+    height: 29px;
+    width: 30px;
+    background: url(../image/sanpham/icon.png);
+    background-size: 535px 100px;
+}
+.titlee {
+	display: block;
     height: 30px;
     width: 121px;
     background: url(../image/sanpham/icon.png);
     background-size: 490px 117px;
     background-position-x: -31px;
-    position: absolute;
-    top: 16%;
-    left: 41%;
 }
 .items {
     width: 10%;
     height: 53px;
-    /* position: relative; */
     cursor: pointer;
-    /* float: left; */
     position: absolute;
     top: 1%;
     right: 0%;
@@ -53,16 +59,107 @@
 
 .containerr{
 	width:100%;
-	height:500px;
-}   
-.menuchucnang{
-	float:left;
-	width:35%;
-	height;
-}    
-.manghinhchucnang{
-	float: right;
-	width:64%;
+	height: 100%;
+}
+.menu{
+	width: 19%;
+	background: #000000;
 	height:100%;
-	background:white;
-}    
+	float: left;
+}
+a{
+	text-decoration: none;
+}
+.content{
+	width:81%;
+	height:auto;
+	float: right;
+}
+ul{
+	list-style:none;
+}
+.menu-area {
+	list-style: none;
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    font-size: 19px;
+}
+.menu-area li{
+	position: relative;
+    border-bottom: 1px solid #fed700;
+    background: #000000;
+    text-align: center;
+    padding-top: 25px;
+    height: 41px;
+}
+.menu-area li a {
+	text-dicoration:none;
+	height:36px;
+	position:relative;
+	display:block;
+	padding : 12px 20px;
+	padding:0;
+	 color: white;
+}
+.menu-area li:hover > a{
+	color:aqua;
+}
+.menu-area li ul{
+	opacity:0;
+	visibility:hidden;
+	z-index:4;
+	list-style:none;
+	position: absolute;
+	top:0%;
+	left: 300px;
+    height: auto;
+    padding: 0;
+    width: 243px;
+    transition: 0.3s;
+}
+.menu-area li ul::after{
+	content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    left: -6%;
+    top: 14%;
+    height: 0px;
+    border-top: 11px solid transparent;
+    border-right: 14px solid cyan;
+    border-bottom: 11px solid transparent;
+}
+
+.menu-area li:hover > ul{
+	display:block;
+	visibility:visible;
+	opacity:1;
+	left:275px;
+}
+.sodonhang{
+	color: white;
+    position: absolute;
+    left: 88%;
+    top: 14%;
+    margin: 0;
+    background: red;
+    display: flex;
+    justify-content: center;
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    align-items: center;
+}
+.hiendenbaophu{
+	display: block !important;;
+	
+}
+.denbaophu{
+	width: 100%;
+    height: 100%;
+    background: #1b1616b3;
+    z-index: 4;
+    position: fixed;
+    display:none;
+}
