@@ -16,10 +16,11 @@ import detai.cnjva.modelFile.SanPham;
 public class SanPhamDAO {
 	public SanPhamDAO() {};
 	private ArrayList<SanPham> list;
+	KhuyenMaiDAO  kmDAO = new KhuyenMaiDAO();
 	private Connection connec;
 	private PreparedStatement pre;
 	public ArrayList<SanPham> SanPhamKhuyenMaiHot(int madmuc, int gioiHan) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException{
-		String sql = "SELECT * FROM PTMPCN.SanPham where madanhmuc = ? AND KhuyenMai = ? ORDER BY masanpham limit "+gioiHan;
+		String sql = "SELECT * FROM PTMPCN.SanPham where madanhmuc = ? AND idKhuyenMai = ? ORDER BY masanpham limit "+gioiHan;
 		list = new ArrayList<SanPham>();
 		connec = connection.getMySQLConnection();
 		pre = connec.prepareStatement(sql);
@@ -130,7 +131,7 @@ public class SanPhamDAO {
 			sp.setMoTa(res.getString(5));
 			sp.setMaDanhMuc(res.getInt(6));
 			sp.setHangSanXuat(res.getInt(7));
-			sp.setKhuyenMai(res.getInt(8));
+			sp.setKhuyenMai(kmDAO.layTienKhuyenMAi(res.getInt(8)));
 			sp.setDiemDanhGia(res.getDouble(9));
 			list.add(sp);
 		}
@@ -177,7 +178,7 @@ public class SanPhamDAO {
 			sp.setMoTa(res.getString(5));
 			sp.setMaDanhMuc(res.getInt(6));
 			sp.setHangSanXuat(res.getInt(7));
-			sp.setKhuyenMai(res.getInt(8));
+			sp.setKhuyenMai(kmDAO.layTienKhuyenMAi(res.getInt(8)));
 			sp.setDiemDanhGia(res.getDouble(9));
 		}
 		pre.close();

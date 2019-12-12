@@ -5,7 +5,9 @@ import java.util.ArrayList;
 public class DonHangQuanLi {
 	private int idDonHang, trangThai, loaiDonHang,tongTien, giamGia, thanhTien;
 	private String yeuCau, soDienThoai, ngayTao, hoTen, diaChi;
-	private ArrayList<ChiTietDonHang> chiTietDonHang;
+	
+	private ArrayList<ChiTietDonHang> chiTietDonHang; // danh sach chi tiet don hang theo idDonHang
+	
 	public ArrayList<ChiTietDonHang> getChiTietDonHang() {
 		return chiTietDonHang;
 	}

@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import detai.cnjva.DAOFile.UserDAO;
 import detai.cnjva.modelFile.User;
-import detai.cnjva.modelFile.UserInfo;
 
 @Controller
 public class loginController {
@@ -46,13 +45,11 @@ public class loginController {
 		User user = new User();
 		user.setUserName(userName);
 		user.setPassWord(password);		
-		// goi DAO
-//		String referer= session.getAttribute("linktruocdo").toString();
-//		session.removeAttribute("linktruocdo");
 		if(userDao.checkLogin(user)) {
 			User userRs = new User();
 			userRs = userDao.LayThongTinUser(userName);
 			session.setAttribute("idKhachHang", userRs.getIdUser());
+			session.setAttribute("TenKhachHang", userName);
 			session.setAttribute("Role", userRs.getRole());
 			if(userRs.getRole() == 0) {
 				return "redirect:/quanly";
@@ -77,22 +74,30 @@ public class loginController {
 		return "redirect:"+ referer;
 	}
 	
+	@RequestMapping("/logoutadmin")
+	public String LogOutAdmin(HttpServletRequest request) {
+		session = request.getSession();
+		session.removeAttribute("idKhachHang");
+		session.removeAttribute("TenKhachHang");
+		session.removeAttribute("Role");
+		referer= request.getHeader("Referer");
+		return "redirect:/";
+	}
+	
 	@RequestMapping(value = "/dangki", method=RequestMethod.POST)
 	public String AddUser(Model model,  HttpServletRequest request) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
 		UserDAO userDao = new UserDAO();
 		User user = new User();
-		UserInfo userInfo = new UserInfo();
 		int check = 1;
 		user.setUserName(request.getParameter("UserName"));
 		user.setPassWord(request.getParameter("PassWord"));
-		userInfo.setHoTen(request.getParameter("Name"));
-		userInfo.setSdThoai(request.getParameter("Phone"));
-		userInfo.setDiaChi(request.getParameter("Address"));
-		userInfo.setEmail(request.getParameter("Email"));
+		user.setHoTen(request.getParameter("Name"));
+		user.setSoDienThoai(request.getParameter("Phone"));
+		user.setDiaChiMail(request.getParameter("Email"));
+		user.setDiaChi(request.getParameter("Adress"));
 		boolean kt = userDao.KiemTraUser(request.getParameter("UserName"));
 		if(!kt) {
 			userDao.ThemUser(user);
-			userDao.ThemInfo(userInfo);
 			check = 0;
 		}
 		request.setAttribute("checkuser", check);

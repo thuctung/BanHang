@@ -23,12 +23,19 @@ public class QuanLyController {
 	private ChiTietDonHangDAO ctdhDAO = new ChiTietDonHangDAO();
 	ArrayList<DonHangQuanLi> list = new  ArrayList<DonHangQuanLi>();
 	ArrayList<ChiTietDonHang> listChiTietDH = new  ArrayList<ChiTietDonHang>();
+	private HttpSession session;
+	
 	
 	@RequestMapping(value = "/quanly")
 	public String QuanLyChung(Model model,HttpServletRequest request) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException{
-		int sodonHangChoXacNhan = donhangDAO.demsoDonHangChuaXacNhan(); 
-		model.addAttribute("sodonhangchoxacnhan", sodonHangChoXacNhan);
-		return "quanly";
+		session = request.getSession();
+		if(session.getAttribute("Role") != null && Integer.parseInt(session.getAttribute("Role").toString()) == 0) {
+			int sodonHangChoXacNhan = donhangDAO.demsoDonHangChuaXacNhan(); 
+			model.addAttribute("sodonhangchoxacnhan", sodonHangChoXacNhan);
+			return "quanly";
+		}else {
+			return "login";
+		}
 	}
 	@RequestMapping(value = "/quanlydonhang", method = RequestMethod.GET)
 	public String QuanLy(Model model,HttpServletRequest request) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {

@@ -10,7 +10,6 @@ import javax.sql.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import detai.cnjva.connecDatabase.connection;
 import detai.cnjva.modelFile.User;
-import detai.cnjva.modelFile.UserInfo;
 
 public class UserDAO {
 	public Connection connec;
@@ -18,7 +17,6 @@ public class UserDAO {
 		
 		connec = connection.getMySQLConnection();
 		String sql = "SELECT * FROM PTMPCN.Account where Account.UserName = ? and Account.Password = ?";
-		 // Táº¡o má»™t Ä‘á»‘i tÆ°á»£ng PreparedStatement.
 	      PreparedStatement pstm = connec.prepareStatement(sql);
 	      pstm.setString(1, user.getUserName());
 	      pstm.setString(2, user.getPassWord());
@@ -48,27 +46,18 @@ public class UserDAO {
 	public String sql;
 	public Boolean ThemUser(User user) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
 		connec = connection.getMySQLConnection();
-		sql = "INSERT INTO PTMPCN.Account(UserName, PassWord) VALUES(?, ?)";
+		sql = "INSERT INTO PTMPCN.Account(UserName, PassWord, HoTen, SoDienThoai, DiaChi, Email) VALUES(?, ?, ?, ?, ?, ?)";
 		pstm = connec.prepareStatement(sql);
 		pstm.setString(1, user.getUserName());
 		pstm.setString(2, user.getPassWord());
+		pstm.setString(3, user.getHoTen());
+		pstm.setString(4, user.getSoDienThoai());
+		pstm.setString(5, user.getDiaChi());
+		pstm.setString(6, user.getDiaChiMail());
 		int rs = pstm.executeUpdate();
 		if(rs > 0) {
 			return true;
 		}
-		return false;
-	}
-	//thêm thông tin vào bảng khachhang
-	public Boolean ThemInfo(UserInfo userInfo) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
-		connec = connection.getMySQLConnection();
-		sql = "INSERT INTO PTMPCN.khachhang(HoTen, SoDienThoai, DiaChi, Email) VALUES(?, ?, ?, ?)";
-		pstm = connec.prepareStatement(sql);
-		pstm.setString(1, userInfo.getHoTen());
-		pstm.setString(2, userInfo.getSdThoai());
-		pstm.setString(3, userInfo.getDiaChi());
-		pstm.setString(4, userInfo.getEmail());
-		int rs = pstm.executeUpdate();
-		if(rs>0) return true;
 		return false;
 	}
 	

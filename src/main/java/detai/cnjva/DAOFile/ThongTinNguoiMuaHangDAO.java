@@ -12,7 +12,7 @@ public class ThongTinNguoiMuaHangDAO {
 	public PreparedStatement pre;
 	
 	public boolean ThemThongTinNguoiMuaHang(ThongTinNguoiMuaHang nguoimua) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
-		String sql = "INSERT INTO ThongTinNguoiMuaHang VALUES (?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO ThongTinNguoiMuaHang VALUES (?, ?, ?, ?, ?, ?, ?)";
 		connec = connection.getMySQLConnection();
 		pre = connec.prepareStatement(sql);
 		pre.setString(1, nguoimua.getSoDienThoai());
@@ -21,6 +21,7 @@ public class ThongTinNguoiMuaHangDAO {
 		pre.setString(4, nguoimua.getHuyen());
 		pre.setString(5,nguoimua.getPhuong() );
 		pre.setString(6, nguoimua.getSoNha());
+		pre.setInt(7, nguoimua.getIdDonHang());
 		int check = pre.executeUpdate();
 		if(check > 0) {
 			return true;

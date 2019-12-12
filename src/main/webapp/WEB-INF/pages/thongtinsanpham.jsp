@@ -46,7 +46,7 @@
         <aside class="price-sale">
             <div class="area-price">
                 <label class="installment">Trả góp 0%</label>
-                <c:set var = "dongia" value = "${sanpham.getDonGia() }" />
+                <c:set var = "dongia" value = "${sanpham.getDonGia() - sanpham.getKhuyenMai() }" />
 	            <strong>
 	            	<fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${dongia}"/>đ
 	            </strong>
