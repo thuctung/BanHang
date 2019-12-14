@@ -2,14 +2,22 @@ package detai.cnjva.modelFile;
 
 public class ThongTinNguoiMuaHang {
 	private String soDienThoai, hoTen, tinh, huyen, phuong, soNha;
+	private int idDonHang;
 	
-	public ThongTinNguoiMuaHang(String sdt, String ht, String tinh, String huyen, String phuong, String sonha) {
+	public ThongTinNguoiMuaHang(String sdt, String ht, String tinh, String huyen, String phuong, String sonha, int idDonHang) {
 		this.soDienThoai = sdt;
 		this.hoTen = ht;
 		this.tinh = tinh;
 		this.huyen = huyen;
 		this.phuong = phuong;
 		this.soNha = sonha;
+		this.idDonHang = idDonHang;
+	}
+	public int getIdDonHang() {
+		return idDonHang;
+	}
+	public void setIdDonHang(int idDonHang) {
+		this.idDonHang = idDonHang;
 	}
 	public String getSoDienThoai() {
 		return soDienThoai;

@@ -22,8 +22,6 @@
 			<div class="contentGioHang">
 				<form class="formKhachHang" name="formGioHang" method="POST" action="xacnhandathang" onsubmit="return checkGioHang()">
 					<div class="listSanPham">
-						<c:set var = "tonggiamgia" value = "0"/> <!-- Tong so tien giam gia -->
-						<c:set var = "tongtien" value = "0"/> <!-- Tong so tien san pham -->
 						<c:set var = "hinhanh" value = "dienthoai"/>
 						<c:forEach items="${listGioHang}" var="giohang">
 						<div class="motsanpham">
@@ -35,10 +33,8 @@
 							<c:set var = "dongia" value="${giohang.getDonGia()}"/>
 							<p>Giá: <fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${dongia}"/>đ</p>
 							<c:set var = "giamgia" value="0"/>
-							<c:if test="${giohang.getkhuyenMai() == 1}">
-								<c:set var = "giamgia" value = "${1000000 * giohang.getSoLuong()}"/>
-								<c:set var = "tonggiamgia" value = "${tonggiamgia + giamgia}"/>
-								<h5>Giảm: <fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${1000000}"/>đ</h5>
+							<c:if test="${giohang.getkhuyenMai() > 0}">
+								<h5>Giảm: <fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${giohang.getKhuyenMai()}"/>đ</h5>
 							</c:if>
 							<a href="xoagiohang?Masp=${giohang.getMaSanPham()}">Xóa</a>
 							<c:set var = "tiensanpham" value = "${giohang.getDonGia()*giohang.getSoLuong() - giamgia}"/>
@@ -53,12 +49,9 @@
 					</c:forEach>
 				</div>
 				<div class="thanhtien">
-					<label class="tongtien">Tổng tiền </label> <label class="tonggiatien"><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${tongtien}"/>đ</label>
-					<label class="tiengiam">Tiền giảm</label><label class="sotiengiamgia"><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${tonggiamgia}"/>đ</label>
-					<strong class="canthanhtoan">Cần thanh toán </strong> <strong class="tienthanhtoan"><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${tongtien-tonggiamgia}"/>đ</strong>
-					<input type="hidden" value="${tongtien}" name="tiengiamgia">
-					<input type="hidden" value="${ tonggiamgia}" name="tongtien">
-					<input type="hidden" value="${tongtien-tonggiamgia}" name="tienthanhtoan">				
+					<label class="tongtien">Tổng tiền </label> <label class="tonggiatien"><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${sessionScope.tongtien}"/>đ</label>
+					<label class="tiengiam">Tiền giảm</label><label class="sotiengiamgia"><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${sessionScope.giamgia}"/>đ</label>
+					<strong class="canthanhtoan">Cần thanh toán </strong> <strong class="tienthanhtoan"><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${sessionScope.thanhtoan}"/>đ</strong>			
 				</div>
 				<div class="thongtinKhachhang">
 					<input placeholder="Họ tên " name="hoTenKH" class="input inputKh"/>
@@ -82,10 +75,10 @@
 	</c:choose>
 	</div>
 	<c:if test="${check == true}">
-		<script>alert("Đặt hàng thành công! Vui lòng đợi điện thoại xác nhận của nhân viên")</script>
+		<script>alert("Đặt hàng thành công! Vui lòng đợi điện thoại xác nhận của nhân viên"); window.location.href="/BanHang/"</script>
 	</c:if>
 	<c:if test="${check == false}">
-		<script>alert("Hệ thống có lỗi không thể đặt hàng")</script>
+		<script>alert("Hệ thống có lỗi không thể đặt hàng");window.location.href="/BanHang/"</script>
 	</c:if>
 	<%@ include file="template/footer.jsp"%>
 	 <script src="script/giohang.js"></script>

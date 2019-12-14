@@ -23,7 +23,7 @@
 					<a href="./" class="avartarr"></a> 
 					<a href="./" class="titlee"></a>
 				</div> 
-				<a class="items" href="./logout">
+				<a class="items" href="./logoutadmin">
 				 <img class="imgLogin" src="image/adminlogout.png" />
 					<p class="plogin">Logout</p>
 				</a>

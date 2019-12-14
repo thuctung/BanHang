@@ -15,4 +15,9 @@ public class GioHang {
 	public void setSoLuong(int soLuong) {
 		this.soLuong = soLuong;
 	}
+	
+	public GioHang(int id, int soLuong) {
+		this.inSanPham = id;
+		this.soLuong = soLuong;
+	}
 }

@@ -121,9 +121,9 @@
 	            </c:if>
 	            <c:if test="${page.getKhuyenMai() > 0}">
 	            	<strong class="tiengiamgia">
-						<fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${dongia - 1000000}"/>đ
+						<fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${dongia - page.getKhuyenMai()}"/>đ
 			     	</strong>
-	            	<label class="labelGiamgia">Giảm 1.000.000đ</label>
+	            	<label class="labelGiamgia">Giảm <fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${page.getKhuyenMai()}"/>đ</label>
 	            </c:if>
            	</a>
         	</c:forEach>

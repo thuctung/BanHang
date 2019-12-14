@@ -44,14 +44,14 @@ public class DonHangController {
 		String quan = request.getParameter("quanhuyen");
 		String xa = request.getParameter("phuongxa");
 		String sonha = request.getParameter("sonha");
-		int tiengiam = Integer.parseInt(request.getParameter("tiengiamgia"));
-		int tongtien = Integer.parseInt(request.getParameter("tongtien"));
-		int thanhtien = Integer.parseInt(request.getParameter("tienthanhtoan"));
+		int tiengiam = Integer.parseInt(session.getAttribute("giamgia").toString());
+		int tongtien = Integer.parseInt(session.getAttribute("tongtien").toString());
+		int thanhtien = Integer.parseInt(session.getAttribute("thanhtoan").toString());
 		ArrayList<GioHang> SessionGioHang = (ArrayList<GioHang>) session.getAttribute("listGioHang");
 		int taoMaDonHang = donhangDAO.layMaDonHangCaoNhat() + 1; 
 		// tao cac doi tuong 
 		DonHang donhang = new DonHang(taoMaDonHang,ngaytao,sodienthoai,loaimua,tiengiam, tongtien,thanhtien, yeucau);
-		ThongTinNguoiMuaHang nguoimua = new ThongTinNguoiMuaHang(sodienthoai,hoten, tinh, quan, xa, sonha);
+		ThongTinNguoiMuaHang nguoimua = new ThongTinNguoiMuaHang(sodienthoai,hoten, tinh, quan, xa, sonha, taoMaDonHang);
 		boolean check = donhangDAO.ThemDonHang(donhang);
 		if(check) {
 			nguoimuaDAO.ThemThongTinNguoiMuaHang(nguoimua);
@@ -61,10 +61,13 @@ public class DonHangController {
 			}
 			session.removeAttribute("listGioHang");
 			session.removeAttribute("soluongGioHang");
+			session.removeAttribute("giamgia");
+			session.removeAttribute("tongtien");
+			session.removeAttribute("thanhtien");
 			model.addAttribute("check", true);
 		}else {
 			model.addAttribute("check", false);
 		}
-		return "giohang";
+		return "giohang"; 
 	}
 }

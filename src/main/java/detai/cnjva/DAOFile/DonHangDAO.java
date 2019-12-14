@@ -73,6 +73,7 @@ public class DonHangDAO {
 
 	public ArrayList<DonHangQuanLi> LayDonHangQuanLi(boolean dieukien, int tinhtrang) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException{
 		ArrayList<DonHangQuanLi> list = new  ArrayList<DonHangQuanLi>();
+		ChiTietDonHangDAO ctdhDAO = new ChiTietDonHangDAO();
 		String sql = "";
 		connec = connection.getMySQLConnection();
 		if(dieukien) {
@@ -100,11 +101,8 @@ public class DonHangDAO {
 			dhql.setHoTen(res.getString(11));
 			diachi = res.getString(15)+", "+res.getString(14)+", "+res.getString(13)+", "+res.getString(12);
 			dhql.setDiaChi(diachi);
+			dhql.setChiTietDonHang(ctdhDAO.LayDanhSachDonHangTheoMa(dhql.getIdDonHang()));
 			list.add(dhql);
-		}
-		ChiTietDonHangDAO ctdhDAO = new ChiTietDonHangDAO();
-		for(DonHangQuanLi dh : list) {
-			dh.setChiTietDonHang(ctdhDAO.LayDanhSachDonHangTheoMa(dh.getIdDonHang()));
 		}
 		return list;
 	}

@@ -38,8 +38,8 @@
 				<p class="sodienthoai">Số điện thoại: <strong>${dhql.getSoDienThoai() }</strong></p>  
 				<p class="ngaydat">Ngày đặt hàng: <strong>${dhql.getNgayTao() }</strong></p>
 				<p class="pduoi tinhtrang">Tình trạng: <strong>${tinhtranh}</strong></p> 
-				<p class="pduoi tongtien">Tổng tiền: <strong><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${dhql.getGiamGia()}"/>đ</strong></p>
-				<p class="pduoi duocgiam">Được giảm: <strong><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${dhql.getTongTien()}"/>đ</strong></p>
+				<p class="pduoi tongtien">Tổng tiền: <strong><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${dhql.getTongTien()}"/>đ</strong></p>
+				<p class="pduoi duocgiam">Được giảm: <strong><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${dhql.getGiamGia()}"/>đ</strong></p>
 				<p class="pduoi thanhtoan">Thanh toán: <strong><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${dhql.getThanhTien()}"/>đ</strong></p>
 				<a class="btnchitiet" onclick="hienChiTietDonHang(${dhql.getIdDonHang()})">Chi tiết</a>
 				

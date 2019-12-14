@@ -38,7 +38,7 @@ public class DanhGiaSanPhamDAO {
 	}
 	
 	public String LayTenKhachHangTheoMa(int makh) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
-		String sql = "SELECT HoTen from KhachHang Where idKhachHang = ?";
+		String sql = "SELECT HoTen from Account Where idAccount = ?";
 		String ten = "";
 		connec = connection.getMySQLConnection();
 		pre = connec.prepareStatement(sql);
