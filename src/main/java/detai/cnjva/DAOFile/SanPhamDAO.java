@@ -19,7 +19,7 @@ public class SanPhamDAO {
 	private Connection connec;
 	private PreparedStatement pre;
 	public ArrayList<SanPham> SanPhamKhuyenMaiHot(int madmuc, int gioiHan) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException{
-		String sql = "SELECT * FROM PTMPCN.SanPham where madanhmuc = ? AND KhuyenMai = ? ORDER BY masanpham limit "+gioiHan;
+		String sql = "SELECT * FROM PTMPCN.SanPham where madanhmuc = ? AND idKhuyenMai = ? ORDER BY masanpham limit "+gioiHan;
 		list = new ArrayList<SanPham>();
 		connec = connection.getMySQLConnection();
 		pre = connec.prepareStatement(sql);
