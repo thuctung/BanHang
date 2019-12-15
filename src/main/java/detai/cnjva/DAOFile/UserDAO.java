@@ -59,7 +59,22 @@ public class UserDAO {
 		return false;
 	}
 	
-	//Kiểm tra xem UserName đã tồn tại chưa?
+	//them user of admin
+	public Boolean AddUser(User user) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
+		connec = connection.getMySQLConnection();
+		sql = "INSERT INTO PTMPCN.Account(UserName, PassWord, Email) VALUES(?, ?, ?)";
+		pstm = connec.prepareStatement(sql);
+		pstm.setString(1, user.getUserName());
+		pstm.setString(2, user.getPassWord());
+		pstm.setString(3, user.getDiaChiMail());
+		int rs = pstm.executeUpdate();
+		if(rs > 0) {
+			return true;
+		}
+		return false;
+	}
+	
+	//Kiểm tra xem UserName để đăng kí tài khoản
 	public Boolean KiemTraUser(String UserName) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
 		connec = connection.getMySQLConnection();
 		sql = "SELECT COUNT(*) as DEM FROM PTMPCN.Account WHERE UserName = ?";
@@ -75,7 +90,7 @@ public class UserDAO {
 		return false;
 	}
 	
-	//Hiển thị danh sách các tài khoản
+	/*//Hiển thị danh sách các tài khoản
 	public PhanTrang<User> HienThiUser(int page, int limit) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
 		connec = connection.getMySQLConnection();
 		ArrayList<User> list = new ArrayList<User>();
@@ -94,10 +109,10 @@ public class UserDAO {
 			list.add(user);
 		}
 		return new PhanTrang<User>(list, page, limit);
-	}
+	}*/
 	
 	//Hiển thị danh sách các tài khoản
-	//Hiển thị tất cả user(trừ user Role=1 ) vào list 
+	//Hiển thị tất cả user(Role=0 ) vào list 
 	public ArrayList<User> HienThiUser() throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
 		connec = connection.getMySQLConnection();
 		ArrayList<User> list = new ArrayList<User>();
@@ -133,6 +148,8 @@ public class UserDAO {
 		return false;
 	}
 	
+	
+	//Lấy các thông tin user bằng id để cập nhập thông tin
 	public User HienThiUserById(int id) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
 		connec = connection.getMySQLConnection();
 		User user = new User();
@@ -144,6 +161,7 @@ public class UserDAO {
 			user.setIdUser(rs.getInt(1));
 			user.setUserName(rs.getString(2));
 			user.setPassWord(rs.getString(3));
+			user.setRole(rs.getInt(4));
 			user.setHoTen(rs.getString(5));
 			user.setSoDienThoai(rs.getString(6));
 			user.setDiaChi(rs.getString(7));
@@ -153,21 +171,17 @@ public class UserDAO {
 	}
 	
 	//Cập nhật thông tin
-	public Boolean CapNhatUser(String password, String sodienthoai, String email,int role, int id) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
+	public void CapNhatUser(String password,String hoten, String sodienthoai, String email,int role, int id) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
 		connec = connection.getMySQLConnection();
-		String sql = "UPDATE PTMPCN.account SET PassWord = ?, SoDienThoai = ?, Email = ?, Role = ?  WHERE (idAccount = ?)";
+		String sql = "UPDATE PTMPCN.account SET PassWord = ?, HoTen = ?, SoDienThoai = ?, Email = ?, Role = ?  WHERE (idAccount = ?)";
 		pstm = connec.prepareStatement(sql);
 		pstm.setString(1, password);
-		pstm.setString(2, sodienthoai);
-		pstm.setString(3, email);
-		pstm.setInt(4, role);
-		pstm.setInt(5, id);
-		int rs = 0;
-		rs = pstm.executeUpdate();
-		if(rs > 0) {
-			return true;
-		}
-		return false;
+		pstm.setString(2, hoten);
+		pstm.setString(3, sodienthoai);
+		pstm.setString(4, email);
+		pstm.setInt(5, role);
+		pstm.setInt(6, id);
+		int rs = pstm.executeUpdate();
 	}
 	
 	public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {

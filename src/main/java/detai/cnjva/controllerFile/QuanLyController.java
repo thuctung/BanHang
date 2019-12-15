@@ -29,7 +29,7 @@ public class QuanLyController {
 	@RequestMapping(value = "/quanly")
 	public String QuanLyChung(Model model,HttpServletRequest request) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException{
 		session = request.getSession();
-		if(session.getAttribute("Role") != null && Integer.parseInt(session.getAttribute("Role").toString()) == 0) {
+		if(session.getAttribute("Role") != null && Integer.parseInt(session.getAttribute("Role").toString()) == 0 ) {
 			int sodonHangChoXacNhan = donhangDAO.demsoDonHangChuaXacNhan(); 
 			model.addAttribute("sodonhangchoxacnhan", sodonHangChoXacNhan);
 			return "quanly";

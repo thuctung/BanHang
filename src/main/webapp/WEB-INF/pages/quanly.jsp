@@ -8,10 +8,12 @@
 <meta charset="UTF-8">
 <LINK REL="SHORTCUT ICON" HREF="image/sanpham/logoTittle.png">
 <link href="stylesheet/header.css" rel="stylesheet">
+
 <link href="stylesheet/footer.css" rel="stylesheet">
 <link href="stylesheet/quanly.css" rel="stylesheet">
 <link href="stylesheet/donhang.css" rel="stylesheet">
 <link href="stylesheet/login.css" rel="stylesheet">
+<link href="stylesheet/quanlytaikhoan.css" rel="stylesheet">
 <title>Quản Lý</title>
 </head>
 <body>
@@ -51,17 +53,22 @@
 			</ul>
 		</div>
 		<div class="content">
+			<!-- chucnang = 1 thì sẽ trả về trang quản lý đơn hàng 
+				biến chucnang được khai báo trong controller-->
 			<c:if test="${chucnang == 1}">
 				<%@ include file="template/DonHang.jsp" %> 
 			</c:if>
+			<!-- chucnang = 2 thì sẽ trả về trang quản lý tài khoản -->
 			<c:if test="${chucnang == 2 }">
 				<%@ include file="template/TaiKhoan.jsp" %>
 			</c:if>
+			<!-- chucnang = 3 thì sẽ trả về trang thay đổi thông tin-->
 			<c:if test="${chucnang == 3 }">
 				<%@ include file="template/thaydoithongtin.jsp" %>
 			</c:if>
 		</div>
 	</div>
 	<script src="script/donhang.js"></script>
+	<script src="script/login.js"></script>
 </body>
 </html>

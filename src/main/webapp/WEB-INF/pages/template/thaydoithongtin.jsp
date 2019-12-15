@@ -1,26 +1,45 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-	<form class="form-change-infor" action="capnhatUser/?idtk=${hienthiUser.getIdUser() }" method="POST">
-		Tài khoản<input type="text" class="tb-register1" name="UserName" ReadOnly placeholder="${hienthiUser.userName }"/>
-		Mật khẩu<input type="text" class="tb-register1" name="PassWord" value="${hienthiUser.getPassWord()}"/>
-		Số điện thoại<input type="text" class="tb-register1" name="Phone" value="${hienthiUser.getSoDienThoai() }"/>
-		Email<input type="text" class="tb-register1" name="Email" value="${hienthiUser.getDiaChiMail() }"/>
-		<%-- <c:if test="${hienthiUser.getRole() == 0 }">
-			Chức vụ<input type="text" class="tb-register1" name="Role" value="Người dùng"/>
-		 </c:if>
-		 <c:if test="${hienthiUser.getRole() == 1 }">
-			Chức vụ<input type="text" class="tb-register1" name="Role" value="Quản lý"/>
-		 </c:if>  --%>
-		 Chức vụ: <br>
-	    <select name="chucvu">
-	        	<option class="tb-register1" value="${hienthiUser.getRole() }">--</option>
-	        	<option class="tb-register1" value="1">Người dùng</option>
-	        	<option class="tb-register1" value="2">Quản lý</option>
-	    </select>
-		<button type="submit" class="submit-register">Cập nhật</button>
-		<a href="quanlytaikhoan" class="submit-register">Trở về</a>
+<div class="form-change-infor">
+	<div class="title-form-change">
+		<h1 id="h1">Cập nhập thông tin</h1>
+	</div>
+	<div class="body-form-change">
+	<form id="form-action-change" action="capnhatUser/?idtk=${hienthiUser.getIdUser()}" method="POST">
+		<div class="row-form">
+			<p class="lb-form">Tài khoản:</p>
+			<input type="text" class="tb-change" name="UserName" readonly placeholder="${hienthiUser.getUserName()}">
+		</div>
+		<div class="row-form">
+			<p class="lb-form">Mật khẩu: </p>
+			<input type="text" class="tb-change" maxlength="20" name="PassWord" value="${hienthiUser.getPassWord()}">
+		</div>
+		<div class="row-form">
+			<p class="lb-form">Họ tên: </p>
+			<input type="text" class="tb-change" maxlength="35" name="Name" value="${hienthiUser.getHoTen()}">
+		</div>
+		<div class="row-form">
+			<p class="lb-form">Số điện thoại: </p>
+			<input type="text" class="tb-change" maxlength="10" name="Phone" value="${hienthiUser.getSoDienThoai()}">
+		</div>
+		<div class="row-form">
+			<p class="lb-form">Email: </p>
+			<input type="text" class="tb-change" maxlength="40" name="Email" value="${hienthiUser.getDiaChiMail()}">
+		</div>
+		<div class="row-form">
+			<p class="lb-form">Chức vụ: </p>
+			<select id="select" class="tb-change" name="chucvu">
+		        <option value="${hienthiUser.getRole()}">	---		</option>
+		        <option value="1">Người dùng</option>
+		        <option value="0">Quản lý</option>
+		   	</select>
+		</div>
+		<div class="row-form">
+			<a href="quanlytaikhoan" class="submit-update">Quay lại</a>
+			<button type="submit" class="submit-update">Cập nhật</button>
+		</div>
+		</table>
 	</form>
-<%-- 	<c:if test="${chucnang == 2 }">
-		<%@ include file="template/thaydoithongtin.jsp" %>
-	</c:if> --%>
+	</div>
+</div>
