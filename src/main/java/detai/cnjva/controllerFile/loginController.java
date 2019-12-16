@@ -51,7 +51,8 @@ public class loginController {
 			session.setAttribute("idKhachHang", userRs.getIdUser());
 			session.setAttribute("TenKhachHang", userName);
 			session.setAttribute("Role", userRs.getRole());
-			if(userRs.getRole() == 0) {
+			//tài khoản vs role == 0 || 2 thì sẽ chuyển vào trang quản lý
+			if(userRs.getRole() == 0 || userRs.getRole() == 2) {
 				return "redirect:/quanly";
 			}else {
 				String link = session.getAttribute("linktruocdo").toString();
@@ -80,7 +81,6 @@ public class loginController {
 		session.removeAttribute("idKhachHang");
 		session.removeAttribute("TenKhachHang");
 		session.removeAttribute("Role");
-		referer= request.getHeader("Referer");
 		return "redirect:/";
 	}
 	

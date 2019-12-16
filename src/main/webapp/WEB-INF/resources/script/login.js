@@ -1,3 +1,40 @@
+// Show - hide form them tai khoan 
+var div_them_tai_khoan = document.querySelector(".them-tai-khoan");
+var btn_them_tai_khoan = document.querySelector("#btn-them-tai-khoan");
+var btn_dong = document.querySelector("#submit-close");
+btn_them_tai_khoan.onclick = function() {
+	if(!div_them_tai_khoan.classList.contains("them-tai-khoan-show"))
+		{
+			if(div_them_tai_khoan.classList.contains("them-tai-khoan-hide"))
+				{
+					div_them_tai_khoan.classList.remove("them-tai-khoan-hide");
+				}
+				
+			div_them_tai_khoan.classList.add("them-tai-khoan-show");
+		}
+	else
+		{
+			div_them_tai_khoan.classList.remove("them-tai-khoan-show");
+			div_them_tai_khoan.classList.add("them-tai-khoan-hide");
+		}
+};
+btn_dong.onclick = () =>{
+	if(!div_them_tai_khoan.classList.contains("them-tai-khoan-show"))
+	{
+		if(div_them_tai_khoan.classList.contains("them-tai-khoan-hide"))
+			{
+				div_them_tai_khoan.classList.remove("them-tai-khoan-hide");
+			}
+			
+		div_them_tai_khoan.classList.add("them-tai-khoan-show");
+	}
+else
+	{
+		div_them_tai_khoan.classList.remove("them-tai-khoan-show");
+		div_them_tai_khoan.classList.add("them-tai-khoan-hide");
+	}
+};
+
 function removeLogin() {
 	document.querySelector(".form-login").classList.add("remove");
 	document.querySelector(".form-register").classList.add("add");
@@ -7,9 +44,25 @@ function removeRegister() {
 	document.querySelector(".form-login").classList.remove("remove");
 	document.querySelector(".form-register").classList.remove("add");
 }
+ 
+/*PHƯƠNG THỨC ẨN HIỆN FORM THÊM TÀI KHOẢN
+	TRONG TRANG QUẢN LÝ TÀI KHOẢN
+	KHI NHẤN NÚT THÊM TÀI KHOẢN SẼ XUẤT HIỆN
+	MẶC ĐỊNH SẼ BỊ ẨN	*/
+function remove() {
+	document.querySelector("#form-them-taikhoan").classList.remove("add");
+	console.log("removeUser");
+}
+
+function addAdd() {
+	document.querySelector("#form-them-taikhoan").classList.add("add");
+	console.log("addAddUser");
+}
+
+/*PHƯƠNG THỨC KIỂM TRA ĐĂNG NHẬP
+	KHI ĐỂ TRỐNG DỮ LIỆU VÀ NHẤN LOGIN	*/
 
 function checklogin() {
-	
 	var userlogin = document.getElementById('UserName-Login').value;
 	//var passlogin = document.getElementById('PassWord-Login').value;
 	if(userlogin == '' && passlogin == '')
@@ -103,3 +156,4 @@ function register(){
 
 	return true;
 }
+

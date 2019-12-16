@@ -1,0 +1,308 @@
+@charset "ISO-8859-1";
+.form-change-infor{
+	border: 1px solid #ccc;
+    margin: 0 auto;
+    width: 39% !important;
+    font-family: unset;
+    height: 512px;
+    border-radius: 5px;
+    box-shadow: 6px 6px 7px #ccc;
+    transform: translateY(70px);
+}
+.tb-change{
+    display: inline;
+    width: 62%;
+    height: 31px;
+    font-size: 15px;
+    font-family: "Roboto", sans-serif;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #eee;
+}
+
+.submit-update{
+    width: 123px;
+    height: 39px;
+    /* margin: 6px auto; */
+    margin: 17px auto;
+    display: flex;
+    font-size: 14px;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    background: #009879;
+    color: white;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    text-decoration: none;
+}
+.submit-back{
+    width: 299px;
+    height: 39px;
+    /* margin: 6px auto; */
+    margin: 28px auto;
+    display: block;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: white;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    color: red;
+}
+
+/*Label*/ 
+.lb-form{
+	width: 25% !important;
+	display: block !important;
+	margin: 0 !important;
+	font-weight: 600;
+}
+.title-form-change{
+	height: 59px;
+	width:100%;
+    padding-top: 16px;
+    border-bottom: 1px solid #ccc;
+    background-color: #009879;
+    margin-bottom: 34px;
+}
+#h1{
+    text-align: center;
+    display: block;
+    height: 61px;
+    margin:0;
+    color: white;
+}
+.row-form{
+	display: flex;
+    justify-content: space-evenly;
+    height: 36px;
+    margin-bottom: 19px;
+}
+
+#select{
+	width: 63%;
+    height: 30px;
+}
+
+#form-action-change{
+	width: 100% !important;
+	height: 100% !important;
+}
+
+/* DANH SÁCH TÀI KHOẢN */
+
+
+.danhsachtaikhoan *{
+	box-sizing: border-box;
+	
+}
+.danhsachtaikhoan{
+	padding: 0 10%;
+	}
+	
+
+.danhsachtaikhoan .title-ds-taikhoan{
+	position: relative;
+}
+.danhsachtaikhoan .title-ds-taikhoan h1{
+	text-align: center;
+	color: #2E2E2E;
+	padding: 0px 0px 0px 37px;
+}
+.danhsachtaikhoan .title-ds-taikhoan span{
+	display: block;
+	position: absolute;
+	bottom: -15px;
+	right: 0px;
+	border: none;
+	outline: none;
+	background: #009879;
+	padding: 14px 16px;
+	color: #fff;
+	border-radius: 7px;
+	cursor: pointer;
+	transition: 0.25s;
+	font-size: 0.9em;
+	font-weight: 600;
+}
+.danhsachtaikhoan .title-ds-taikhoan span:hover{
+	opacity: 0.9;
+}
+
+.danhsachtaikhoan .hienthidanhsach table#content-table{
+	border-collapse: collapse;
+    margin: 30px 0 0 43px;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.danhsachtaikhoan table thead tr{
+	background-color: #009879;
+	color: #ffffff;
+	text-align: left;
+	font-weight: bold;
+	height: 62px;
+}
+.danhsachtaikhoan table thead th{
+	width: 146px;
+    padding: 0px 5px;
+}
+.danhsachtaikhoan table th td{
+	padding: 12px 15px;
+}
+.danhsachtaikhoan table tbody tr{
+	border-bottom: 1px solid #dddddd;
+	height: 62px;
+}
+.danhsachtaikhoan table tbody tr:nth-of-type(even){
+	background-color: #f3f3f3;	
+}
+.danhsachtaikhoan table tbody td{
+	width: 143px;
+    padding: 0px 8px;
+}
+/*.danhsachtaikhoan .hienthidanhsach{
+
+}
+.danhsachtaikhoan .hienthidanhsach table{
+	border: 1px solid;
+	text-align: left;
+	box-shadow: 0 5px 10px black;
+	box-sizing: border-box;
+}
+.danhsachtaikhoan th, td{
+	padding: 10px 15px;
+	
+}	
+.danhsachtaikhoan td{
+	background: #fff;
+}
+.danhsachtaikhoan th{
+	background: gray;
+}
+.danhsachtaikhoan table thead tr{
+	border: 1px solid ;
+} */
+
+a.capnhat-user{
+	padding: 0 6px 0 0;
+}
+/* FORM CHỨC NĂNG THÊM TÀI KHOẢN TRONG TRANG QUẢN LÝ TÀI KHOẢN  */
+
+/* THIS IS FORM */
+.them-tai-khoan{
+	background: #fff;
+	position: absolute;
+	top: -55%;
+	left: 45%;
+	opacity: 0;
+	translate: translate(-45%,-50%);
+		
+}
+.them-tai-khoan-show{
+	animation: show 1s forwards;
+}
+.them-tai-khoan-hide{
+	animation: hide 1s forwards;
+}
+@keyframes show{
+	from{
+		opacity: 0;
+		top: -55%;
+	}
+	to{
+	opacity: 1;
+		top:30%;
+	}
+}
+@keyframes hide{
+	from{
+	opacity: 1;
+		top:30%;
+	}
+	to{
+	opacity: 0;
+		top: -55%;
+	}
+}
+
+/* FORM THÊM TÀI KHOẢN*/
+
+div.them-tai-khoan{
+	width: 26%;
+    height: 342px;
+    border-radius: 4.5px;
+    /* background: gray; */
+    font-family: "Roboto", sans-serif;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #e5e1e1;
+}
+
+form#form-them-taikhoan{
+	width: 100%;
+	height: 100%
+}
+
+#form-them-taikhoan h1{
+	width: 60%;
+    height: 11%;
+    margin: 0 auto;
+    font-size: 31px;
+    font-weight: 600;
+}
+div#form-them-taikhoan{
+	width: 85%;
+    height: 35px;
+    /* border: 1px solid; */
+    margin: 0 auto;
+    margin-top: 29px;
+}
+
+.tb-add{
+    display: inline;
+    width: 100%;
+    height: 31px;
+    font-size: 15px;
+    font-family: "Roboto", sans-serif;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #eee;
+}
+
+div#btn-form-them-taikhoan{
+	width: 48%;
+    height: 18%;
+    display: block;
+    float: left;
+}
+
+.submit-add{
+    width: 123px;
+    height: 39px;
+    /* margin: 6px auto; */
+    margin: 28px auto;
+    display: flex;
+    font-size: 14px;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    background: dodgerblue;
+    color: white;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
