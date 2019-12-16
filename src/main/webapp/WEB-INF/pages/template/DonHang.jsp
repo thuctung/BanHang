@@ -58,7 +58,7 @@
    					</c:when>
    					<c:when test="${dhql.getTrangThai() == 2}">
 						<div class="areaXacnhan">
-   							<a href="" class="btnxacnhan">Xóa</a>
+   							<a href="xoadonhang?madh=${dhql.getIdDonHang()}" class="btnxacnhan">Xóa</a>
 						</div>
    					</c:when>
    				</c:choose>

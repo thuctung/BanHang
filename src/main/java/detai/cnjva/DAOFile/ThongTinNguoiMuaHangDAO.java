@@ -28,11 +28,11 @@ public class ThongTinNguoiMuaHangDAO {
 		}
 		return false;
 	}
-	public boolean XoaThongTinNguoiMuaHang(String sodienthoai) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
-		String sql = "DELETE FROM ThongTinNguoiMuaHang WHERE sodienthoai = ?";
+	public boolean XoaThongTinNguoiMuaHang(int iddonhang) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
+		String sql = "DELETE FROM ThongTinNguoiMuaHang WHERE idDonHang = ?";
 		connec = connection.getMySQLConnection();
 		pre = connec.prepareStatement(sql);
-		pre.setString(1, sodienthoai);
+		pre.setInt(1, iddonhang);
 		int check = pre.executeUpdate();
 		if(check > 0) {
 			return true;

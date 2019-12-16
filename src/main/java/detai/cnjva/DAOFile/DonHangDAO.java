@@ -48,7 +48,7 @@ public class DonHangDAO {
 		return madonhang;
 	}
 	public boolean XoaDonHang(int madonhang) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
-		String sql = "DELETE FROM  from DonHang idDonHang = ?";
+		String sql = " DELETE FROM DonHang WHERE idDonHang = ?";
 		connec = connection.getMySQLConnection();
 		pre = connec.prepareStatement(sql);
 		pre.setInt(1, madonhang);

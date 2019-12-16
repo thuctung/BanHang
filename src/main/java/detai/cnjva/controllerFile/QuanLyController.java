@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import detai.cnjva.DAOFile.ChiTietDonHangDAO;
 import detai.cnjva.DAOFile.DonHangDAO;
+import detai.cnjva.DAOFile.ThongTinNguoiMuaHangDAO;
 import detai.cnjva.modelFile.ChiTietDonHang;
 import detai.cnjva.modelFile.DonHang;
 import detai.cnjva.modelFile.DonHangQuanLi;
@@ -20,6 +21,7 @@ import detai.cnjva.modelFile.DonHangQuanLi;
 @Controller
 public class QuanLyController {
 	private DonHangDAO donhangDAO = new DonHangDAO();
+	ThongTinNguoiMuaHangDAO ttnmhDAO = new ThongTinNguoiMuaHangDAO(); 
 	private ChiTietDonHangDAO ctdhDAO = new ChiTietDonHangDAO();
 	ArrayList<DonHangQuanLi> list = new  ArrayList<DonHangQuanLi>();
 	ArrayList<ChiTietDonHang> listChiTietDH = new  ArrayList<ChiTietDonHang>();
@@ -75,4 +77,22 @@ public class QuanLyController {
 		}
 		return "redirect:/";
 	}
+	
+	@RequestMapping(value = "/xoadonhang", method = RequestMethod.GET)
+	public String xoaDonHang(Model model,HttpServletRequest request) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
+		HttpSession session = request.getSession();
+		int chucNangQuanLi = 1;
+		if(session.getAttribute("admin") == null) {
+			if(request.getParameter("madh") != null) {
+				int iddonhang = Integer.parseInt(request.getParameter("madh"));
+				donhangDAO.XoaDonHang(iddonhang);
+				ctdhDAO.XoaChiTietDonHang(iddonhang);
+				ttnmhDAO.XoaThongTinNguoiMuaHang(iddonhang);
+			}
+			model.addAttribute("chucnang", chucNangQuanLi);
+			return "quanly";
+		} 
+		return "redirect:/"; 
+	}
+	
 }
