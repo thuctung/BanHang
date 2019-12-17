@@ -15,6 +15,7 @@ import detai.cnjva.DAOFile.DanhGiaSanPhamDAO;
 
 @Controller
 public class DanhGiaSanPham {
+	private DanhGiaSanPhamDAO dgspDAO = new DanhGiaSanPhamDAO();
 	
 	@RequestMapping(value="/xoadanhgia", method = RequestMethod.GET)
 	public String XoaDanhGia(Model model , HttpServletRequest request) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
@@ -34,7 +35,6 @@ public class DanhGiaSanPham {
 	
 	@RequestMapping(value="/chitietsanpham", method = RequestMethod.POST)
 	public String ThemDanhGia(Model model , HttpServletRequest request, HttpServletResponse response) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
-		DanhGiaSanPhamDAO dgspDAO = new DanhGiaSanPhamDAO();
 		boolean ktra = false ;
 		HttpSession session = request.getSession();
 		int masp = Integer.parseInt(request.getParameter("masp"));
@@ -44,7 +44,7 @@ public class DanhGiaSanPham {
 		ktra = dgspDAO.KiemTraDanhGiaKhachHang(makh, masp);
 		if(!ktra) {
 			dgspDAO.ThemDanhGiaSanPham(makh,masp,(int) sosao, noidung);
-			dgspDAO.CapNhatSoDiemDanhGia(masp, sosao);
+			dgspDAO.CapNhatSoDiemDanhGia(masp, sosao); // so sao truoc cong so sao gui
 			session.setAttribute("insert",ktra);
 		}
 		else {

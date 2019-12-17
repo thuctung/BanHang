@@ -48,7 +48,7 @@ public class GioHangDAO {
 	public boolean CapNhatSoLuongSanPhamGioHang(ArrayList <GioHang> listGioHang, GioHang gioHang, int soLuong) {
 		boolean check = false;
 		for(GioHang gh : listGioHang ) {
-			if(gh.getInSanPham() == gioHang.getInSanPham() ) {
+			if(gh.getInSanPham() == gioHang.getInSanPham() ) { // nếu 
 				if(soLuong == 0) {
 					gh.setSoLuong(gh.getSoLuong() + 1);
 				}

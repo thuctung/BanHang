@@ -28,7 +28,6 @@
 	        <img src="image/sanpham/${hinhanh}/${sanpham.getHinhAnh()} " class="anhsanpham"/>
 	        <div class="danhgiasanpham">
 	        	<c:if test ="${diemdanhgia > 0}">
-	        		<h4>${diemdanhgia}</h4>
 	        	<c:forEach var ="i" begin="1" end = "${diemdanhgia}" step="1">
 	        		<img src ="image/star.jpg" class="saodanhgia"/>
 	        	</c:forEach>
@@ -125,26 +124,12 @@
 		<div class="formDanhGia">
 			<form action="chitietsanpham" name="formDanhGia" method="POST" onsubmit="return checkGuiDanhGia()">
 				<h4>Chọn đánh giá của bạn</h4>
-				<div class="group1">
-					<label for="ip1">1<img src ="image/star.jpg" width="19px" height="20px"/></label>
-					<input id="ip1" type="radio" name="sao" value="1"/>
-				</div>
-				<div class="group1">
-					<label for="ip2">2<img src ="image/star.jpg" width="19px" height="20px"/></label>
-					<input id="ip2" type="radio" name="sao" value="2"/>
-				</div>
-				<div class="group1">
-					<label for="ip3">3<img src ="image/star.jpg" width="19px" height="20px"/></label>
-					<input id="ip3" type="radio" name="sao" value="3"/>
-				</div>
-				<div class="group1">
-					<label for="ip4">4<img src ="image/star.jpg" width="19px" height="20px"/></label>
-					<input id="ip4" type="radio" name="sao" value="4"/>
-				</div>
-				<div class="group1">
-					<label for="ip5">5<img src ="image/star.jpg" width="19px" height="20px"/></label>
-					<input id="ip5" type="radio" name="sao" value="5"/>
-				</div>
+				<c:forEach var ="i" begin="1" end = "5" step="1">
+					<div class="group1">
+						<label for="ip${i}">${i} <img src ="image/star.jpg" width="19px" height="20px"/></label>
+						<input id="ip${i}" type="radio" name="sao" value="${i}"/>
+					</div>
+				</c:forEach>
 				<input  type="hidden" name="masp" value="${sanpham.getMaSanPham()}"></input>
 				<textarea id="noidungdanhgia" name="noidungdanhgia" placeholder="Nhập nội dung đánh giá (Không quá 100 kí tự)"></textarea>
 				<c:choose>

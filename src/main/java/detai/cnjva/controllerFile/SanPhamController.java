@@ -1,6 +1,7 @@
 package detai.cnjva.controllerFile;
 
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -43,10 +44,11 @@ public class SanPhamController {
 				ktra = danhgiaDAO.KiemTraDanhGiaKhachHang((int) session.getAttribute("idKhachHang"), masp);
 				model.addAttribute("checkdanhgia", ktra);
 			}
-			double diemdanhgia = spDAO.SoDanhGiaTrungBinhSanPham(masp);
-			double diemle = diemdanhgia - (int)diemdanhgia;
+			DecimalFormat format = new DecimalFormat("0.0"); 
+			double diemdanhgia = Double.parseDouble(format.format(spDAO.SoDanhGiaTrungBinhSanPham(masp)));
+			double diemle = diemdanhgia - (int)diemdanhgia; // vd 4.5 - 4 = 0.5
 			model.addAttribute("listDanhGia", listDanhGiaSP);
-			model.addAttribute("diemdanhgia", diemdanhgia);
+			model.addAttribute("diemdanhgia",diemdanhgia);
 			model.addAttribute("diemle", diemle);
 		    model.addAttribute("sanpham", sanpham);
 		    model.addAttribute("ctsp", ctsp);
@@ -81,7 +83,6 @@ public class SanPhamController {
 			 }
 		}
 		list = new ArrayList<SanPham>();
-		spDAO = new SanPhamDAO();
 		int madm = Integer.parseInt( request.getParameter("Madm"));
 		// lay tong so san pham theo ma, neu hangSanXuat > 0 thi truy van them dieu kien hang san xuat
 		float tongSoSanPham = spDAO.TongSoSanPham(madm, hangSanXuat); 

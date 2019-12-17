@@ -33,7 +33,7 @@ public class GioHangController {
 			arrayTien = ghDAO.TongTienVaTienGiamGioHang(listSanPham);
 			session.setAttribute("tongtien",arrayTien[0]);
 			session.setAttribute("giamgia", arrayTien[1]);
-			session.setAttribute("thanhtoan", (arrayTien[0] - arrayTien[1]));
+			session.setAttribute("thanhtoan", (arrayTien[0] - arrayTien[1]));//thanh toan bằng tổng tiền trừ giảm giá 
 			model.addAttribute("listGioHang",listSanPham);
 		}	
 		return "giohang";
@@ -42,16 +42,18 @@ public class GioHangController {
 	public String ThemGioHang(Model model, HttpServletRequest request) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
 		HttpSession session = request.getSession();
 		if(session.getAttribute("listGioHang") == null) {
-			session.setAttribute("listGioHang", listGioHang); // khoi tao mang doi tuong session da ton tai
+			session.setAttribute("listGioHang", listGioHang); // khoi tao mang doi tuong session neu chua ton tai
 			session.setAttribute("thanhtien",tien);
 		}
 		int idSanPham = Integer.parseInt(request.getParameter("Masp")); // lay id san pham gui len
+		// tao doi tuong san pham tu id gui len
 		GioHang gh = new GioHang();
 		gh.setInSanPham(idSanPham);
 		gh.setSoLuong(1); 
+		// lay gioHang tu session
 		ArrayList<GioHang> SessionGioHang = (ArrayList<GioHang>) session.getAttribute("listGioHang");
 		boolean check;
-		int soLuong = 0;
+		int soLuong = 0; 
 		if( request.getParameter("soluong")!= null) {
 			soLuong = Integer.parseInt(request.getParameter("soluong"));
 		}
