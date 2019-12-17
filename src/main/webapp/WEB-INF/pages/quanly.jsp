@@ -70,5 +70,7 @@
 	</div>
 	<script src="script/donhang.js"></script>
 	<script src="script/login.js"></script>
+	<script src="script/quanlytaikhoan.js"></script>
+	<script src="script/updateuser.js"></script>
 </body>
 </html>

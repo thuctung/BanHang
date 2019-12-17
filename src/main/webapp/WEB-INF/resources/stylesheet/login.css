@@ -78,7 +78,7 @@ label{
 /*FORM REGISTER*/
 .form-register{
     width: 400px;
-    height: 575px;
+    height: 430px;
     margin: 74px auto 0 auto;
     border-radius: 2px solid;
     background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
@@ -139,7 +139,7 @@ label{
     font-weight: 600;
 }
 
-.p-mess,.p-mess-fail, .mess-pass{
+.p-mess,.p-mess-fail, .mess-pass, .mess-name{
     display: block;
     font-size: 11px;
     margin: 2px 0 0 54px;

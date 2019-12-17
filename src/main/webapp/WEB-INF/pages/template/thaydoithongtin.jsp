@@ -6,7 +6,7 @@
 		<h1 id="h1">Cập nhập thông tin</h1>
 	</div>
 	<div class="body-form-change">
-	<form id="form-action-change" action="capnhatUser/?idtk=${hienthiUser.getIdUser()}" method="POST">
+	<form id="form-action-change" action="capnhatUser/?idtk=${hienthiUser.getIdUser()}" method="POST" onsubmit="return register_update()">
 		<div class="row-form">
 			<p class="lb-form">Tài khoản:</p>
 			<input type="text" class="tb-change" name="UserName" readonly placeholder="${hienthiUser.getUserName()}">
@@ -14,7 +14,10 @@
 		<div class="row-form">
 			<p class="lb-form">Mật khẩu: </p>
 			<input type="text" class="tb-change" maxlength="20" name="PassWord" value="${hienthiUser.getPassWord()}">
+			
 		</div>
+			<p class="mess1 mess-Pass1">(*)</p>
+		
 		<div class="row-form">
 			<p class="lb-form">Họ tên: </p>
 			<input type="text" class="tb-change" maxlength="35" name="Name" value="${hienthiUser.getHoTen()}">
