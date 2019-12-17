@@ -33,12 +33,10 @@
 				<p class="p-mess mess-pass">(*)Thông tin cần chính xác</p>
 			<input type="password" class="tb-register1" name="ConfirmPass" placeholder="Xác nhận mật khẩu"/>
 				<p class="p-mess mess-confirm">(*)Thông tin cần chính xác</p>
-
+				
 			<input type="text" class="tb-register1" name="Name" placeholder="Họ và tên"/>
-				<p class="p-mess">(*)</p>
-			<input type="text" class="tb-register" name="Address" placeholder="Địa chỉ"/>
-			<input type="number" class="tb-register" name="Phone" placeholder="Số điện thoại"/>
-			<input type="text" class="tb-register" name="Email" placeholder="Email"/>
+				<p class="p-mess mess-name">Vui lòng nhập đúng họ tên</p>
+				
 				<p class="p-register">Tôi đã có tài khoản!!! <a onclick="removeRegister()" class="a-register">Đăng nhập</a></p>
 			<button type="submit" class="submit-register">Đăng ký</button>
 		</form>

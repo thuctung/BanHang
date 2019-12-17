@@ -59,6 +59,8 @@ function addAdd() {
 	console.log("addAddUser");
 }
 
+
+
 /*PHƯƠNG THỨC KIỂM TRA ĐĂNG NHẬP
 	KHI ĐỂ TRỐNG DỮ LIỆU VÀ NHẤN LOGIN	*/
 
@@ -149,9 +151,40 @@ document.querySelector(".form-register input[name=ConfirmPass]").onchange = func
 	return checkConfim();
 }
 
+//kiểm tra ký nhập đặc biệt khi nhập họ tên
+function checkName(){
+	let name = document.querySelector('.form-register input[type=text]');
+	console.log(name.value);
+	let mess_name = document.querySelector('.form-register .mess-name');
+	let check = /^[^abc][^0-9]/;
+	
+	if(name.value == ''){
+		mess_pass.classList.remove("p-mess-fail");
+		mess_pass.classList.add("p-mess");
+		mess_name.innerHTML = "Không được để trống!";
+		return false;
+	}
+	else
+	{
+		/*if(check.test(name)){
+			mess_name.innerHTML = "Họ tên hợp lệ"
+			return true;
+		}
+		else{
+			mess_name.innerHTML = "Họ tên được có ký tự đặc biệt!";
+			return false;
+		}*/
+		return true;
+	}
+}
+document.querySelector(".form-register input[name=Name]").onchange = function(){
+	return chekcName();
+}
+console.log(name[1].value);
+
 //kiểm tra các input trước khi cho nhấn submit
 function register(){
-	if(checkRegister() === false || checkpass() === false || checkConfim() === false)
+	if(checkRegister() === false || checkpass() === false || checkConfim() === false || checkName() === false)
 		return false;
 
 	return true;

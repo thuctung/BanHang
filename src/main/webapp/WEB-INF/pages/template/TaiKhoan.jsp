@@ -44,10 +44,11 @@
 							</c:if> <c:if test="${hienthi.getRole() == 0}">
 								Quản lý
 							</c:if></td>
+						<!-- GÁN ĐƯỜNG DẪN SAU KHI XÓA VÌ CONTEXTPATH CHỈ THỰC HIỆN ĐƯỢC Ở JSP -->
 						<td><a class="capnhat-user"
-							href="thaydoithongtin?id=${hienthi.getIdUser()}">Cập nhật</a> <a
-							class="xoa-user"
-							href="${pageContext.request.contextPath}/xoa?idUser=${hienthi.getIdUser()}">Xóa</a></td>
+							href="thaydoithongtin?id=${hienthi.getIdUser()}">Cập nhật</a> 
+							<a class="xoa-user" id="${pageContext.request.contextPath}/xoa?idUser=${hienthi.getIdUser()}" href="#">Xóa</a>
+						</td>
 					</tr>
 				</c:forEach>
 			</tbody>
@@ -81,18 +82,18 @@
 <!-- FORM THÊM TÀI KHOẢN -->
 <div class="them-tai-khoan">
 	<form id="form-them-taikhoan"
-		action="${pageContext.request.contextPath}/themtaikhoan" method="POST">
-		<h1>Thêm tài khoản</h1>
+		action="${pageContext.request.contextPath}/themtaikhoan" method="POST" onsubmit="return register1()">
+		<div class="title-h1"><h1>Thêm tài khoản</h1></div>
 		</td>
 		<div id="form-them-taikhoan">
 			<input type="text" maxlength="20" class="tb-add" name="UserName"
 				placeholder="Tài khoản" />
-			<p class="p-mess mess-username">(*)</p>
+			<p class="mess mess-UserName">(*)Thông tin cần chính xác</p>
 		</div>
 		<div id="form-them-taikhoan">
 			<input type="password" maxlength="20" class="tb-add" name="PassWord"
 				placeholder="Mật khẩu" />
-			<p class="p-mess mess-pass">(*)</p>
+			<p class="mess mess-Pass">(*)</p>
 		</div>
 		<div id="form-them-taikhoan">
 			<input type="text" class="tb-add" maxlength="30" name="Email" placeholder="Email" />
