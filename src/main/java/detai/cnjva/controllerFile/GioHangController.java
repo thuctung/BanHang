@@ -13,14 +13,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import detai.cnjva.DAOFile.GioHangDAO;
 import detai.cnjva.DAOFile.SanPhamDAO;
-import detai.cnjva.modelFile.GioHang;
+import detai.cnjva.ServiceFlie.GioHangService;
 import detai.cnjva.modelFile.SanPham;
 @Controller
 public class GioHangController {
-	public SanPhamDAO  spDAO = new SanPhamDAO();
-	public ArrayList <SanPham>  listSanPham;
-	ArrayList <GioHang> listGioHang = new ArrayList<GioHang>();
+	SanPhamDAO  spDAO = new SanPhamDAO();
+	ArrayList <SanPham>  listSanPham;
+	ArrayList <SanPham> listGioHang = new ArrayList<SanPham>();
 	GioHangDAO ghDAO = new GioHangDAO();
+	GioHangService ghService = new GioHangService();
 	int tien= 0;
 	
 	@RequestMapping("giohang")
@@ -28,9 +29,9 @@ public class GioHangController {
 		HttpSession session = request.getSession();
 		int [] arrayTien;
 		if(session.getAttribute("listGioHang") != null) {
-			ArrayList<GioHang> SessionGioHang = (ArrayList<GioHang>) session.getAttribute("listGioHang");
+			ArrayList<SanPham> SessionGioHang = (ArrayList<SanPham>) session.getAttribute("listGioHang");
 			listSanPham = ghDAO.LayThongTinSanPhamTrongGioHang(SessionGioHang);
-			arrayTien = ghDAO.TongTienVaTienGiamGioHang(listSanPham);
+			arrayTien = ghService.TongTienVaTienGiamGioHang(listSanPham);
 			session.setAttribute("tongtien",arrayTien[0]);
 			session.setAttribute("giamgia", arrayTien[1]);
 			session.setAttribute("thanhtoan", (arrayTien[0] - arrayTien[1]));//thanh toan bằng tổng tiền trừ giảm giá 
@@ -47,20 +48,20 @@ public class GioHangController {
 		}
 		int idSanPham = Integer.parseInt(request.getParameter("Masp")); // lay id san pham gui len
 		// tao doi tuong san pham tu id gui len
-		GioHang gh = new GioHang();
-		gh.setInSanPham(idSanPham);
-		gh.setSoLuong(1); 
+		SanPham sanphamGioHang = new SanPham();
+		sanphamGioHang.setMaSanPham(idSanPham);
+		sanphamGioHang.setSoLuong(1); 
 		// lay gioHang tu session
-		ArrayList<GioHang> SessionGioHang = (ArrayList<GioHang>) session.getAttribute("listGioHang");
+		ArrayList<SanPham> SessionGioHang = (ArrayList<SanPham>) session.getAttribute("listGioHang");
 		boolean check;
 		int soLuong = 0; 
 		if( request.getParameter("soluong")!= null) {
 			soLuong = Integer.parseInt(request.getParameter("soluong"));
 		}
-		check = ghDAO.CapNhatSoLuongSanPhamGioHang(SessionGioHang, gh, soLuong);
-		if(check == false) SessionGioHang.add(gh); // chi them doi tuong khi check bang false
+		check = ghService.CapNhatSoLuongSanPhamGioHang(SessionGioHang, sanphamGioHang, soLuong);
+		if(check == false) SessionGioHang.add(sanphamGioHang); // chi them doi tuong khi check bang false
 		session.setAttribute("listGioHang",SessionGioHang);
-		session.setAttribute("soluongGioHang",ghDAO.DemSoLuongGioHang(SessionGioHang));
+		session.setAttribute("soluongGioHang",ghService.DemSoLuongGioHang(SessionGioHang));
 		return "redirect:/giohang";
 	} 
 	
@@ -68,10 +69,10 @@ public class GioHangController {
 	@RequestMapping(value ="xoagiohang", method=RequestMethod.GET)
 	public String XoaGioHang(Model model, HttpServletRequest request) {
 		HttpSession session = request.getSession();
-		ArrayList<GioHang> SessionGioHang = (ArrayList<GioHang>) session.getAttribute("listGioHang");
+		ArrayList<SanPham> SessionGioHang = (ArrayList<SanPham>) session.getAttribute("listGioHang");
 		int masp = Integer.parseInt(request.getParameter("Masp"));
-		ghDAO.XoaSanPhamTrongGioHang(SessionGioHang, masp);
-		session.setAttribute("soluongGioHang",ghDAO.DemSoLuongGioHang(SessionGioHang));
+		ghService.XoaSanPhamTrongGioHang(SessionGioHang, masp);
+		session.setAttribute("soluongGioHang",ghService.DemSoLuongGioHang(SessionGioHang));
 		session.setAttribute("listGioHang",SessionGioHang);
 		return "redirect:/giohang";
 	}

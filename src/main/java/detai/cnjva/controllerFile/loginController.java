@@ -71,6 +71,7 @@ public class loginController {
 		session = request.getSession();
 		session.removeAttribute("idKhachHang");
 		session.removeAttribute("TenKhachHang");
+		session.removeAttribute("Role");
 		referer= request.getHeader("Referer");
 		return "redirect:"+ referer;
 	}

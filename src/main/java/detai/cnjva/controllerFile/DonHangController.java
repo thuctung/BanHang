@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import detai.cnjva.DAOFile.ChiTietDonHangDAO;
 import detai.cnjva.DAOFile.DonHangDAO;
 import detai.cnjva.DAOFile.ThongTinNguoiMuaHangDAO;
-import detai.cnjva.modelFile.GioHang;
+import detai.cnjva.modelFile.SanPham;
 import detai.cnjva.modelFile.DonHang;
 import detai.cnjva.modelFile.ChiTietDonHang;
 import detai.cnjva.modelFile.ThongTinNguoiMuaHang;
@@ -47,7 +47,7 @@ public class DonHangController {
 		int tiengiam = Integer.parseInt(session.getAttribute("giamgia").toString());
 		int tongtien = Integer.parseInt(session.getAttribute("tongtien").toString());
 		int thanhtien = Integer.parseInt(session.getAttribute("thanhtoan").toString());
-		ArrayList<GioHang> SessionGioHang = (ArrayList<GioHang>) session.getAttribute("listGioHang");
+		ArrayList<SanPham> SessionGioHang = (ArrayList<SanPham>) session.getAttribute("listGioHang");
 		int taoMaDonHang = donhangDAO.layMaDonHangCaoNhat() + 1; 
 		// tao cac doi tuong 
 		DonHang donhang = new DonHang(taoMaDonHang,ngaytao,sodienthoai,loaimua,tiengiam, tongtien,thanhtien, yeucau);
@@ -55,8 +55,8 @@ public class DonHangController {
 		boolean check = donhangDAO.ThemDonHang(donhang);
 		if(check) {
 			nguoimuaDAO.ThemThongTinNguoiMuaHang(nguoimua);
-			for(GioHang giohang : SessionGioHang) {
-				ChiTietDonHang ctdonhang = new ChiTietDonHang(taoMaDonHang, giohang.getInSanPham(), giohang.getSoLuong());
+			for(SanPham sanphamGH : SessionGioHang) {
+				ChiTietDonHang ctdonhang = new ChiTietDonHang(taoMaDonHang, sanphamGH.getMaSanPham(), sanphamGH.getSoLuong());
 				ctdonhangDAO.ThemChiTietDonHang(ctdonhang);
 			}
 			session.removeAttribute("listGioHang");

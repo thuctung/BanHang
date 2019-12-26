@@ -44,7 +44,7 @@ public class QuanLyController {
 		HttpSession session = request.getSession();
 		int tinhtrang = 0; 
 		int chucNangQuanLi = 1;
-		if(session.getAttribute("admin") == null) {
+		if(Integer.parseInt(session.getAttribute("Role").toString()) == 0) {
 			if(request.getParameter("tinhtrang") != null) {
 				tinhtrang = Integer.parseInt(request.getParameter("tinhtrang")) > 3 ? 3 : Integer.parseInt(request.getParameter("tinhtrang"));
 				list = donhangDAO.LayDonHangQuanLi(true, tinhtrang);
@@ -64,7 +64,7 @@ public class QuanLyController {
 	public String capNhatTinhTrangDonHang(Model model,HttpServletRequest request) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
 		HttpSession session = request.getSession();
 		int chucNangQuanLi = 1;
-		if(session.getAttribute("admin") == null) {
+		if(Integer.parseInt(session.getAttribute("Role").toString()) == 0) {
 			if(request.getParameter("madh") != null && request.getParameter("trangthai") != null) {
 				int iddonhang = Integer.parseInt(request.getParameter("madh"));
 				int trangthai = Integer.parseInt(request.getParameter("trangthai"));
@@ -82,7 +82,7 @@ public class QuanLyController {
 	public String xoaDonHang(Model model,HttpServletRequest request) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
 		HttpSession session = request.getSession();
 		int chucNangQuanLi = 1;
-		if(session.getAttribute("admin") == null) {
+		if(Integer.parseInt(session.getAttribute("Role").toString()) == 0) {
 			if(request.getParameter("madh") != null) {
 				int iddonhang = Integer.parseInt(request.getParameter("madh"));
 				donhangDAO.XoaDonHang(iddonhang);
