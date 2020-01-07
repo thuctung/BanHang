@@ -9,10 +9,6 @@ public class connection {
 
 	public static Connection getMySQLConnection()
 			throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
-// Khai báo class Driver cho DB MySQL
-// Việc này cần thiết với Java 5
-// Java6 tự động tìm kiếm Driver thích hợp.
-// Nếu bạn dùng Java6, thì ko cần dòng này cũng được.
 		String hostName = "localhost";
 
 		String dbName = "PTMPCN";
@@ -26,4 +22,5 @@ public class connection {
 		return conn;
 	}
 }
+
 

@@ -32,3 +32,6 @@ public class helloController {
 		return "index";
 	}
 }
+
+
+
