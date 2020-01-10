@@ -20,7 +20,7 @@
 <!-- CONTAINER -->
 <div class ="container">
 		<div class="thongtinsoluong">
-			<p>Tìm thấy <strong>${listDT.size()+ listTL.size()} </strong> kết quả</p>
+			<p>Tìm thấy <strong>${listTK.size()} </strong> kết quả</p>
 		</div>
 		<div class="danhmucsoluong">
 			<div class="soluong">
@@ -43,15 +43,23 @@
 			</div>
 		</div>
 		
-	<c:if test = "${listDT.size() > 0}">
+	<c:if test = "${listTK.size() > 0}">
 		<div class ="listdienthoai">
-			<h1>Kết quả tìm kiếm <strong>Điện thoại</strong> </h1>
+			<h1>Kết quả tìm kiếm </h1>
 			<div class="listsanpham">
-				<c:forEach items="${listDT}" var="dienthoai">
-					<a href="./chitietsanpham?Masp=${dienthoai.getMaSanPham() }">
-	            		<img src="image/sanpham/dienthoai/${dienthoai.getHinhAnh()} " width="180px" height="180px" />
-	            		<p class="tenSanPham">${dienthoai.getTenSanPham() }</p>
-	            		<c:set var = "dongia" value = "${dienthoai.getDonGia() }" />
+				<c:forEach items="${listTK}" var="sanpham">
+					<c:choose>
+	   					<c:when test="${sanpham.getMaDanhMuc() == 1}">
+	   						<c:set var = "hinhanh" value = "dienthoai" />
+	   					</c:when>
+	   					<c:otherwise>
+	   						<c:set var = "hinhanh" value = "tablet" />
+	   					</c:otherwise>
+   					</c:choose>	
+					<a href="./chitietsanpham?Masp=${sanpham.getMaSanPham() }">
+	            		<img src="image/sanpham/${hinhanh}/${sanpham.getHinhAnh()} " width="180px" height="180px" />
+	            		<p class="tenSanPham">${sanpham.getTenSanPham() }</p>
+	            		<c:set var = "dongia" value = "${sanpham.getDonGia() }" />
 	            		<p class="donGiaSP">
 	            			<fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${dongia}"/>đ
 	            		</p>
@@ -61,23 +69,6 @@
 		</div>
 	</c:if>
 		
-	<c:if test = "${listTL.size() > 0}">
-		<div class ="listdienthoai">
-			<h1>Kết quả tìm kiếm <strong>Tablet</strong> </h1>
-			<div class="listsanpham">
-				<c:forEach items="${listTL}" var="tablet">
-					<a href="./chitietsanpham?Masp=${tablet.getMaSanPham() }">
-	            		<img src="image/sanpham/tablet/${tablet.getHinhAnh()} " width="180px" height="180px" />
-	            		<p class="tenSanPham">${tablet.getTenSanPham() }</p>
-	            		<c:set var = "dongia" value = "${tablet.getDonGia() }" />
-	            		<p class="donGiaSP">
-	            			<fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${dongia}"/>đ
-	            		</p>
-           			</a>
-				</c:forEach>
-			</div>
-		</div>
-	</c:if>
 </div>
 <!-- XONGCONTAINER -->
 

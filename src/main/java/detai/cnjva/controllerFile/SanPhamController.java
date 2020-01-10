@@ -58,10 +58,8 @@ public class SanPhamController {
 	@RequestMapping(value = "/timkiem", method = RequestMethod.POST)
 	public String TimKiemSanPham(Model model, HttpServletRequest request) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
 			String tenCanTim = request.getParameter("key");
-			listTimKiemDT = spDAO.TimKiemSanPham(tenCanTim ,1);
-			listTimKiemTablet = spDAO.TimKiemSanPham(tenCanTim ,2);
-			model.addAttribute("listDT", listTimKiemDT);
-			model.addAttribute("listTL", listTimKiemTablet);
+			listTimKiemDT = spDAO.TimKiemSanPham(tenCanTim);
+			model.addAttribute("listTK", listTimKiemDT);
 			return "timkiem";
 	}
 	
@@ -69,7 +67,7 @@ public class SanPhamController {
 	public String HienThiSanPham(Model model , HttpServletRequest request) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
 		// kiem tra trang hien tai co ton tai khong, khong co co thi mac dinh = 1
 		int trangHienTai =  request.getParameter("page") == null ? 1 : Integer.parseInt(request.getParameter("page"));
-		float soSanPham1Trang = 20;
+		float soSanPham1Trang = 5;
 		int hangSanXuat = 0;
 		// kiem tra nguoi dung co xem san pham theo hang san xuat hay khong, vi co 4 hang san xuat nen mac dinh hang <= 4
 		if(request.getParameter("hang") != null) {

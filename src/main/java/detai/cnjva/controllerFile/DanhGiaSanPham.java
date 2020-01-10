@@ -29,8 +29,8 @@ public class DanhGiaSanPham {
 		if(kqXoa && kqCapNhat) {
 			session.setAttribute("delete",true);
 		}
-		model.addAttribute("Masp", masp);
-		return "redirect:/chitietsanpham";
+		model.addAttribute("Masp", masp); // dùng redirect thi value cua model se dc gan tren thanh url
+		return "redirect:/chitietsanpham"; 
 	}
 	
 	@RequestMapping(value="/chitietsanpham", method = RequestMethod.POST)

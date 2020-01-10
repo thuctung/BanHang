@@ -124,7 +124,7 @@
 		<div class="formDanhGia">
 			<form action="chitietsanpham" name="formDanhGia" method="POST" onsubmit="return checkGuiDanhGia()">
 				<h4>Chọn đánh giá của bạn</h4>
-				<c:forEach var ="i" begin="1" end = "5" step="1">
+				<c:forEach var ="i" begin="1" end = "5" step="1"><!-- hien thi  so sao -->
 					<div class="group1">
 						<label for="ip${i}">${i} <img src ="image/star.jpg" width="19px" height="20px"/></label>
 						<input id="ip${i}" type="radio" name="sao" value="${i}"/>

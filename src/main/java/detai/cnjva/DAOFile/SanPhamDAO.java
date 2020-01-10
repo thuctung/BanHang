@@ -185,15 +185,14 @@ public class SanPhamDAO {
 		return sp;
 	}
 	
-	public ArrayList<SanPham> TimKiemSanPham(String tenCanTim, int madanhmuc) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException{
-		String sql = "SELECT * FROM PTMPCN.SanPham where madanhmuc = ? AND tensanpham like '%"+tenCanTim+"%' ORDER BY dongia DESC";
+	public ArrayList<SanPham> TimKiemSanPham(String tenCanTim) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException{
+		String sql = "SELECT * FROM PTMPCN.SanPham where tensanpham like '%"+tenCanTim+"%' ORDER BY dongia DESC";
 		
 		list = new ArrayList<SanPham>();
 		
 		connec = connection.getMySQLConnection();
 		
 		pre = connec.prepareStatement(sql);
-		pre.setInt(1, madanhmuc);
 		ResultSet res = pre.executeQuery();
 		while(res.next()) {
 			SanPham sp = new SanPham();
